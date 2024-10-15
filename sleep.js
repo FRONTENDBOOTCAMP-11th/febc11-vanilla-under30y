@@ -7,8 +7,8 @@ function sleep(ms) {
   async function demo() {
     console.log("Start");
     
-    // 2000초 잠들기
-    await sleep(2000000);
+    // 2초 잠들기
+    await sleep(2000);
     
     console.log("End after 2 seconds");
   }
