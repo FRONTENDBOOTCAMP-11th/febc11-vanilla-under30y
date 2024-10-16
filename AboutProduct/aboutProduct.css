@@ -1,0 +1,32 @@
+/* css reset */
+body {
+	margin: unset;
+	padding: unset;
+}
+
+/* typography */
+.root {
+	font-family: 'noto Sans KR';
+}
+
+/* layer */
+
+.l_wrapper {
+	width: auto;
+}
+
+/* design */
+
+.main {
+	width: auto;
+	height: 100vh;
+	padding: 0 24px;
+	box-shadow: inset 0 0 20px red;
+}
+
+.prod {
+	padding-top: 80px;
+}
+
+.prodName {
+}
