@@ -1,11 +1,20 @@
 /* css reset */
-body {
+body,
+h3,
+h4 {
 	margin: unset;
 	padding: unset;
+	--color-black-1: #111111;
+	--color-gray-1: #9e9ea0;
+	--color-green-1: #007d48;
+}
+
+img {
+	width: 100%;
 }
 
 /* typography */
-.root {
+:root {
 	font-family: 'noto Sans KR';
 }
 
@@ -26,7 +35,28 @@ body {
 
 .prod {
 	padding-top: 80px;
+	margin-bottom: 24px;
+	box-shadow: inset 0 0 20px blue;
 }
 
 .prodName {
+	font-size: 20px;
+	line-height: 175%;
+	color: var(--color-black-1);
+	font-weight: 500;
+}
+
+.prodCategory {
+	font-size: 16px;
+	line-height: 175%;
+	margin-bottom: 12px;
+	color: var(--color-black-1);
+	font-weight: 500;
+}
+
+.prodPrize {
+	margin-bottom: 24px;
+}
+
+.imagesets {
 }
