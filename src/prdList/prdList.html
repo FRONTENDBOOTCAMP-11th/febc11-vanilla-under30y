@@ -9,6 +9,7 @@
 	<body>
 		<div class="wrapper">
 			<div class="header">
+				<!--상부 네비게이션 바-->
 				<div class="header__navigation">
 					<img
 						src="./img/LOGO.svg"
@@ -36,6 +37,7 @@
 						class="header__navigation--img menu"
 					/>
 				</div>
+				<!-- 상품 카테고리 선택 -->
 				<div class="header__category">
 					<ol class="header__category--type-detail">
 						<li>라이프스타일</li>
@@ -45,7 +47,39 @@
 					<h1 class="header__category--type">신제품</h1>
 				</div>
 			</div>
-			<div class="content">콘텐트에용</div>
+			<div class="content">
+				<!-- 상품 카테고리를 선택할 수 있는 내비게이션 -->
+				<div class="content__product-category">
+					<ul>
+						<li>신발</li>
+						<li>탑 & 티셔츠</li>
+						<li>후디 & 크루</li>
+						<li>재킷 & 베스트</li>
+						<li>펜츠 & 타이츠</li>
+						<li>쇼츠</li>
+						<li>스포즈 브라</li>
+						<li>트랙수트</li>
+						<li>점프수트 & 롬퍼스</li>
+						<li>스커트 & 드레스</li>
+						<li>양말</li>
+						<li>용품</li>
+					</ul>
+				</div>
+				<div class="content__product-list">
+					<!-- 상품 리스트 헤더 -->
+					<div class="content__product-list--header">
+						<p class="content__product-list--header-research">
+							741개의 결과
+						</p>
+						<button>
+							필터
+							<img src="./img/Filter.svg" alt="" />
+						</button>
+					</div>
+					<div class="content__product-list--content"></div>
+					<div class="content__product-list--footer"></div>
+				</div>
+			</div>
 			<div class="footer">푸터에용</div>
 		</div>
 	</body>
