@@ -1,0 +1,67 @@
+/* font design */
+:root {
+  font-family: 'Noto Sans KR';
+}
+
+/* css reset */
+h1 {
+  font-size: unset;
+  font-weight: unset;
+}
+
+/* layout */
+/* Web Design */
+
+body {
+  background-color: #fff;
+}
+
+.wrapper {
+  box-shadow: inset 0px 0px 10px red;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.header {
+  box-shadow: inset 0px 0px 10px blue;
+}
+
+.header__navigation {
+  display: flex;
+  height: 60px;
+  gap: 5px;
+  margin-left: 14px;
+  margin-right: 24px;
+}
+
+.header__navigation--img {
+  width: 36px;
+  height: 36px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.header__navigation--img.logo {
+  margin-right: auto;
+
+  width: 76px;
+  height: 60px;
+}
+
+.header__category {
+  width: 360px;
+  height: 52px;
+  margin-top: 105px;
+  margin-left: 20px;
+  margin-bottom: 13px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.content {
+  box-shadow: inset 0px 0px 10px green;
+}
+
+.footer {
+  box-shadow: inset 0px 0px 10px pink;
+}
