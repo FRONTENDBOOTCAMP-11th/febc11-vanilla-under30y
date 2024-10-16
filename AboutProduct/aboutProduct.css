@@ -1,7 +1,7 @@
 /* css reset */
 body,
-h3,
-h4 {
+h1,
+h2 {
 	margin: unset;
 	padding: unset;
 	--color-black-1: #111111;
