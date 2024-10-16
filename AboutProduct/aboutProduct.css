@@ -28,11 +28,11 @@ img {
 
 .main {
 	width: auto;
-	height: 100vh;
 	padding: 0 24px;
 	box-shadow: inset 0 0 20px red;
 }
 
+/* Product name & prices */
 .prod {
 	padding-top: 80px;
 	margin-bottom: 24px;
@@ -58,6 +58,7 @@ img {
 	margin-bottom: 24px;
 }
 
+/* product images */
 .prodImage {
 	width: 100vw;
 	margin-left: calc(-50vw + 50%);
@@ -70,4 +71,11 @@ img {
 	display: flex;
 	row-gap: 10px;
 	margin-bottom: 42px;
+}
+
+/* size selection */
+
+.sizeArea {
+	box-shadow: inset 0 0 20px green;
+	height: 196px;
 }
