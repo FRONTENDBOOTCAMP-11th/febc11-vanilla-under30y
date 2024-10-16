@@ -1,67 +1,93 @@
 /* font design */
 :root {
-  font-family: 'Noto Sans KR';
+	font-family: 'Noto Sans KR';
 }
 
 /* css reset */
 h1 {
-  font-size: unset;
-  font-weight: unset;
+	font-size: unset;
+	font-weight: unset;
+	margin: unset;
+}
+
+h2 {
+	font-size: unset;
+	font-weight: unset;
+	margin: unset;
+}
+
+ol {
+	list-style-type: none;
+	margin: unset;
+	padding: unset;
 }
 
 /* layout */
 /* Web Design */
 
 body {
-  background-color: #fff;
+	background-color: #fff;
 }
 
 .wrapper {
-  box-shadow: inset 0px 0px 10px red;
-  max-width: 360px;
-  margin: 0 auto;
+	box-shadow: inset 0px 0px 10px red;
+	max-width: 360px;
+	margin: 0 auto;
 }
 
 .header {
-  box-shadow: inset 0px 0px 10px blue;
+	box-shadow: inset 0px 0px 10px blue;
 }
 
 .header__navigation {
-  display: flex;
-  height: 60px;
-  gap: 5px;
-  margin-left: 14px;
-  margin-right: 24px;
+	display: flex;
+	height: 60px;
+	gap: 5px;
+	margin-left: 14px;
+	margin-right: 24px;
 }
 
 .header__navigation--img {
-  width: 36px;
-  height: 36px;
-  margin-top: auto;
-  margin-bottom: auto;
+	width: 36px;
+	height: 36px;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .header__navigation--img.logo {
-  margin-right: auto;
+	margin-right: auto;
 
-  width: 76px;
-  height: 60px;
+	width: 76px;
+	height: 60px;
 }
 
 .header__category {
-  width: 360px;
-  height: 52px;
-  margin-top: 105px;
-  margin-left: 20px;
-  margin-bottom: 13px;
-  font-size: 20px;
-  font-weight: 500;
+	width: inherit;
+	height: 52px;
+	padding-top: 90px;
+	padding-left: 20px;
+	padding-bottom: 30px;
+}
+
+.header__category--type {
+	font-size: 20px;
+	font-weight: 500;
+	padding-top: 12px;
+}
+
+.header__category--type-detail {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.header__category--type-detail li {
+	display: inline-block;
 }
 
 .content {
-  box-shadow: inset 0px 0px 10px green;
+	box-shadow: inset 0px 0px 10px green;
 }
 
 .footer {
-  box-shadow: inset 0px 0px 10px pink;
+	box-shadow: inset 0px 0px 10px pink;
 }
