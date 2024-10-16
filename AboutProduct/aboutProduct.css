@@ -26,7 +26,7 @@ img {
 
 /* design */
 
-.main {
+.prodMain {
 	width: auto;
 	padding: 0 24px;
 	box-shadow: inset 0 0 20px red;
@@ -35,7 +35,6 @@ img {
 /* Product name & prices */
 .prod {
 	padding-top: 80px;
-	margin-bottom: 24px;
 	box-shadow: inset 0 0 20px blue;
 }
 
