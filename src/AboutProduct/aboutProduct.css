@@ -1,0 +1,80 @@
+/* css reset */
+body,
+h1,
+h2 {
+	margin: unset;
+	padding: unset;
+	--color-black-1: #111111;
+	--color-gray-1: #9e9ea0;
+	--color-green-1: #007d48;
+}
+
+img {
+	width: 100%;
+}
+
+/* typography */
+:root {
+	font-family: 'noto Sans KR';
+}
+
+/* layer */
+
+.l_wrapper {
+	width: auto;
+}
+
+/* design */
+
+.prodMain {
+	width: auto;
+	padding: 0 24px;
+	box-shadow: inset 0 0 20px red;
+}
+
+/* Product name & prices */
+.prodInfo {
+	padding-top: 80px;
+	box-shadow: inset 0 0 20px blue;
+}
+
+.prodName {
+	font-size: 20px;
+	line-height: 175%;
+	color: var(--color-black-1);
+	font-weight: 500;
+}
+
+.prodCategory {
+	font-size: 16px;
+	line-height: 175%;
+	margin-bottom: 12px;
+	color: var(--color-black-1);
+	font-weight: 500;
+}
+
+.prodPrize {
+	margin-bottom: 24px;
+}
+
+/* product images */
+.prodImage {
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
+}
+
+.imageSets {
+	box-shadow: inset 0 0 20px orange;
+	height: 125px;
+	margin-top: 3px;
+	display: flex;
+	row-gap: 10px;
+	margin-bottom: 42px;
+}
+
+/* size selection */
+
+.sizeArea {
+	box-shadow: inset 0 0 20px green;
+	height: 196px;
+}
