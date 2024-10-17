@@ -189,33 +189,34 @@
 					</div>
 					<div class="content__product-list--footer">
 						<!-- 안내, 고객센터, 회사 소개를 넣을 div -->
-						<div class="content__product-list--footer-guide">
-							<select
-								name="guid"
-								id="guid"
-								class="content__product-list--footer-guide-option"
-								onchange="window.location.href=this.options[this.selectedIndex].value"
-							>
-								<option value="#">안내</option>
-								<option
-									value="https://www.nike.com/kr/membership"
-								>
-									멤버 가입
-								</option>
-								<option value="https://www.nike.com/kr/retail">
-									매장찾기
-								</option>
-								<option value="https://www.nike.com/kr/stories">
-									나이키 저널
-								</option>
-							</select>
+						<div class="content__product-list--footer drop-box">
+							<details>
+								<summary>안내</summary>
+								<p>멤버 가입</p>
+								<p>매장 찾기</p>
+								<p>나이키 저널</p>
+							</details>
 						</div>
-						<div
-							class="content__product-list--footer-guide-customer-service"
-						></div>
-						<div
-							class="content__product-list--footer-guide-about-company"
-						></div>
+						<div class="content__product-list--footer drop-box">
+							<details>
+								<summary>고객센터</summary>
+								<p>주문배송조회</p>
+								<p>반품 정책</p>
+								<p>결제 방법</p>
+								<p>공지사항</p>
+								<p>문의하기</p>
+							</details>
+						</div>
+						<div class="content__product-list--footer drop-box">
+							<details>
+								<summary>회사소개</summary>
+								<p>About Nike</p>
+								<p>소식</p>
+								<p>채용</p>
+								<p>투자자</p>
+								<p>지속가능성</p>
+							</details>
+						</div>
 					</div>
 				</div>
 			</div>
