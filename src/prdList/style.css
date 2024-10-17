@@ -205,6 +205,11 @@ body {
 	color: #111;
 }
 
+.content__product-list--footer-guide-option {
+	width: 360px;
+	border: none;
+}
+
 .footer {
 	box-shadow: inset 0px 0px 10px pink;
 }
