@@ -33,6 +33,16 @@ ul {
 	padding: unset;
 }
 
+a {
+	text-decoration: unset;
+	color: unset;
+}
+
+pre {
+	margin: unset;
+	padding: unset;
+}
+
 /* layout */
 /* Web Design */
 
@@ -41,7 +51,7 @@ body {
 }
 
 .wrapper {
-	box-shadow: inset 0px 0px 10px red;
+	/* box-shadow: inset 0px 0px 10px red; */
 	max-width: 360px;
 	margin: 0 auto;
 }
@@ -98,7 +108,7 @@ body {
 /* content Design */
 
 .content {
-	box-shadow: inset 0px 0px 10px green;
+	/* box-shadow: inset 0px 0px 10px green; */
 }
 
 .content__product-category ul {
@@ -209,8 +219,28 @@ body {
 	margin: auto;
 }
 
+.content__product-list--footer-wrapper {
+	margin-top: 48px;
+	margin-bottom: 70px;
+}
+
+.content__product-list--footer-wrapper::before {
+	display: block;
+	content: '';
+	border: solid 1px #e5e5e5;
+	max-width: 312px;
+	margin: auto;
+}
+
 .content__product-list--footer .drop-box {
-	box-shadow: inset 0 0 10px blue;
+}
+
+.content__product-list--footer .drop-box::after {
+	display: block;
+	content: '';
+	border: solid 1px #e5e5e5;
+	max-width: 312px;
+	margin: auto;
 }
 
 .content__product-list--footer details {
@@ -259,6 +289,51 @@ body {
 	}
 }
 
+/* footer design */
+
 .footer {
-	box-shadow: inset 0px 0px 10px pink;
+	/* box-shadow: inset 0px 0px 10px pink; */
+}
+
+.footer__policy {
+	font-size: 14px;
+	font-weight: 400;
+	color: #707072;
+	margin-bottom: 26px;
+	padding: 24px;
+}
+
+.footer__policy p {
+	padding-top: 6.25px;
+	padding-bottom: 7.25px;
+}
+
+.footer__policy .person {
+	font-weight: bold;
+}
+
+.footer__company-info::before {
+	display: block;
+	content: '';
+	border: solid 1px #e5e5e5;
+	max-width: 312px;
+	margin: auto;
+}
+
+.footer__company-info {
+	padding: 24px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #707072;
+	line-height: 1.75;
+}
+
+.footer__company-info a {
+	text-decoration: underline;
+	text-decoration-color: #707072;
+}
+
+.footer__company-info p {
+	padding-top: 24px;
+	padding-bottom: 47.75px;
 }
