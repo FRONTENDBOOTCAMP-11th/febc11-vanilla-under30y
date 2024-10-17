@@ -59,47 +59,60 @@ button {
 }
 
 .contents {
-	box-shadow: inset 0 0 20px green;
-	gap: 28px;
+	padding: 36px;
+}
+
+.title-headings {
+	height: 66px;
 }
 
 /* div email */
 .input-email-form {
-	box-shadow: inset 0 0 20px purple;
-	padding: 36px;
+	box-shadow: inset 0 0 20px yellowgreen;
 }
 
-#user-email {
+.user-login-input {
 	padding: 16px 12px;
 	width: 264px;
 	border: 1px solid #707072;
 	border-radius: 8px;
 	font-size: 16px;
+	margin-top: 28px;
+	margin-bottom: 20px;
 }
 
 .description {
 	font-size: 16px;
 	color: #757575;
 	line-height: 150%;
+	margin-top: 26px;
+	margin-bottom: 40px;
 }
 
 /* div password */
 .input-pw-form {
-	box-shadow: inset 0 0 20px yellow;
-	padding: 36px;
-}
-
-#user-password {
-	padding: 16px 12px;
-	width: 264px;
-	border: 1px solid #707072;
-	border-radius: 8px;
-	font-size: 16px;
+	box-shadow: inset 0 0 20px greenyellow;
 }
 
 .user-email {
 	font-size: 16px;
 	color: #111111;
+
+	position: relative;
+	top: 10px;
+}
+
+.search-pw {
+	font-size: 16px;
+	color: #757575;
+	line-height: 150%;
+	margin-bottom: 90px;
+}
+
+.button-area {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .button-black {
@@ -112,6 +125,7 @@ button {
 	border-radius: 26px;
 	font-size: 16px;
 	font-weight: medium;
+	flex-shrink: 0;
 }
 
 .button-white {
@@ -124,6 +138,7 @@ button {
 	border-radius: 26px;
 	font-size: 16px;
 	font-weight: medium;
+	flex-shrink: 0;
 }
 
 body {
