@@ -1,0 +1,150 @@
+/* Resets */
+body,
+p {
+	margin: unset;
+}
+
+h2 {
+	margin: unset;
+	font-size: unset;
+	font-weight: unset;
+}
+
+button {
+	all: unset;
+	display: inline-block;
+}
+
+/* Typography */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+	font-family:
+		'Pretendard Variable',
+		Pretendard,
+		-apple-system,
+		BlinkMacSystemFont,
+		system-ui,
+		Roboto,
+		'Helvetica Neue',
+		'Segoe UI',
+		'Apple SD Gothic Neo',
+		'Noto Sans KR',
+		'Malgun Gothic',
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol',
+		sans-serif;
+	font-size: 62.5%;
+}
+
+.title-login {
+	font-size: 28px;
+}
+
+/* CSS */
+.header {
+	box-shadow: inset 0 0 20px red;
+	height: 100px;
+	position: relative;
+	padding: 0 36px;
+}
+
+.logo {
+	/* 수직 중앙 정렬하기 */
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	padding: 0 9px;
+}
+
+.contents {
+	padding: 36px;
+}
+
+.title-headings {
+	height: 66px;
+}
+
+/* div email */
+.input-email-form {
+	box-shadow: inset 0 0 20px yellowgreen;
+}
+
+.user-login-input {
+	padding: 16px 12px;
+	width: 264px;
+	border: 1px solid #707072;
+	border-radius: 8px;
+	font-size: 16px;
+	margin-top: 28px;
+	margin-bottom: 20px;
+}
+
+.description {
+	font-size: 16px;
+	color: #757575;
+	line-height: 150%;
+	margin-top: 26px;
+	margin-bottom: 40px;
+}
+
+/* div password */
+.input-pw-form {
+	box-shadow: inset 0 0 20px greenyellow;
+}
+
+.user-email {
+	font-size: 16px;
+	color: #111111;
+
+	position: relative;
+	top: 10px;
+}
+
+.search-pw {
+	font-size: 16px;
+	color: #757575;
+	line-height: 150%;
+	margin-bottom: 90px;
+}
+
+.button-area {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.button-black {
+	color: white;
+	background-color: black;
+	border: none;
+	text-align: center;
+	width: 90px;
+	height: 52px;
+	border-radius: 26px;
+	font-size: 16px;
+	font-weight: medium;
+	flex-shrink: 0;
+}
+
+.button-white {
+	color: black;
+	background-color: white;
+	box-shadow: 0 0 0 1px black inset;
+	text-align: center;
+	width: 90px;
+	height: 52px;
+	border-radius: 26px;
+	font-size: 16px;
+	font-weight: medium;
+	flex-shrink: 0;
+}
+
+body {
+	width: 360px;
+	max-width: 360px;
+	min-width: 360px;
+	margin: 0 auto; /* 중앙 정렬 */
+	overflow-x: hidden; /* 가로 스크롤 숨김 */
+}
