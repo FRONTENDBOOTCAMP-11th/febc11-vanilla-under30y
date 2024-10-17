@@ -18,6 +18,7 @@ h2 {
 
 p {
 	margin: unset;
+	padding: unset;
 }
 
 ol {
@@ -119,7 +120,7 @@ body {
 	display: block;
 	content: '';
 	border: solid 0.5px #e5e5e5;
-	width: 360px;
+	max-width: 360px;
 }
 
 .content__product-list--header {
@@ -147,6 +148,61 @@ body {
 	border-radius: 30px;
 	width: 97.45px;
 	height: 34px;
+}
+
+.content__product-list--header button:hover {
+	border-color: #111;
+}
+
+.content__product-list--inside {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(177px, auto));
+	grid-auto-columns: minmax(177px, auto);
+	justify-items: center;
+	column-gap: 6px;
+}
+
+.content__product-list--inside-product {
+	/* box-shadow: inset 0px 0px 10px blue; */
+	width: 177px;
+	margin-bottom: 18px;
+}
+
+.content__product-list--inside-product-explain p {
+	/* 상품 정보 안에 있는 모든 정보에 대한 패딩 */
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 12px;
+}
+
+.content__product-list--inside-product-explain .new {
+	font-size: 14px;
+	font-weight: 500;
+	color: #9e3500;
+}
+
+.content__product-list--inside-product-explain .product-name {
+	font-size: 14px;
+	font-weight: 500;
+	color: #111;
+}
+
+.content__product-list--inside-product-explain .product-category {
+	font-weight: 400;
+	font-size: 14px;
+	color: #707072;
+}
+
+.content__product-list--inside-product-explain .product-color {
+	font-weight: 400;
+	font-size: 14px;
+	color: #707072;
+}
+
+.content__product-list--inside-product-explain .product-price {
+	font-size: 16px;
+	font-weight: 500;
+	color: #111;
 }
 
 .footer {
