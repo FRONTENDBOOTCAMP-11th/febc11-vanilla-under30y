@@ -4,12 +4,7 @@
 }
 
 /* css reset */
-h1 {
-	font-size: unset;
-	font-weight: unset;
-	margin: unset;
-}
-
+h1,
 h2 {
 	font-size: unset;
 	font-weight: unset;
@@ -21,12 +16,7 @@ p {
 	padding: unset;
 }
 
-ol {
-	list-style-type: none;
-	margin: unset;
-	padding: unset;
-}
-
+ol,
 ul {
 	list-style-type: none;
 	margin: unset;
@@ -38,37 +28,30 @@ a {
 	color: unset;
 }
 
-pre {
-	margin: unset;
-	padding: unset;
-}
-
 /* layout */
+.wrapper {
+	/* box-shadow: inset 0px 0px 10px red; */
+	max-width: 360px;
+	margin: 0 auto;
+}
 /* Web Design */
 
 body {
 	background-color: #fff;
 }
 
-.wrapper {
-	/* box-shadow: inset 0px 0px 10px red; */
-	max-width: 360px;
-	margin: 0 auto;
-}
-
-/* .header {
-	box-shadow: inset 0px 0px 10px blue;
-} */
+/* Header Design */
 
 .header__navigation {
 	display: flex;
-	height: 60px;
+	max-height: 60px;
 	gap: 5px;
 	margin-left: 14px;
 	margin-right: 24px;
 }
 
 .header__navigation--img {
+	/* 헤더 로고를 제외한 나머지 이미지들 설정 */
 	width: 36px;
 	height: 36px;
 	margin-top: auto;
@@ -76,8 +59,8 @@ body {
 }
 
 .header__navigation--img.logo {
+	/* 헤더 로고 이미지 설정 */
 	margin-right: auto;
-
 	width: 76px;
 	height: 60px;
 }
@@ -102,14 +85,11 @@ body {
 }
 
 .header__category--type-detail li {
+	/* li 태그만 지칭.. 유지보수성-- */
 	display: inline-block;
 }
 
 /* content Design */
-
-.content {
-	/* box-shadow: inset 0px 0px 10px green; */
-}
 
 .content__product-category ul {
 	display: flex;
