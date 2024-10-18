@@ -192,6 +192,7 @@ body {
 }
 
 .content__product-list--header-filter-option .filter-content .filter-standard {
+	/* 정렬 기준 */
 	margin-top: 82px;
 }
 
@@ -247,6 +248,7 @@ body {
 }
 
 .content__product-list--header-filter-option .filter-content .filter-gender {
+	/* 성별 분류 */
 	padding-top: 30px;
 }
 
@@ -299,6 +301,7 @@ body {
 }
 
 .content__product-list--header-filter-option .filter-content .filter-money {
+	/* 금액별 분류 */
 	padding-top: 30px;
 }
 
@@ -378,8 +381,6 @@ body {
 	border-style: solid;
 	cursor: pointer;
 }
-
-/* 수정 끝 */
 
 .content__product-list--header .filter-button {
 	margin: auto 20.45px auto;
@@ -532,9 +533,7 @@ body {
 	font-size: 14px;
 	font-weight: 400;
 	color: #707072;
-	transition:
-		max-height 400ms ease-out,
-		border 0ms 400ms linear;
+	transition: max-height 500ms ease-out;
 }
 
 .content__product-list--footer div.content p:last-child {
@@ -543,9 +542,7 @@ body {
 
 .content__product-list--footer details[open] + div.content {
 	max-height: 800px;
-	transition:
-		max-height 400ms ease-out,
-		border 0ms linear;
+	transition: max-height 1000ms ease-out;
 }
 
 /* footer design */

@@ -40,11 +40,3 @@ function showActionSheet() {
 function hideActionSheet() {
 	document.getElementById('filter').classList.remove('active')
 }
-
-// 각 옵션 클릭 시 처리 - 현재 미사용으로 제외
-// function handleOption(option) {
-// 	// 여기에 옵션 클릭 시 로직 작성
-// 	alert('Selected Option: ' + option)
-// 	// Action Sheet 감추기
-// 	hideActionSheet()
-// }
