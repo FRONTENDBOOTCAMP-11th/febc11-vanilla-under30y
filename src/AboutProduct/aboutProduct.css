@@ -115,11 +115,12 @@ img {
 	margin-left: calc(-50vw + 50%);
 }
 
-.imageSets {
+.prodImageSet {
 	box-shadow: inset 0 0 20px orange;
 	height: 125px;
 	margin-top: 3px;
 	display: flex;
+	overflow-x: scroll;
 	row-gap: 10px;
 	margin-bottom: 42px;
 }
