@@ -1,15 +1,11 @@
 /* css reset */
 body,
 h1,
-h2 {
+h2,
+ul,
+p {
 	margin: unset;
 	padding: unset;
-	--color-black-1: #111111;
-	--color-gray-1: #9e9ea0;
-	--color-gray-2: #707072;
-	--color-gray-3: #e5e5e5;
-	--color-gray-4: #cacacb;
-	--color-green-1: #007d48;
 }
 
 img {
@@ -19,6 +15,12 @@ img {
 /* typography */
 :root {
 	font-family: 'noto Sans KR';
+	--color-black-1: #111111;
+	--color-gray-1: #9e9ea0;
+	--color-gray-2: #707072;
+	--color-gray-3: #e5e5e5;
+	--color-gray-4: #cacacb;
+	--color-green-1: #007d48;
 }
 
 /* layer */
@@ -199,3 +201,13 @@ img {
 }
 
 /* text area */
+
+.prodText {
+	margin-top: 32px;
+	line-height: 175%;
+	word-break: keep-all;
+}
+
+.prodStyle {
+	margin: 28px 24px 34px;
+}
