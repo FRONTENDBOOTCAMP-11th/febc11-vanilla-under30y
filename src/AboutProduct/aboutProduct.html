@@ -13,12 +13,42 @@
 	<body>
 		<div class="l_wrapper">
 			<!-- 전체 상품 소개 파트 -->
+			 <!--상부 네비게이션 바 by 이현종-->
+			 <div class="header">
+				<div class="header__navigation">
+					<img
+						src="./images/LOGO.svg"
+						alt="나이키 로고"
+						class="header__navigation--img logo"
+					/>
+					<img
+						src="./images/IconSearch.svg"
+						alt="검색"
+						class="header__navigation--img search"
+					/>
+					<img
+						src="./images/IconProfile.svg"
+						alt="프로필"
+						class="header__navigation--img profile"
+					/>
+					<img
+						src="./images/IconCart.svg"
+						alt="장바구니"
+						class="header__navigation--img cart"
+					/>
+					<img
+						src="./images/IconMenu.svg"
+						alt="메뉴"
+						class="header__navigation--img menu"
+					/>
+				</div>
+			</div>
 			<main class="prodMain">
 				<!-- 상품명, 상품 이미지, 상품 소개 문구 등을 표시 -->
 				<div class="prodInfo">
 					<h1 class="prodName">테이텀 2 PF</h3>
 					<h2 class="prodCategory">농구화</h4>
-					<div class="prodPrize">
+					<div class="prodPrice">
 						<span id="prevPrice">149,000 원</span>
 						<span id="curPrice">249,000 원</span>
 						<span id="salesRate">10% 할인</span>
@@ -26,26 +56,49 @@
 					<div class="prodImage">
 						<img src="./images/shoes1.png" style="display: block"/>
 						<!-- 해당 상품의 다른 구도나 다른 색상 등을 볼 수 있음 -->
-						<div class="imageSets"></div>
+						<div class="prodImageSet">
+							<img>
+						</div>
 					</div>
 					<div class="sizeArea">
-						<div><span>사이즈 선택</span><span>사이즈 가이드</span></div>
-						<div class="sizeSelection"></div>
+						<div class="sizeAreaText"><span>사이즈 선택</span><span class="sizeGuide">사이즈 가이드</span></div>
+						<div class="sizeSelection">
+							<div class="size " onclick="">250</div>
+							<div class="size ">255</div>
+							<div class="size">260</div>
+							<div class="size">265</div>
+							<div class="size">270</div>
+							<div class="size">275</div>
+							<div class="size">280</div>
+							<div class="size">285</div>
+							<div class="size">290</div>
+							<div class="size off">295</div>
+							<div class="size">300</div>
+							<div class="size off">305</div>
+							<div class="size off">310</div>
+						</div>
 					</div>
-					<form>
-						<button onclick="">장바구니</button>
-						<button onclick="">위시리스트</button>
+					<form class="btnArea">
+						<!-- 이 부분은 차후 상의 후 변경될 가능성이 있음 -->
+						<button onclick="" class="btn basket"><p>장바구니</p></button><br />
+						<button onclick="" class="btn wishList">
+							<div>
+								<span class="btnText">위시리스트</span><svg class="heartImg" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M17.594 3.75002C18.918 3.75002 20.162 4.26602 21.098 5.20102C22.0262 6.13093 22.5475 7.39113 22.5475 8.70502C22.5475 10.0189 22.0262 11.2791 21.098 12.209L12.8 20.508L4.50101 12.209C3.57312 11.2791 3.052 10.0192 3.052 8.70552C3.052 7.39188 3.57312 6.13189 4.50101 5.20202C4.96004 4.74032 5.50609 4.37425 6.10756 4.12501C6.70902 3.87578 7.35395 3.74832 8.00501 3.75002C9.32901 3.75002 10.573 4.26602 11.509 5.20102L12.269 5.96102L12.8 6.49202L13.33 5.96102L14.09 5.20102C14.5492 4.73963 15.0953 4.37384 15.6968 4.12478C16.2982 3.87573 16.943 3.74835 17.594 3.75002Z" stroke="#111111" stroke-width="1.5"/>
+									</svg>
+							</div>
+						</button>
 					</form>
 					<div class="prodText">
-						<a class="prodDescription">경기 종료 휘슬이 울릴 때까지는 끝난 것이 아닙니다. 테이텀 2와 함께 여유로운 에너지로 경기를 즐겨보세요.
+						<p>경기 종료 휘슬이 울릴 때까지는 끝난 것이 아닙니다. 테이텀 2와 함께 여유로운 에너지로 경기를 즐겨보세요.
 							무거운 고무 소재의 사용을 제한하여 더욱 가벼운 착화감을 선사합니다. 전체적으로 적용된 나이키 에어 스트로벨 유닛은 빠르게 방향을 바꿀 수 있도록 도와주며,
-							견고한 프레임과 발에 밀착되는 지지력 있는 폼이 어우러져 고정력 좋은 착화감을 선사합니다.</a>
-						<ul>
+							견고한 프레임과 발에 밀착되는 지지력 있는 폼이 어우러져 고정력 좋은 착화감을 선사합니다.</p>
+						<ul class="prodStyle">
 							<li>현재 컬러: 라이트 지트론/오로라 그린/ 아토믹 핑크/세일</li>
 							<li>스타일 번호: FJ6458-700</li>
 						</ul>
 					</div>
-					<span>상품 상세 정보 보기</span>
+					<a href="" class="prodDetail">상품 상세 정보 보기</a>
 				</div>
 				<!-- 제품 배송 정보, 리뷰 등등을 표시 -->
 				<div class="prodMoreInfo">	
