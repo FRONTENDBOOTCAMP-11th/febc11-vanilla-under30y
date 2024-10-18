@@ -71,7 +71,68 @@
 						<p class="content__product-list--header-research">
 							741개의 결과
 						</p>
-						<button>
+						<!-- 필터 버튼 클릭시 상호작용 -->
+						<!-- 전체를 암묵적으로 담고있는 div -->
+						<div
+							class="content__product-list--header-filter"
+							id="filter"
+						>
+							<!-- 옵션들을 감싼 div -->
+							<div
+								class="content__product-list--header-filter-option"
+							>
+								<div class="filter-header">
+									<h1 class="filter-header title">필터</h1>
+									<button
+										class="content__product-list--header-filter-option-close"
+										onclick="hideActionSheet()"
+									>
+										<img
+											src="./img/IconExit.svg"
+											alt="닫기 버튼"
+										/>
+									</button>
+								</div>
+								<!-- 여러 선택 옵션들 -->
+								<div class="filter-content">
+									<div class="filter-standard">
+										<h1>정렬 기준</h1>
+										<input
+											type="radio"
+											name="standard"
+										/>추천순<br />
+										<input
+											type="radio"
+											name="standard"
+										/>최신순<br />
+										<input
+											type="radio"
+											name="standard"
+										/>높은 가격순<br />
+										<input
+											type="radio"
+											name="standard"
+										/>낮은 가격순<br />
+									</div>
+									<div
+										class="option"
+										onclick="handleOption('Option 2')"
+									>
+										Option 2
+									</div>
+									<div
+										class="option"
+										onclick="handleOption('Option 3')"
+									>
+										Option 3
+									</div>
+								</div>
+							</div>
+						</div>
+						<button
+							onclick="showActionSheet()"
+							class="filter-button"
+						>
 							필터
 							<img src="./img/Filter.svg" alt="" />
 						</button>

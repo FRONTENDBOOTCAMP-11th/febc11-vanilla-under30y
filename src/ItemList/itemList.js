@@ -28,3 +28,23 @@ slider.addEventListener('mousemove', move, false)
 slider.addEventListener('mousedown', startDragging, false)
 slider.addEventListener('mouseup', stopDragging, false)
 slider.addEventListener('mouseleave', stopDragging, false)
+// 여기까지 상단 드래그 바
+
+// 필터 메뉴
+// Action Sheet 보이기
+function showActionSheet() {
+	document.getElementById('filter').classList.add('active')
+}
+
+// Action Sheet 감추기
+function hideActionSheet() {
+	document.getElementById('filter').classList.remove('active')
+}
+
+// 각 옵션 클릭 시 처리 - 현재 미사용으로 제외
+// function handleOption(option) {
+// 	// 여기에 옵션 클릭 시 로직 작성
+// 	alert('Selected Option: ' + option)
+// 	// Action Sheet 감추기
+// 	hideActionSheet()
+// }
