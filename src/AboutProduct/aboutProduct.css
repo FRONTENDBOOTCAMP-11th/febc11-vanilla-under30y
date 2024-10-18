@@ -211,3 +211,7 @@ img {
 .prodStyle {
 	margin: 28px 24px 34px;
 }
+
+.prodDetail {
+	font-weight: 500;
+}
