@@ -42,29 +42,6 @@ body {
 
 /* Header Design */
 
-.header__navigation {
-	display: flex;
-	max-height: 60px;
-	gap: 5px;
-	margin-left: 14px;
-	margin-right: 24px;
-}
-
-.header__navigation--img {
-	/* 헤더 로고를 제외한 나머지 이미지들 설정 */
-	width: 36px;
-	height: 36px;
-	margin-top: auto;
-	margin-bottom: auto;
-}
-
-.header__navigation--img.logo {
-	/* 헤더 로고 이미지 설정 */
-	margin-right: auto;
-	width: 76px;
-	height: 60px;
-}
-
 .header__category {
 	width: inherit;
 	height: 52px;
@@ -90,6 +67,11 @@ body {
 }
 
 /* content Design */
+
+.content {
+	width: 360px;
+	margin: auto;
+}
 
 .content__product-category ul {
 	/* ul 태그만 지칭.. 유지보수성-- */
