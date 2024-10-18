@@ -95,37 +95,69 @@
 								</div>
 								<!-- 여러 선택 옵션들 -->
 								<div class="filter-content">
+									<!-- 정렬 기준 div -->
 									<div class="filter-standard">
 										<h1>정렬 기준</h1>
-										<input
-											type="radio"
-											name="standard"
-										/>추천순<br />
-										<input
-											type="radio"
-											name="standard"
-										/>최신순<br />
-										<input
-											type="radio"
-											name="standard"
-										/>높은 가격순<br />
-										<input
-											type="radio"
-											name="standard"
-										/>낮은 가격순<br />
+										<div>
+											<input
+												type="radio"
+												name="standard"
+											/>추천순
+										</div>
+										<div>
+											<input
+												type="radio"
+												name="standard"
+											/>최신순
+										</div>
+										<div>
+											<input
+												type="radio"
+												name="standard"
+											/>높은 가격순
+										</div>
+										<div>
+											<input
+												type="radio"
+												name="standard"
+											/>낮은 가격순<br />
+										</div>
 									</div>
-									<div
-										class="option"
-										onclick="handleOption('Option 2')"
-									>
-										Option 2
+									<div class="filter-gender">
+										<h1>성별</h1>
+										<div><input type="checkbox" />남성</div>
+										<div><input type="checkbox" />여성</div>
+										<div>
+											<input type="checkbox" />유니 섹스
+										</div>
 									</div>
-									<div
-										class="option"
-										onclick="handleOption('Option 3')"
-									>
-										Option 3
+									<div class="filter-money">
+										<h1>가격대</h1>
+										<div>
+											<input type="checkbox" />0 - 50,000
+											원
+										</div>
+										<div>
+											<input type="checkbox" />50,000 -
+											100,000 원
+										</div>
+										<div>
+											<input type="checkbox" />100,000 -
+											150,000 원
+										</div>
+										<div>
+											<input type="checkbox" />150,000 -
+											200,000 원
+										</div>
+										<div>
+											<input type="checkbox" />200,000 원
+											+
+										</div>
 									</div>
+								</div>
+								<div class="filter-footer">
+									<button>지우기</button>
+									<button>적용</button>
 								</div>
 							</div>
 						</div>
