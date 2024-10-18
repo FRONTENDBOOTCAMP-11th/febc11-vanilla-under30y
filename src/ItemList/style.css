@@ -93,7 +93,7 @@ body {
 
 .content__product-category ul {
 	/* ul 태그만 지칭.. 유지보수성-- */
-	/* 상풍 내비게이션 */
+	/* 상품 내비게이션 */
 	display: flex;
 	text-wrap: nowrap;
 	overflow-x: scroll;
@@ -102,7 +102,7 @@ body {
 }
 
 .content__product-category li {
-	/* 상풍 내비게이션 아이템 */
+	/* 상품 내비게이션 아이템 */
 	font-size: 16px;
 	font-weight: 500;
 	color: #111;
@@ -111,7 +111,7 @@ body {
 }
 
 .content__product-category::after {
-	/* 상풍 목록과 구분하기 위한 줄 */
+	/* 상품 목록과 구분하기 위한 줄 */
 	display: block;
 	content: '';
 	border: solid 0.5px #e5e5e5;
@@ -334,6 +334,49 @@ body {
 	font-size: 16px;
 	font-weight: 500;
 	color: #111;
+}
+
+.content__product-list--header-filter-option .filter-content::after {
+	display: block;
+	padding: 0;
+	content: '';
+	border: solid 1px #e5e5e5;
+	width: 395px;
+	margin-left: -20px;
+	margin-bottom: 36px;
+}
+
+.content__product-list--header-filter-option .filter-footer {
+	margin-bottom: 36px;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 14px;
+	padding-right: 14px;
+}
+
+.content__product-list--header-filter-option .filter-footer .reset {
+	border-radius: 32px;
+	width: 152px;
+	height: 46px;
+	background-color: #fff;
+	color: #111;
+	font-size: 16px;
+	font-weight: 400px;
+	border-color: #e5e5e5;
+	border-style: solid;
+	cursor: pointer;
+}
+
+.content__product-list--header-filter-option .filter-footer .submit {
+	border-radius: 32px;
+	width: 152px;
+	height: 46px;
+	background-color: #000;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400px;
+	border-style: solid;
+	cursor: pointer;
 }
 
 /* 수정 끝 */
