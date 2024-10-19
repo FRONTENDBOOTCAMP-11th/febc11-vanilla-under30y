@@ -225,7 +225,7 @@ body {
 	[type='radio'] {
 	appearance: none;
 	cursor: pointer;
-	content: url(./img/button.svg);
+	content: url(../images/icons/button.svg);
 }
 
 .content__product-list--header-filter-option
@@ -233,7 +233,7 @@ body {
 	.filter-standard
 	[type='radio']:checked {
 	cursor: pointer;
-	content: url(./img/button-check.svg);
+	content: url(../images/icons//button-check.svg);
 }
 
 .content__product-list--header-filter-option
@@ -272,7 +272,7 @@ body {
 	[type='checkbox'] {
 	appearance: none;
 	cursor: pointer;
-	content: url(./img/checkbox.svg);
+	content: url(../images/icons/checkbox.svg);
 }
 
 .content__product-list--header-filter-option
@@ -280,7 +280,7 @@ body {
 	.filter-gender
 	[type='checkbox']:checked {
 	cursor: pointer;
-	content: url(./img/checkbox-check.svg);
+	content: url(../images/icons/checkbox-check.svg);
 }
 
 .content__product-list--header-filter-option .filter-content .filter-gender h1 {
@@ -322,7 +322,7 @@ body {
 	[type='checkbox'] {
 	appearance: none;
 	cursor: pointer;
-	content: url(./img/checkbox.svg);
+	content: url(../images/icons/checkbox.svg);
 }
 
 .content__product-list--header-filter-option
@@ -330,7 +330,7 @@ body {
 	.filter-money
 	[type='checkbox']:checked {
 	cursor: pointer;
-	content: url(./img/checkbox-check.svg);
+	content: url(../images/icons/checkbox-check.svg);
 }
 
 .content__product-list--header-filter-option .filter-content .filter-money h1 {
@@ -511,7 +511,7 @@ body {
 
 .content__product-list--footer summary::after {
 	/* 선택 시 화살표 애니메이션 */
-	content: url(./img/Down.svg);
+	content: url(../images/icons/Down.svg);
 	transition: 0.5s transform;
 }
 
