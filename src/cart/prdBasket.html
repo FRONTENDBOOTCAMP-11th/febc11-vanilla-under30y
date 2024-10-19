@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="images/LOGO.png"/>
+            </div>
+            <div class="header-icons">
+                <div class="header-icon">
+                    <!-- 검색 아이콘 -->
+                     
+                </div>
+                <div class="header-icon">
+                    <!-- 장바구니 아이콘 -->
+                </div>
+                <div class="menu-icon">
+                    <!-- 메뉴 아이콘 -->
+                </div>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <div class="search-icon"></div>
+            <input type="text" id="search-text" placeholder="검색"></input>
+        </div>
+
+        <div class="header-cart">
+            <h2 class="title-cart">장바구니</h2>
+            <div class="basket-product">
+                <span class="count-product">1 개의 제품 |</span><span class="product-price">189,000 원</span>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="product-image">
+                <img src="images/shoes.png" alt="Product Image"/>
+            </div>
+            <div class="product-details">
+                <p class="product-price">189,000 원</p>
+                <p class="product-name">나이키 줌 보메로 5</p>
+                <p class="product-category">남성 신발</p>
+                <div class="product-info2">
+                    <p class="product-size">
+                        사이즈
+                        <p class="product-size-num">275</p>
+                    </p>
+                    <p class="product-amount">
+                        수량
+                        <p class="icon-minus">-</p>
+                        <p class="count-number">1</p>
+                        <p class="icon-plus">+</p>
+                    </p>
+                </div>
+                <div>
+                    <p><strong>무료 배송</strong></p>
+                    <p>도착 예정일: 7월 27일 (토)배송 지역: <strong>04628</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-summary">
+            <h2 class="section-title"><strong>주문 내역</strong></h2>
+            <div class="summary-row">
+                <span class="order-product-text">상품 금액</span>
+                <span class="order-product-price">189,000 원</span>
+            </div>
+            <div class="summary-row">
+                <span class="order-product-text">배송비</span>
+                <span class="order-product-text">무료</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span class="order-product-text">총 결제 금액</span>
+                <span class="order-product-price">189,000 원</span>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <div class="footer-link">안내</div>
+                <div class="footer-link">고객센터</div>
+                <div class="footer-link">회사소개</div>
+            </div>
+            <div class="footer-text">
+                © 2024 Nike, Inc. All Rights Reserved
+            </div>
+            <div class="footer-text">
+                (유)나이키코리아 대표 Kimberlee Lynn Chang Mendes, 킴벌리 린 창 멘데스 | 서울 강남구 테헤란로 152 강남파이낸스센터 30층
+            </div>
+        </footer>
+
+        <div class="order-button">주문하기</div>
+    </div>
+    <script src="prdBasket.js"></script>
+</body>
+</html>
