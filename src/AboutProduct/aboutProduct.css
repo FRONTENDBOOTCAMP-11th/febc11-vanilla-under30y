@@ -33,6 +33,7 @@ img {
 
 .l_wrapper {
 	width: auto;
+	max-width: 560px;
 }
 
 /* design */
@@ -73,9 +74,8 @@ img {
 
 /* product images */
 .prodImage {
-	width: 100vw;
-
-	margin-left: calc(-50vw + 50%);
+	width: 100%;
+	margin-right: calc(-50vw + 50%);
 	margin-top: 24px;
 }
 

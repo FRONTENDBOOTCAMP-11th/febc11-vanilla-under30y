@@ -1,0 +1,32 @@
+/* css reset */
+body,
+h1,
+span,
+p {
+	margin: unset;
+	padding: unset;
+	font-size: unset;
+	font-weight: unset;
+}
+
+img {
+	width: 100%;
+}
+
+/* typography */
+:root {
+	font-family: 'noto Sans KR';
+	--color-black: #111111;
+	--color-gray: #707072;
+	word-break: keep-all;
+}
+
+/* layer */
+
+.l_wrapper {
+	width: auto;
+	max-width: 345px;
+	max-height: 985px;
+}
+
+/* design */
