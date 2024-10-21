@@ -41,6 +41,7 @@ function hideActionSheet() {
 	document.getElementById('filter').classList.remove('active')
 }
 
+// Header, Footer 컴포넌트화
 class NikeHeader extends HTMLElement {
 	constructor() {
 		super()
