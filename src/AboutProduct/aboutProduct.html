@@ -49,8 +49,8 @@
 					<h1 class="prodName">테이텀 2 PF</h3>
 					<h2 class="prodCategory">농구화</h4>
 					<div class="prodPrice">
-						<span id="prevPrice">149,000 원</span>
-						<span id="curPrice">249,000 원</span>
+						<span id="prevPrice" style="margin-right: 8px;">149,000 원</span>
+						<span id="curPrice" style="color: #9e9ea0; text-decoration-line: line-through; margin-right: 8px;">249,000 원</span>
 						<span id="salesRate" style="color: #007d48;">10% 할인</span>
 					</div>
 					<div class="prodImage">
@@ -124,7 +124,7 @@
 				<div class="prodMoreInfo">	
 					<details class="prodDropDown service">
 						<summary class="prodDropDownHeader">무료 배송 및 반품</summary>
-						<h2>일반 배송</h2>
+						<span>일반 배송</span>
 						<ul>
 							<li>배송지역: 전국 (일부 지역 제외)</li>
 							<li>배송비: 무료배송</li>
@@ -142,12 +142,10 @@
 						</ul>
 					</details>
 					<details class="prodDropDown review">
-						<summary class="prodDropDownHeader">
-							<h1>리뷰<span id="reviewNum">(2)</span></h1>
-							<div class="dropdownButton" onclick=""></div>
-							<div id="reviewTotalStars"></div>
-							<span id="reviewTotalScore">4.7점</span>
+						<summary class="prodDropDownHeader">리뷰<span id="reviewNum">(2)</span>
+							<!-- <div id="reviewTotalStars">aaaaa</div> -->
 						</summary>
+						<span id="reviewTotalScore">4.7점</span>
 						<div id="reviewSection">
 							<div class="reviews">
 								<h3>Nike Jam Shoe Revie</h3>
@@ -162,10 +160,7 @@
 						</div>
 					</details>
 					<details class="prodDropDown additional">
-						<summary class="prodDropDownHeader">
-							<h1>추가 정보</h1>
-							<div class="dropdownButton" onclick=""></div>
-						</summary>
+						<summary class="prodDropDownHeader">추가 정보</summary>
 						<ul>
 							<li>
 								제조연월: 수입제품으로 각 제품별 입고 시기에 따라 상이하여 정확한 제조연월 제공이 어렵습니다.
@@ -187,14 +182,27 @@
 			</main>
 			<!-- 메인 영역과 구분되는 추천 상품 파트 -->
 			<div class="recommended">
-				<h1>추천 제품</h1>
-				<div onclick=""></div><div onclick=""></div>
-				<div id="recommendedItemsSection">
-					<div onclick="">
-						<img src="../images/product/shoes14.png" style="display: block;">
-						<h4>나이키 줌 보메로 5</h4>
-						<span>남성 신발</span>
-						<span>189,000 원</span>
+				<div class="recommendedHeader">
+					<h1>추천 제품</h1>
+					<img class="btnLeft" src="../images/icons/IconSlideLeft.png">
+					<img class="btnRight" src="../images/icons/IconSlideRight.png">					
+				</div>
+				<div class="recommendedItemsSection">
+					<div class="recommendedItem" onclick="">
+						<img src="../images/product/shoes14.png" style="display: block; width: 196px; height: 196px;">
+						<div style="margin: 11.75px 0;">
+							<span class="recommendedItemName">나이키 줌 보메로 5</span><br/>
+							<span class="recommendedItemType">남성 신발</span><br/>
+						</div>
+						<span class="recommendedItemPrice">189,000 원</span>
+					</div>
+					<div class="recommendedItem" onclick="">
+						<img src="../images/product/hat.svg" style="display: block; width: 196px; height: 196px;">
+						<div style="margin: 11.75px 0;">
+							<span class="recommendedItemName">나이키 클럽</span><br/>
+							<span class="recommendedItemType">언스트럭쳐 데님 캡</span><br/>
+						</div>
+						<span class="recommendedItemPrice">39,000 원</span>
 					</div>
 				</div>
 			</div>

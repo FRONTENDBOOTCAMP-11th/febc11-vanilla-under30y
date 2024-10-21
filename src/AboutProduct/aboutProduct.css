@@ -6,6 +6,8 @@ ul,
 p {
 	margin: unset;
 	padding: unset;
+	font-size: unset;
+	font-weight: unset;
 }
 
 img {
@@ -106,8 +108,10 @@ img {
 	font-weight: 500;
 }
 
-.prodPrize {
-	margin-bottom: 24px;
+.prodPrice {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 175%;
 }
 
 /* product images */
@@ -252,9 +256,68 @@ img {
 
 /* additional info area */
 
+.prodDropDown {
+	border-bottom: solid 1px #e5e5e5;
+	padding-bottom: 30px;
+}
+
 .prodDropDownHeader {
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 175%;
 	color: var(--color-black-1);
+	list-style-type: none;
+	padding-top: 30px;
+}
+
+/* 추천 제품 */
+
+.recommendedHeader {
+	width: 312px;
+	height: 86px;
+	margin: 36px 24px 12px;
+	font-size: 24px;
+	font-weight: 500;
+	padding: 2px 0 0 24px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.btnLeft,
+.btnRight {
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	right: 24px;
+	bottom: 0;
+}
+
+.btnLeft {
+	right: 84px;
+}
+
+.recommendedItemsSection {
+	overflow-x: scroll;
+	display: flex;
+	padding: 0 0 11px 24px;
+	margin: 12px 24px 56.5px;
+	height: 350px;
+	box-sizing: border-box;
+	column-gap: 12px;
+}
+
+.recommendedItemsSection::-webkit-scrollbar {
+	display: none;
+}
+
+.recommendedItem {
+	color: var(--color-black-1);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 175%;
+}
+
+.recommendedItemType {
+	color: var(--color-gray-2);
+	font-weight: 400;
 }
