@@ -3,11 +3,13 @@ body,
 h1,
 h2,
 ul,
+li,
 p {
 	margin: unset;
 	padding: unset;
 	font-size: unset;
 	font-weight: unset;
+	list-style: none;
 }
 
 img {
@@ -23,6 +25,7 @@ img {
 	--color-gray-3: #e5e5e5;
 	--color-gray-4: #cacacb;
 	--color-green-1: #007d48;
+	word-break: keep-all;
 }
 
 /* layer */
@@ -38,53 +41,6 @@ img {
 	padding: 0 24px;
 	box-shadow: inset 0 0 20px red;
 	overflow: hidden;
-}
-
-/* header */
-
-.header__navigation {
-	display: flex;
-	height: 60px;
-	gap: 5px;
-	margin-left: 14px;
-	margin-right: 24px;
-}
-
-.header__navigation--img {
-	width: 36px;
-	height: 36px;
-	margin-top: auto;
-	margin-bottom: auto;
-}
-
-.header__navigation--img.logo {
-	margin-right: auto;
-
-	width: 76px;
-	height: 60px;
-}
-
-.header__category {
-	width: inherit;
-	height: 52px;
-	padding-top: 90px;
-	padding-left: 15px;
-	padding-bottom: 30px;
-}
-
-.header__category--type {
-	font-size: 20px;
-	font-weight: 500;
-	padding-top: 8px;
-}
-
-.header__category--type-detail {
-	font-size: 14px;
-	font-weight: 500;
-}
-
-.header__category--type-detail li {
-	display: inline-block;
 }
 
 /* Product name & prices */
@@ -271,6 +227,28 @@ img {
 	position: relative;
 }
 
+.summaryContent {
+	margin-top: 30px;
+	font-size: 12px;
+	width: 100%;
+	line-height: 170%;
+}
+
+.summaryContent span {
+	font-weight: 500;
+}
+
+.summaryContent li::before {
+	content: ' ';
+	display: inline-block;
+	background-color: #111111;
+	width: 3px;
+	height: 3px;
+	border-radius: 50%;
+	margin-right: 3px;
+	margin-bottom: 3px;
+}
+
 .prodDropDownHeader::after {
 	content: url(../images/icons/Down.svg);
 	transition: 0.5s transform;
@@ -282,10 +260,17 @@ img {
 	transform: rotateZ(-180deg);
 }
 
+details[open] summary ~ * {
+	animation: open 0.5s ease-in-out;
+}
+
+details[close] summary ~ * {
+	animation: close 0.5s ease-in-out;
+}
+
 /* 추천 제품 */
 
 .recommendedHeader {
-	width: 312px;
 	height: 86px;
 	margin: 36px 24px 12px;
 	font-size: 24px;
