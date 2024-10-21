@@ -2,6 +2,7 @@
 body,
 h1,
 span,
+input,
 p {
 	margin: unset;
 	padding: unset;
@@ -89,4 +90,62 @@ body {
 
 .reviewStars {
 	margin: 28.85px 37.94px 41.45px 38px;
+}
+
+/* 리뷰 작성 구역 */
+
+.reviewInput {
+	margin-top: 37.5px;
+}
+
+.reviewInput h1 {
+	margin-bottom: 10.5px;
+}
+
+.reviewInput textarea {
+	width: 100%;
+	border-radius: 8px;
+	padding-top: 16px;
+	padding-left: 18px;
+	padding-right: 18px;
+	border: solid 1px var(--color-gray-1);
+	resize: none;
+	box-sizing: border-box;
+	font-family: 'noto Sans KR';
+	font-size: 12px;
+	margin-bottom: 4px;
+}
+
+.review {
+	height: 125px;
+	padding-bottom: 13px;
+}
+
+.reviewTitleInput {
+	height: 58px;
+	padding-bottom: 9px;
+}
+
+.reviewInput span {
+	display: block;
+	font-size: 12px;
+	color: var(--color-gray-1);
+	margin-left: 12px;
+	margin-right: 4.29px;
+}
+
+.reviewTitle {
+	margin-top: 25.5px;
+}
+
+.confirm {
+	margin: 37px 0 34px 0;
+	width: 100%;
+	padding: 18px 0;
+	border: unset;
+	border-radius: 30px;
+	background-color: var(--color-black);
+	color: white;
+	font-size: 16px;
+	font-weight: 500;
 }
