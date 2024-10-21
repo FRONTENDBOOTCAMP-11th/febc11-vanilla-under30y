@@ -226,7 +226,38 @@ img {
 	list-style-type: none;
 	padding-top: 30px;
 	position: relative;
+	/* cursor: pointer; */
 }
+
+/* 애니메이션 효과는 이후 */
+/* 
+@keyframes open {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+@keyframes close {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+details[open] summary ~ * {
+	animation: open 0.5s;
+}
+
+
+details.closing summary ~ * {
+	animation: close 0.5s;
+} */
 
 .summaryContent {
 	margin-top: 30px;
