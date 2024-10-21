@@ -268,6 +268,18 @@ img {
 	color: var(--color-black-1);
 	list-style-type: none;
 	padding-top: 30px;
+	position: relative;
+}
+
+.prodDropDownHeader::after {
+	content: url(../images/icons/Down.svg);
+	transition: 0.5s transform;
+	position: absolute;
+	right: 0;
+}
+
+.prodDropDown[open] .prodDropDownHeader::after {
+	transform: rotateZ(-180deg);
 }
 
 /* 추천 제품 */
