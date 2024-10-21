@@ -2,6 +2,7 @@
 body,
 h1,
 h2,
+h3,
 ul,
 li,
 p {
@@ -260,12 +261,74 @@ img {
 	transform: rotateZ(-180deg);
 }
 
+.reviewTotalStarsSum {
+	display: inline;
+	float: right;
+	margin-right: 39.5px;
+}
+
+/* review section */
+
+.prodDropDown.review[open] .reviewTotalStarsSum {
+	display: none;
+}
+
+.prodDropDown.review[open] .prodDropDownHeader {
+	margin-bottom: 17px;
+}
+
+#reviewTotalScore {
+	margin-left: 13.5px;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.writeReview {
+	font-size: 16px;
+	font-weight: 500;
+	width: fit-content;
+	border-bottom: 2px solid var(--color-black-1);
+	margin: 14px 0 28px 0;
+}
+
+.reviewSection {
+	margin-top: 14px;
+}
+
+.reviewTitle {
+	font-size: 12px;
+	font-weight: 500;
+	color: var(--color-black-1);
+}
+
+.reviews {
+	margin-bottom: 20px;
+	font-size: 12px;
+}
+
+.reviews:last-child {
+	margin-bottom: 0;
+}
+
+.reviewStars {
+	display: inline;
+	margin: 8.83px 0;
+}
+
+.reviewContent {
+	font-weight: 400;
+}
+
 details[open] summary ~ * {
 	animation: open 0.5s ease-in-out;
 }
 
 details[close] summary ~ * {
 	animation: close 0.5s ease-in-out;
+}
+
+.reviewStars {
+	display: block;
 }
 
 /* 추천 제품 */
