@@ -30,3 +30,10 @@ img {
 }
 
 /* design */
+
+/* close button */
+.closeButton {
+	width: 29px;
+	height: 29px;
+	margin: 19px 19px 12px auto;
+}
