@@ -17,16 +17,22 @@ img {
 :root {
 	font-family: 'noto Sans KR';
 	--color-black: #111111;
-	--color-gray: #707072;
+	--color-gray-1: #707072;
+	--color-gray-2: #e5e5e5;
 	word-break: keep-all;
 }
 
 /* layer */
+/* 자식 페이지로서 반응형이 아닌 고정형으로 디자인 */
+body {
+	width: 345px;
+}
 
 .l_wrapper {
 	width: auto;
-	max-width: 345px;
+	max-width: 297px;
 	max-height: 985px;
+	margin: 0 24px;
 }
 
 /* design */
@@ -36,4 +42,51 @@ img {
 	width: 29px;
 	height: 29px;
 	margin: 19px 19px 12px auto;
+}
+
+/* 리뷰 대상을 표시하기 위한 영역 */
+
+.reviewTarget {
+	border-bottom: solid 1px var(--color-gray-2);
+	font-size: 16px;
+	color: var(--color-black);
+	line-height: 150%;
+	font-weight: 500;
+}
+
+.reviewTarget h1 {
+	font-size: 20px;
+	line-height: 120%;
+	margin-bottom: 4px;
+}
+
+.reviewInstruction {
+	display: block;
+	color: var(--color-gray-1);
+	margin-bottom: 36px;
+	font-weight: 400;
+}
+
+.reviewingProduct {
+	position: relative;
+	color: var(--color-black);
+	margin-bottom: 31.75px;
+}
+
+.reviewingProduct img {
+	width: 60px;
+	aspect-ratio: 1 / 1;
+}
+
+.reviewingProduct span {
+	position: absolute;
+	left: 68px;
+}
+
+.ratingArea {
+	height: 128px;
+}
+
+.reviewStars {
+	margin: 28.85px 37.94px 41.45px 38px;
 }
