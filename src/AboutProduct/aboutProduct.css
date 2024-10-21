@@ -113,6 +113,7 @@ img {
 /* product images */
 .prodImage {
 	width: 100vw;
+
 	margin-left: calc(-50vw + 50%);
 	margin-top: 24px;
 }
@@ -120,6 +121,10 @@ img {
 .prodImageFrame {
 	display: flex;
 	overflow-x: scroll;
+}
+
+.prodImageFrame::-webkit-scrollbar {
+	display: none;
 }
 
 .prodImageSet {
@@ -238,5 +243,18 @@ img {
 }
 
 .prodDetail {
+	width: fit-content;
 	font-weight: 500;
+	line-height: 175%;
+	border-bottom: 2px solid var(--color-black-1);
+	margin-bottom: 31.5px;
+}
+
+/* additional info area */
+
+.prodDropDownHeader {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 175%;
+	color: var(--color-black-1);
 }
