@@ -41,14 +41,14 @@ img {
 .prodMain {
 	width: auto;
 	padding: 0 24px;
-	box-shadow: inset 0 0 20px red;
+	/* box-shadow: inset 0 0 20px red; */
 	overflow: hidden;
 }
 
 /* Product name & prices */
 .prodInfo {
 	padding-top: 80px;
-	box-shadow: inset 0 0 20px blue;
+	/* box-shadow: inset 0 0 20px blue; */
 }
 
 .prodName {
@@ -89,7 +89,7 @@ img {
 }
 
 .prodImageSet {
-	box-shadow: inset 0 0 20px orange;
+	/* box-shadow: inset 0 0 20px orange; */
 	height: 125px;
 	margin-top: 3px;
 	display: flex;
@@ -118,7 +118,7 @@ img {
 /* size selection */
 
 .sizeArea {
-	box-shadow: inset 0 0 20px green;
+	/* box-shadow: inset 0 0 20px green; */
 	height: 196px;
 	font-size: 16px;
 	font-weight: 500;
@@ -158,7 +158,7 @@ img {
 
 /* button area */
 .btnArea {
-	box-shadow: inset 0 0 20px orange;
+	/* box-shadow: inset 0 0 20px orange; */
 	margin-top: 64px;
 }
 
