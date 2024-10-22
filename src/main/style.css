@@ -112,6 +112,9 @@ main {
 
 .main-section-2 {
 	box-shadow: inset 0 0 20px yellowgreen;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 }
 
 .card-section-title {
@@ -121,12 +124,26 @@ main {
 }
 
 .cards-horizontal-container {
+	display: flex;
+	gap: 16px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+	/* 스크롤바 숨기기 */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+}
+
+.cards-horizontal-container::-webkit-scrollbar {
+	display: none;
 }
 
 .card-wrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	padding-bottom: 46px;
 }
 
 .card-image {
