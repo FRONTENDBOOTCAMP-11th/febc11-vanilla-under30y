@@ -419,3 +419,63 @@ details[close] summary ~ * {
 	text-align: center;
 	line-height: 67px;
 }
+
+/* 제품 상세 정보 보기 영역	*/
+.background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(0);
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.5s ease;
+}
+
+.productDetail {
+	position: fixed;
+	bottom: -100%;
+	left: 50%;
+	transform: translate(-50%, 100%);
+	background-color: white;
+
+	width: 100vw;
+	height: 90%;
+	padding: 40px 20px 0;
+	box-sizing: border-box;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+	border-radius: 20px 20px 0 0;
+	transition: all 0.8s ease;
+	z-index: 10;
+	overflow: scroll;
+}
+
+.show-background {
+	opacity: 1;
+	pointer-events: auto;
+	backdrop-filter: blur(5px);
+}
+
+.show-modal {
+	bottom: 90%;
+
+}
+
+.productDetailContent {
+	position: relative;
+	color: var(--color-black);
+	margin-bottom: 31.75px;
+}
+
+.productDetailContent span {
+	position: absolute;
+	left: 68px;
+}
+
+.productDetailContent img {
+	width: 50px;
+	aspect-ratio: 1 / 1;
+}

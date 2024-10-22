@@ -390,7 +390,7 @@
 							<li>스타일 번호: FJ6458-700</li>
 						</ul>
 					</div>
-					<p class="prodDetail">상품 상세 정보 보기</p>
+					<p class="prodDetail" onclick="showModal()">상품 상세 정보 보기</p>
 				</div>
 				<!-- 제품 배송 정보, 리뷰 등등을 표시 -->
 				<div class="prodMoreInfo">	
@@ -495,6 +495,19 @@
 		<div class="footerBasketBtn">
 			장바구니
 		</div>
-		<script src="test.js"></script>
+		<!-- 바깥 영역을 클릭해도 닫힐 수 있도록 + 바깥 영역 블러 처리 -->
+		<div class="background" id="background" onclick="hideModal()"></div>
+		<div class="productDetail" id="productDetail">
+			<div class="productDetailContent">
+				<img src="../images/product/shoes1.png" />
+				<span> 테이텀 2 PF </span>
+				<div class="prodPrice">
+					<span id="prevPrice" style="margin-right: 8px;">149,000 원</span>
+					<span id="curPrice" style="color: #9e9ea0; text-decoration-line: line-through; margin-right: 8px;">249,000 원</span>
+					<span id="salesRate" style="color: #007d48;">10% 할인</span>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
 	</body>
 </html>
