@@ -21,3 +21,47 @@ class NikeFooter extends HTMLElement {
 }
 
 customElements.define("nike-footer", NikeFooter);
+
+document.querySelectorAll('details').forEach(details => {
+	const summary = details.querySelector('summary')
+	const summaryContent = details.querySelector('.summaryContent')
+
+	summary.addEventListener('click', function (event) {
+		event.preventDefault()
+
+		if (details.open) {
+			// 닫힐 때 애니메이션 적용
+			const contentHeight = summaryContent.scrollHeight
+			details.style.transition = 'none'
+			details.style.maxHeight = contentHeight + 'px'
+
+			// 리플로우 강제 발생
+			requestAnimationFrame(() => {
+				details.style.transition = 'max-height 200ms ease-in-out'
+				details.style.maxHeight = '95px'
+			})
+
+			// 애니메이션이 끝난 후에 open 속성 제거
+			setTimeout(() => {
+				details.removeAttribute('open')
+				details.style.maxHeight = ''
+			}, 200)
+		} else {
+			// 열릴 때 애니메이션 적용
+			details.setAttribute('open', '')
+			const contentHeight = summaryContent.scrollHeight
+			details.style.transition = 'none'
+			details.style.maxHeight = '95px'
+
+			requestAnimationFrame(() => {
+				details.style.transition = 'max-height 200ms ease-in-out'
+				details.style.maxHeight = contentHeight + 'px'
+			})
+
+			// 애니메이션 완료 후 max-height 초기화
+			setTimeout(() => {
+				details.style.maxHeight = '100vh'
+			}, 200)
+		}
+	})
+})

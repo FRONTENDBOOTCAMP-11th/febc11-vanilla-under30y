@@ -156,8 +156,12 @@ img {
 	color: var(--color-gray-4);
 }
 
-/* 클릭 시 상호작용 */
+/* 클릭 시 상호작용, 나중에 JS로 제대로 구현 */
 .size:hover {
+	border: solid 1px var(--color-black-1);
+}
+
+.size:focus {
 	border: solid 1px var(--color-black-1);
 }
 
@@ -276,6 +280,17 @@ img {
 	display: inline;
 	float: right;
 	margin-right: 39.5px;
+}
+
+/* 애니메이션 효과 */
+details {
+	max-height: 95px;
+	overflow: hidden;
+	transition: max-height 200ms ease-in-out;
+}
+
+details[open] {
+	max-height: 100vh;
 }
 
 /* review section */
