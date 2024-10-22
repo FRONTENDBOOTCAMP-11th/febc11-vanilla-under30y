@@ -36,3 +36,92 @@ button {
 		sans-serif;
 	font-size: 62.5%;
 }
+
+/* images */
+.image1 {
+	background-image: url(../images/main/image1.png);
+}
+.image2-1 {
+	background-image: url(../images/main/image2-1.png);
+}
+.image2-2 {
+	background-image: url(../images/main/image2-2.png);
+}
+.image2-2 {
+	background-image: url(../images/main/image2-3.png);
+}
+.image3 {
+	background-image: url(../images/main/image3.png);
+}
+.image4 {
+	background-image: url(../images/main/image4.png);
+}
+.image5-1 {
+	background-image: url(../images/main/image5-1.png);
+}
+.image5-2 {
+	background-image: url(../images/main/image5-2.png);
+}
+.image5-3 {
+	background-image: url(../images/main/image5-3.png);
+}
+
+/* main styles */
+main {
+	box-shadow: inset 0 0 20px skyblue;
+	padding: 24px;
+}
+
+.main-section-1 {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.single-image {
+	width: 100%;
+	height: 420px;
+	background-size: cover;
+	background-position: center;
+}
+
+.text-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 12px;
+	word-break: keep-all;
+}
+
+.subtitle {
+	font-size: 16px;
+}
+
+.main-section-title {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.additional-text {
+	font-size: 16px;
+	line-height: 150%;
+}
+
+.button-black {
+	align-self: flex-start;
+	background-color: #111;
+	color: white;
+	font-size: 16px;
+	font-weight: medium;
+	padding: 0 16px;
+	height: 40px;
+	border-radius: 20px;
+}
+
+body {
+	width: 360px;
+	max-width: 360px;
+	min-width: 360px;
+	margin: 0 auto; /* 중앙 정렬 */
+	overflow-x: hidden; /* 가로 스크롤 숨김 */
+}
