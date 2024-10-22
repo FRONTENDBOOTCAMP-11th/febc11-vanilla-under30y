@@ -453,6 +453,10 @@ details[close] summary ~ * {
 	overflow: scroll;
 }
 
+.productDetail::-webkit-scrollbar {
+	display: none;
+}
+
 .show-background {
 	opacity: 1;
 	pointer-events: auto;
@@ -470,12 +474,37 @@ details[close] summary ~ * {
 	margin-bottom: 31.75px;
 }
 
-.productDetailContent span {
+.productDetailItem {
 	position: absolute;
-	left: 68px;
+	left: 75px;
+	top: 1px;
 }
 
 .productDetailContent img {
-	width: 50px;
+	width: 60px;
 	aspect-ratio: 1 / 1;
+}
+
+.prodPrice.detailed {
+	position: absolute;
+	left: 75px;
+	top: 32px;
+	width: fit-content;
+}
+
+.closeButton {
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+
+.closeButton img {
+	width: 40px;
+	height: 40px;
+}
+
+.productDetailDescription {
+	margin-top: 30px;
+	word-break: break-all;
+	line-height: 200%;
 }
