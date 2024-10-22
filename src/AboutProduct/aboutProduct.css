@@ -156,6 +156,16 @@ img {
 	color: var(--color-gray-4);
 }
 
+/* 클릭 시 상호작용 */
+.size:hover {
+	border: solid 1px var(--color-black-1);
+}
+
+/* 품절된 사이즈는 클릭 안 되게 보이도록 */
+.size.off:hover {
+	border: none;
+}
+
 /* button area */
 .btnArea {
 	/* box-shadow: inset 0 0 20px orange; */
@@ -228,36 +238,6 @@ img {
 	position: relative;
 	/* cursor: pointer; */
 }
-
-/* 애니메이션 효과는 이후 */
-/* 
-@keyframes open {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-
-@keyframes close {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
-}
-
-details[open] summary ~ * {
-	animation: open 0.5s;
-}
-
-
-details.closing summary ~ * {
-	animation: close 0.5s;
-} */
 
 .summaryContent {
 	margin-top: 30px;
