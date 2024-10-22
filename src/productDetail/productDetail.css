@@ -156,7 +156,7 @@ img {
 	color: var(--color-gray-4);
 }
 
-/* 클릭 시 상호작용, 나중에 JS로 제대로 구현 */
+/* hover 상호작용, 클릭 시 작용은 JS로 구현 */
 .size:hover {
 	border: solid 1px var(--color-black-1);
 }
@@ -165,7 +165,7 @@ img {
 	border: solid 1px var(--color-black-1);
 }
 
-/* 품절된 사이즈는 클릭 안 되게 보이도록 */
+/* 품절된 사이즈는 선택 안 되게 보이도록 */
 .size.off:hover {
 	border: none;
 }
