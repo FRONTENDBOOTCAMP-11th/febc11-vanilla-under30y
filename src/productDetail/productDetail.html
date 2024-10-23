@@ -327,7 +327,7 @@
 					</div>
 					<div class="prodImage">
 						<!-- 해당 상품의 다른 구도를 볼 수 있음 -->
-						<div class="prodImageFrame">
+						<div class="prodImageFrame" id="prodImageFrame">
 							<img src="../images/product/shoes1.png" style="display: block"/>
 							<img src="../images/product/shoes2.png" style="display: block"/>
 							<img src="../images/product/shoes3.png" style="display: block"/>
@@ -339,15 +339,15 @@
 							<img src="../images/product/shoes9.png" style="display: block"/>
 						</div>
 						<!-- 해당 상품의 다른 색상 등을 볼 수 있음 -->
-						<div class="prodImageSet">
+						<div class="prodImageColor">
 							<!-- 선택시 테두리가 검게 하고, 선택효과를 넣기 위해 div로 감쌈 -->
-							<div class="prodImageSetFrame">
+							<div class="prodImageColorFrame" onclick="colorSelect(0)">
 								<img src="../images/product/shoes11.png">
 							</div>
-							<div class="prodImageSetFrame">
+							<div class="prodImageColorFrame" onclick="colorSelect(1)">
 								<img src="../images/product/shoes12.png">
 							</div>
-							<div class="prodImageSetFrame selected">
+							<div class="prodImageColorFrame selected" onclick="colorSelect(2)">
 								<img src="../images/product/shoes1.png">
 							</div>
 						</div>
@@ -423,7 +423,7 @@
 						<div class="summaryContent">
 							<div style="display: inline;" class="reviewTotalStars">★★★★★</div>
 							<span id="reviewTotalScore">4.7점</span>
-							<p class="writeReview">리뷰 작성하기</p>
+							<p class="writeReview" onclick="openReviewPage()">리뷰 작성하기</p>
 							<div class="reviewSection">
 								<div class="reviews">
 									<h3 class="reviewTitle">Nike Jam Shoe Revie</h3>

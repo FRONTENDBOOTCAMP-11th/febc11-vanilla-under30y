@@ -66,9 +66,14 @@ customElements.define("nike-footer", NikeFooter);
 // 	})
 // })
 
+// 리뷰 작성 페이지 열기
+function openReviewPage() {
+  window.open('writeReview.html', '_blank','top = 10, left = 10, width = 345 height = 700')
+}
+
 
 // 제품 상세 정보 보기 페이지 토글 용
- function showModal() {
+function showModal() {
 	document.getElementById('background').classList.add('show-background');
 	document.getElementById('productDetail').classList.add('show-modal');
 }
@@ -76,4 +81,19 @@ customElements.define("nike-footer", NikeFooter);
 function hideModal() {
 	document.getElementById('background').classList.remove('show-background');
 	document.getElementById('productDetail').classList.remove('show-modal');
+}
+
+// 제품의 다른 색상 선택
+
+function colorSelect(value){
+  let productColors = document.querySelectorAll('.prodImageColorFrame')
+  // 이미 선택된 색상에 대해서는 반응 x
+  if(productColors[value].classList[1] === 'selected'){return;}
+  else{
+    for(let i = 0; i < productColors.length; i++){productColors[i].classList.remove('selected')}
+    productColors[value].classList.add('selected')
+    const Frame = document.getElementById('prodImageFrame')
+    Frame.childNodes[1].setAttribute('src', `${productColors[value].childNodes[1].getAttribute('src')}`)
+  }
+  
 }
