@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<link rel="stylesheet" href="aboutProduct.css" />
+		<link rel="stylesheet" href="productDetail.css" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 			rel="stylesheet"
@@ -390,7 +390,7 @@
 							<li>스타일 번호: FJ6458-700</li>
 						</ul>
 					</div>
-					<p class="prodDetail">상품 상세 정보 보기</p>
+					<p class="prodDetail" onclick="showModal()">상품 상세 정보 보기</p>
 				</div>
 				<!-- 제품 배송 정보, 리뷰 등등을 표시 -->
 				<div class="prodMoreInfo">	
@@ -492,7 +492,45 @@
 			<!-- 푸터 쪽에서 확률적으로 문제를 발생 -->
 			<nike-footer>나이키 푸터</nike-footer>
 		</div>
-		
-		<script src="test.js"></script>
+		<div class="footerBasketBtn">
+			장바구니
+		</div>
+		<!-- 바깥 영역을 클릭해도 닫힐 수 있도록 + 바깥 영역 블러 처리 -->
+		<div class="background" id="background" onclick="hideModal()"></div>
+		<div class="productDetail" id="productDetail">
+			<div class="productDetailContent">
+				<div>
+					<img src="../images/product/shoes1.png" />
+					<span class="productDetailItem"> 테이텀 2 PF </span>
+					<div class="prodPrice detailed">
+						<span id="prevPrice" style="margin-right: 8px;">149,000 원</span>
+						<span id="curPrice" style="color: #9e9ea0; text-decoration-line: line-through; margin-right: 8px;">249,000 원</span>
+						<span id="salesRate" style="color: #007d48;">10% 할인</span>
+					</div>
+					<div class="closeButton" onclick="hideModal()" onmouseover="">
+						<img src="../images/icons/IconExitGray.svg" />
+					</div>
+				</div>
+				<div class="productDetailDescription">
+					<p>경기 종료 휘슬이 울릴 때까지는 끝난 것이 아닙니다. 테이텀 2와 함께 여유로운 에너지로 경기를 즐겨보세요.
+						무거운 고무 소재의 사용을 제한하여 더욱 가벼운 착화감을 선사합니다. 전체적으로 적용된 나이키 에어 스트로벨 유닛은 빠르게 방향을 바꿀 수 있도록 도와주며,
+						견고한 프레임과 발에 밀착되는 지지력 있는 폼이 어우러져 고정력 좋은 착화감을 선사합니다.</p>
+
+					<h1 style="font-size: 20px; font-weight: 700; line-height: 300%;">꼭 맞는 핏</h1>
+					<p style="font-size: 14px;">밑창 아래부터 갑피 위쪽을 감싸는 프레임으로, 지면에 가까운 낮은 자세로 플레이할 때 지지력을 선사합니다.</p>
+					<h1 style="font-size: 20px; font-weight: 700; line-height: 300%;">뛰어난 그립력</h1>
+					<p style="font-size: 14px;">코트 위에서는 언제나 움직이게 되죠. 고무 밑창과 지면에 접촉하는 폼은 공격에서도, 수비에서도 반응성과 접지력을 높여주는 역할을 합니다.</p>
+					<h1 style="font-size: 20px; font-weight: 700; line-height: 300%;">경량 구조</h1>
+					<p style="font-size: 14px;">신발이 가벼워 뛰어오를 때 에너지를 아낄 수 있습니다. 고무 소재가 가장 필요한 밑창에는 고무가 사용됐지만, 충분한 접지력을 가진 폼이 무거운 무게를 지탱해줍니다.</p>
+					<h1 style="font-size: 20px; font-weight: 700; line-height: 300%;">상품 상세 정보</h1>
+					<p style="font-size: 14px;">야외 코트 경기를 위해 최적화된 넓은 디자인의 PF 에디션</p>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
 	</body>
 </html>
