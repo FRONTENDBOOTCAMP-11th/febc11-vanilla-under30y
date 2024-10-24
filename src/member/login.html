@@ -4,11 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Nike</title>
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="loginstyle.css" />
 	</head>
 	<body>
 		<header class="header">
-			<img src="../images/logo/loginLogo.png" class="logo" />
+			<img src="../../src/assets/logo/loginLogo.png" class="logo" />
 		</header>
 		<main class="contents">
 			<div class="input-email-form">
@@ -19,11 +19,14 @@
 				<div class="input-container">
 					<input
 						type="email"
+						id="email"
 						class="user-login-input"
 						placeholder="이메일"
+						oninput="validateEmail(this)"
 						required
 					/>
 					<label class="floating-label">이메일</label>
+					<span id="validationMessage"></span>
 				</div>
 				<p class="description">
 					계속 진행하면
@@ -31,7 +34,11 @@
 					됩니다.
 				</p>
 				<div class="button-area">
-					<button onclick="nextButton()" class="button-black">
+					<button
+						id="next"
+						onclick="buttonNext()"
+						class="button-black"
+					>
 						계속
 					</button>
 				</div>
@@ -45,7 +52,7 @@
 				</div>
 				<input
 					type="password"
-					id="user-password"
+					id="password"
 					class="user-login-input"
 					placeholder="비밀번호"
 				/>
@@ -53,7 +60,7 @@
 				<div class="button-area">
 					<button
 						id="last"
-						onclick="lastButton()"
+						onclick="buttonLast()"
 						class="button-white"
 					>
 						이전
@@ -64,5 +71,7 @@
 				</div>
 			</div>
 		</main>
+
+		<script src="script.js"></script>
 	</body>
 </html>
