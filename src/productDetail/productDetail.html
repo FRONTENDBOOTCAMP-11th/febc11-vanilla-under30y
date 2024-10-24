@@ -391,7 +391,7 @@
 							<li id="styleIdInfo">스타일 번호: FJ6458-700</li>
 						</ul>
 					</div>
-					<p class="prodDetail" onclick="showModal()">상품 상세 정보 보기</p>
+					<p class="prodDetail">상품 상세 정보 보기</p>
 				</div>
 				<!-- 제품 배송 정보, 리뷰 등등을 표시 -->
 				<div class="prodMoreInfo">	
@@ -424,7 +424,7 @@
 						<div class="summaryContent">
 							<div style="display: inline;" class="reviewTotalStars">★★★★★</div>
 							<span id="reviewTotalScore">4.7점</span>
-							<p class="writeReview" onclick="openReviewPage()">리뷰 작성하기</p>
+							<p class="writeReview">리뷰 작성하기</p>
 							<div class="reviewSection">
 								<div class="reviews">
 									<h3 class="reviewTitle">Nike Jam Shoe Revie</h3>
@@ -497,7 +497,7 @@
 			장바구니
 		</div>
 		<!-- 바깥 영역을 클릭해도 닫힐 수 있도록 + 바깥 영역 블러 처리 -->
-		<div class="background" id="background" onclick="hideModal()"></div>
+		<div class="background" id="background"></div>
 		<div class="productDetail" id="productDetail">
 			<div class="productDetailContent">
 				<div>
@@ -508,7 +508,7 @@
 						<span id="curPrice" style="color: #9e9ea0; text-decoration-line: line-through; margin-right: 8px;">249,000 원</span>
 						<span id="salesRate" style="color: #007d48;">10% 할인</span>
 					</div>
-					<div class="closeButton" onclick="hideModal()" onmouseover="">
+					<div class="closeButton" onmouseover="">
 						<img src="../images/icons/IconExitGray.svg" />
 					</div>
 				</div>
@@ -532,6 +532,6 @@
 				</div>
 			</div>
 		</div>
-		<script src="script.js"></script>
+		<script type="module" src="script.js"></script>
 	</body>
 </html>

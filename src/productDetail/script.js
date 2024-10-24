@@ -174,24 +174,53 @@ recommendedSlider.addEventListener('mousemove', e => {
 })
 
 // 리뷰 작성 페이지 열기
-function openReviewPage() {
+document.querySelector('.writeReview').addEventListener('click', () => {
 	window.open(
 		'writeReview.html',
 		'_blank',
 		'top = 10, left = 10, width = 345 height = 700'
 	)
-}
+})
+
+// function openReviewPage() {
+// 	window.open(
+// 		'writeReview.html',
+// 		'_blank',
+// 		'top = 10, left = 10, width = 345 height = 700'
+// 	)
+// }
 
 // 제품 상세 정보 보기 페이지 토글 용
-function showModal() {
+const showModal = document.querySelector('.prodDetail')
+
+showModal.addEventListener('click', () => {
 	document.getElementById('background').classList.add('show-background')
 	document.getElementById('productDetail').classList.add('show-modal')
-}
+})
 
-function hideModal() {
-	document.getElementById('background').classList.remove('show-background')
-	document.getElementById('productDetail').classList.remove('show-modal')
-}
+// function showModal() {
+// 	document.getElementById('background').classList.add('show-background')
+// 	document.getElementById('productDetail').classList.add('show-modal')
+// }
+
+const hideModal = [
+	document.querySelector('.background'),
+	document.querySelector('.closeButton')
+]
+
+hideModal.forEach(item => {
+	item.addEventListener('click', () => {
+		document
+			.getElementById('background')
+			.classList.remove('show-background')
+		document.getElementById('productDetail').classList.remove('show-modal')
+	})
+})
+
+// function hideModal() {
+// 	document.getElementById('background').classList.remove('show-background')
+// 	document.getElementById('productDetail').classList.remove('show-modal')
+// }
 
 // 제품의 다른 색상 선택 시각적 효과, api 관련된 이벤트도 추가할 수 있음
 const productColors = document.querySelectorAll('.prodImageColorFrame')

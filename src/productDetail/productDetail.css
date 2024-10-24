@@ -224,6 +224,7 @@ img {
 	line-height: 175%;
 	border-bottom: 2px solid var(--color-black-1);
 	margin-bottom: 31.5px;
+	cursor: pointer;
 }
 
 /* additional info area */
@@ -316,6 +317,7 @@ details[open] {
 	width: fit-content;
 	border-bottom: 2px solid var(--color-black-1);
 	margin: 14px 0 28px 0;
+	cursor: pointer;
 }
 
 .reviewSection {
