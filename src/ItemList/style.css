@@ -398,6 +398,18 @@ body {
 	margin-bottom: 18px;
 }
 
+.content__product-list--inside-product-img {
+	max-width: 177px;
+	max-height: 177px;
+	overflow: hidden;
+}
+
+.content__product-list--inside-product-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 .content__product-list--inside-product-explain p {
 	/* 상품 정보 안에 있는 모든 정보에 대한 패딩 */
 	padding-top: 3px;
