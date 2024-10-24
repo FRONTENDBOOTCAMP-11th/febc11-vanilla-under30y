@@ -4,7 +4,7 @@ export default {
 	// 코드 마지막에 세미콜론 추가(기본값 true)
 	semi: false,
 	// 들여쓰기를 탭으로 지정할지 여부(기본값 false)
-	useTabs: false,
+	useTabs: true,
 	// 들여쓰기 너비 2칸(기본값 2)
 	tabWidth: 4,
 	// 여러 줄의 쉼표로 구분된 구문 구조에서 후행 쉼표를 추가(none: 설정 안함, es5: 객체,배열에 설정, all(기본값): 함수 정의나 호출 등 가능한 모든 곳에 설정)
