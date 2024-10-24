@@ -207,7 +207,7 @@ body {
 	[type='radio'] {
 	appearance: none;
 	cursor: pointer;
-	content: url(../images/icons/button.svg);
+	content: url(../../assets/icons/checkbox/button.svg);
 }
 
 .content__product-list--header-filter-option
@@ -215,7 +215,7 @@ body {
 	.filter-standard
 	[type='radio']:checked {
 	cursor: pointer;
-	content: url(../images/icons//button-check.svg);
+	content: url(../../assets/icons/checkbox/button-check.svg);
 }
 
 .content__product-list--header-filter-option
@@ -254,7 +254,7 @@ body {
 	[type='checkbox'] {
 	appearance: none;
 	cursor: pointer;
-	content: url(../images/icons/checkbox.svg);
+	content: url(../../assets/icons/checkbox/checkbox.svg);
 }
 
 .content__product-list--header-filter-option
@@ -262,7 +262,7 @@ body {
 	.filter-gender
 	[type='checkbox']:checked {
 	cursor: pointer;
-	content: url(../images/icons/checkbox-check.svg);
+	content: url(../../assets/icons/checkbox/checkbox-check.svg);
 }
 
 .content__product-list--header-filter-option .filter-content .filter-gender h1 {
@@ -304,7 +304,7 @@ body {
 	[type='checkbox'] {
 	appearance: none;
 	cursor: pointer;
-	content: url(../images/icons/checkbox.svg);
+	content: url(../../assets/icons/checkbox/checkbox.svg);
 }
 
 .content__product-list--header-filter-option
@@ -312,7 +312,7 @@ body {
 	.filter-money
 	[type='checkbox']:checked {
 	cursor: pointer;
-	content: url(../images/icons/checkbox-check.svg);
+	content: url(../../assets/icons/checkbox/checkbox-check.svg);
 }
 
 .content__product-list--header-filter-option .filter-content .filter-money h1 {
@@ -396,6 +396,18 @@ body {
 .content__product-list--inside-product {
 	width: 177px;
 	margin-bottom: 18px;
+}
+
+.content__product-list--inside-product-img {
+	max-width: 177px;
+	max-height: 177px;
+	overflow: hidden;
+}
+
+.content__product-list--inside-product-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .content__product-list--inside-product-explain p {
@@ -493,7 +505,7 @@ body {
 
 .content__product-list--footer summary::after {
 	/* 선택 시 화살표 애니메이션 */
-	content: url(../images/icons/Down.svg);
+	content: url(../../assets/icons/carticon/Down.svg);
 	transition: 0.5s transform;
 }
 

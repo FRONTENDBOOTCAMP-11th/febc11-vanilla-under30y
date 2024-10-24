@@ -1,26 +1,26 @@
 class NikeHeader extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-    const template = document.getElementById("nike-header");
-    const clone = template.content.cloneNode(true);
-    this.shadowRoot.appendChild(clone);
-  }
+	constructor() {
+		super()
+		this.attachShadow({ mode: 'open' })
+		const template = document.getElementById('nike-header')
+		const clone = template.content.cloneNode(true)
+		this.shadowRoot.appendChild(clone)
+	}
 }
 
-customElements.define("nike-header", NikeHeader);
+customElements.define('nike-header', NikeHeader)
 
 class NikeFooter extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-    const template = document.getElementById("nike-footer");
-    const clone = template.content.cloneNode(true);
-    this.shadowRoot.appendChild(clone);
-  }
+	constructor() {
+		super()
+		this.attachShadow({ mode: 'open' })
+		const template = document.getElementById('nike-footer')
+		const clone = template.content.cloneNode(true)
+		this.shadowRoot.appendChild(clone)
+	}
 }
 
-customElements.define("nike-footer", NikeFooter);
+customElements.define('nike-footer', NikeFooter)
 
 // document.querySelectorAll('details').forEach(details => {
 // 	const summary = details.querySelector('summary')
@@ -66,14 +66,13 @@ customElements.define("nike-footer", NikeFooter);
 // 	})
 // })
 
-
 // 제품 상세 정보 보기 페이지 토글 용
- function showModal() {
-	document.getElementById('background').classList.add('show-background');
-	document.getElementById('productDetail').classList.add('show-modal');
+function showModal() {
+	document.getElementById('background').classList.add('show-background')
+	document.getElementById('productDetail').classList.add('show-modal')
 }
 
 function hideModal() {
-	document.getElementById('background').classList.remove('show-background');
-	document.getElementById('productDetail').classList.remove('show-modal');
+	document.getElementById('background').classList.remove('show-background')
+	document.getElementById('productDetail').classList.remove('show-modal')
 }
