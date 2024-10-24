@@ -111,7 +111,16 @@ imageSlider.addEventListener('mousedown', e => {
 
 // 색상 선택 슬라이더
 
-const colorSlider = document.getElementById('prodImageFrame')
+const colorSlider = document.getElementById('prodImageColor')
+
+colorSlider.addEventListener('mousedown', e => {
+	e.preventDefault()
+	isMouseDown = true
+	colorSlider.classList.add('active')
+
+	startX = e.pageX - colorSlider.offsetLeft
+	scrollLeft = colorSlider.scrollLeft
+})
 
 colorSlider.addEventListener('mouseleave', () => {
 	isMouseDown = false
@@ -135,6 +144,15 @@ colorSlider.addEventListener('mousemove', e => {
 // 추천 상품 슬라이더
 
 const recommendedSlider = document.getElementById('recommendedItemsSection')
+
+recommendedSlider.addEventListener('mousedown', e => {
+	e.preventDefault()
+	isMouseDown = true
+	recommendedSlider.classList.add('active')
+
+	startX = e.pageX - recommendedSlider.offsetLeft
+	scrollLeft = recommendedSlider.scrollLeft
+})
 
 recommendedSlider.addEventListener('mouseleave', () => {
 	isMouseDown = false
