@@ -188,7 +188,8 @@ class NikeFooter extends HTMLElement {
 }
 
 // 상단 내비게이션 바 드래그
-function naviDrag() {
+const navi = document.getElementById('navi')
+navi.onclick = () => {
 	let mouseDown = false
 	let startX, scrollLeft
 	const slider = document.getElementById('navi')
@@ -222,13 +223,15 @@ function naviDrag() {
 
 // 필터 메뉴
 // Action Sheet 보이기
-function showActionSheet() {
-	document.getElementById('filter').classList.add('active')
+const showFilter = document.getElementById('filter-show')
+const hideFilter = document.getElementById('filter-hide')
+showFilter.onclick = () => {
+	const filter = document.getElementById('filter')
+	filter.classList.add('active')
 }
-
-// Action Sheet 감추기
-function hideActionSheet() {
-	document.getElementById('filter').classList.remove('active')
+hideFilter.onclick = () => {
+	const filter = document.getElementById('filter')
+	filter.classList.remove('active')
 }
 
 // 상품 전체 개수 세는 함수
