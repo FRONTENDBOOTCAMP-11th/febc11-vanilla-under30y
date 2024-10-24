@@ -74,7 +74,7 @@ class NikeFooter extends HTMLElement {
   
       .drop-box summary::after {
         /* 선택 시 화살표 애니메이션 */
-        content: url(../images/icons/Down.svg);
+        content: url(../../assets/icons/carticon/Down.svg);
         transition: 0.5s transform;
       }
   
