@@ -3,68 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>장바구니</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="container">
+<!-- ------------------ 공통 header 부분 -------------------- -->
         <header class="header">
             <div class="logo">
-                <img src="images/LOGO.png"/>
-            </div>
-            <div class="header-icons">
-                <div class="header-icon">
-                    <!-- 검색 아이콘 -->
-                     
-                </div>
-                <div class="header-icon">
-                    <!-- 장바구니 아이콘 -->
-                </div>
-                <div class="menu-icon">
-                    <!-- 메뉴 아이콘 -->
-                </div>
+                <img src="images/icons/LOGO.svg" alt="나이키 로고" class="header--img logo"/>
+                <!-- <img src="images/searchIcon.png" alt="검색" class="header--img search"/> -->
+                <img src="images/icons/IconProfile.svg" alt="프로필" class="header--img profile"/>
+                <img src="images/icons/IconCart.svg" alt="장바구니 아이콘" class="header--img cart"/>
+                <img src="images/icons/IconMenu.svg" alt="메뉴 아이콘" class="header--img menu"/>
             </div>
         </header>
-
+<!-- ------------------- 검색 부분 --------------------- -->
         <div class="search-container">
-            <div class="search-icon"></div>
-            <input type="text" id="search-text" placeholder="검색"></input>
+          <img class="search-icon" src="images/icons/IconSearch.svg" alt="Search Icon"/>
+          <input type="text" class="search-input" placeholder="검색"></input>
         </div>
-
+<!-- ------------------ 주문 상품 정보 ----------------- -->
         <div class="header-cart">
             <h2 class="title-cart">장바구니</h2>
             <div class="basket-product">
                 <span class="count-product">1 개의 제품 |</span><span class="product-price">189,000 원</span>
             </div>
         </div>
-
         <div class="product-info">
-            <div class="product-image">
-                <img src="images/shoes.png" alt="Product Image"/>
+            <div class="product-image-section">
+                <div class="product-image">
+                    <img src="images/shoes.png" alt="나이키 줌 보메로 5"/>
+                </div>
+                <div class="shipping-info">
+                    <p><strong>무료 배송</strong></p>
+                    <p class="arrival-date">도착 예정일: 7월 27일 (토) 배송 지역: <strong class="shipping-zip-code">04628</strong></p>
+                </div>
             </div>
             <div class="product-details">
-                <p class="product-price">189,000 원</p>
-                <p class="product-name">나이키 줌 보메로 5</p>
+                <div class="product-header">
+                    <p class="product-price">189,000 원</p>
+                    <p class="product-name">나이키 줌 보메로 5</p>
+                </div>
                 <p class="product-category">남성 신발</p>
                 <div class="product-info2">
-                    <p class="product-size">
+                    <div class="product-size">
                         사이즈
-                        <p class="product-size-num">275</p>
-                    </p>
-                    <p class="product-amount">
+                        <span class="size-value">275</span>
+                    </div>
+                    <div class="product-amount">
                         수량
-                        <p class="icon-minus">-</p>
-                        <p class="count-number">1</p>
-                        <p class="icon-plus">+</p>
-                    </p>
+                        <span class="icon-minus">-</span>
+                        <span class="count-number">1</span>
+                        <span class="icon-plus">+</span>
+                    </div>
                 </div>
-                <div>
-                    <p><strong>무료 배송</strong></p>
-                    <p>도착 예정일: 7월 27일 (토)배송 지역: <strong>04628</strong></p>
+                <div class="product-icons">
+                    <img src="images/icons/IconLike.svg" alt="관심 상품" class="icon-heart">
+                    <img src="images/deleteIcon.png" alt="삭제" class="icon-delete">
                 </div>
             </div>
         </div>
-
+<!-- ---------------------- 주문 내역 부분 ---------------- -->
         <div class="order-summary">
             <h2 class="section-title"><strong>주문 내역</strong></h2>
             <div class="summary-row">
@@ -80,23 +80,153 @@
                 <span class="order-product-price">189,000 원</span>
             </div>
         </div>
+<!-- ------------- 위시 리스트 부분 -------------------- -->
+<div class="wishlist-container">
+  <div class="wishlist-title">위시리스트</div>
 
-        <footer class="footer">
-            <div class="footer-links">
-                <div class="footer-link">안내</div>
-                <div class="footer-link">고객센터</div>
-                <div class="footer-link">회사소개</div>
+  <!-- 위시 리스트 아이템 1 -->
+  <div class="wishlist-item">
+      <img src="images/shoes.png" alt="나이키 줌 보메로 5">
+      <div class="wishlist-item-info">
+          <div class="item-name">나이키 줌<br/>보메로 5</div>
+          <div class="item-category">남성 신발</div>
+          <div class="item-size">
+              사이즈
+              <div class="item-size-box">275</div>
+          </div>
+      </div>
+      <div class="item-price">189,000 원</div>
+  </div>
+  <!-- 장바구니에 추가 - 버튼 -->
+  <div class="addCart-button-container">
+    <div class="addCart-button">장바구니에 추가</div>
+  </div>
+  <!-- 위시 리스트 아이템 2 -->
+  <div class="wishlist-item">
+    <img src="images/shoes.png" alt="나이키 줌 보메로 5">
+    <div class="wishlist-item-info">
+        <div class="item-name">나이키 줌<br/>보메로 5</div>
+        <div class="item-category">남성 신발</div>
+        <div class="item-size">
+            <div class="item-size-box">
+              사이즈 선택
             </div>
-            <div class="footer-text">
-                © 2024 Nike, Inc. All Rights Reserved
+        </div>
+    </div>
+    <div class="item-price">189,000 원</div>
+</div>
+
+<!-- 장바구니에 추가 - 버튼 -->
+<div class="addCart-button-container">
+  <div class="addCart-button">장바구니에 추가</div>
+</div>
+<!-- 위시 리스트 상품 모두 보기 - 버튼 -->
+<div class="viewAll-button">위시리스트 상품 모두 보기</div>
+</div>
+ <!-- ------------ 공통 footer 부분 ---------------- -->
+        <div class="footer-wrapper">
+            <div class="drop-box">
+              <details>
+                <summary>
+                  <span>안내</span>
+                </summary>
+              </details>
+              <div class="content">
+                <p>
+                  <a href="https://www.nike.com/kr/membership"> 멤버 가입</a>
+                </p>
+                <p>
+                  <a href="https://www.nike.com/kr/retail">매장 찾기</a>
+                </p>
+                <p>
+                  <a href="https://www.nike.com/kr/stories">나이키 저널</a>
+                </p>
+              </div>
             </div>
-            <div class="footer-text">
-                (유)나이키코리아 대표 Kimberlee Lynn Chang Mendes, 킴벌리 린 창 멘데스 | 서울 강남구 테헤란로 152 강남파이낸스센터 30층
+            <div class="drop-box">
+              <details>
+                <summary>
+                  <span>고객센터</span>
+                </summary>
+              </details>
+              <div class="content">
+                <p>
+                  <a href="https://www.nike.com/kr/orders/details/">
+                    주문배송조회</a
+                  >
+                </p>
+                <p>
+                  <a href="https://www.nike.com/kr/help/a/returns-policy"
+                    >반품 정책</a
+                  >
+                </p>
+                <p>
+                  <a href="https://www.nike.com/kr/help/a/payment-options"
+                    >결제 방법</a
+                  >
+                </p>
+                <p>
+                  <a href="https://www.nike.com/kr/help/a/an">공지사항</a>
+                </p>
+                <p>
+                  <a href="https://www.nike.com/kr/help/#contact">문의하기</a>
+                </p>
+              </div>
             </div>
-        </footer>
+            <div class="drop-box">
+              <details>
+                <summary>
+                  <span>회사소개</span>
+                </summary>
+              </details>
+              <div class="content">
+                <p>
+                  <a href="https://about.nike.com/en/"> About Nike</a>
+                </p>
+                <p>
+                  <a href="https://about.nike.com/en/newsroom">소식</a>
+                </p>
+                <p>
+                  <a href="https://jobs.nike.com/">채용</a>
+                </p>
+                <p>
+                  <a href="https://investors.nike.com/Home/default.aspx">투자자</a>
+                </p>
+                <p>
+                  <a href="https://www.nike.com/kr/sustainability">지속가능성</a>
+                </p>
+              </div>
+            </div>
+            <div class="footer">
+              <!-- 이용 약관 및 개인정보처리방침 -->
+              <div class="footer__policy">
+                <p>© 2024 Nike, Inc. All Rights Reserved</p>
+                <p>이용약관</p>
+                <p class="person">개인정보처리방침</p>
+                <p>위치정보이용약관</p>
+                <p>영상정보처리기기 운영 방침</p>
+              </div>
+              <!-- 회사 정보 -->
+              <div class="footer__company-info">
+                <p>
+                  (유)나이키코리아 대표 Kimberlee Lynn Chang Mendes, 킴벌리 린 창
+                  멘데스 | 서울 강남구 테헤란로 152 강남파이낸스센터 30층 |
+                  통신판매업신고번호 2011-서울강남-03461 | 등록번호 220-88-09068<br />
+                  <a href="#">사업자 정보 확인</a><br />고객센터 전화 문의
+                  <a href="#">080-022-0182</a> FAX 02-6744-5880 | 이메일
+                  <a href="#">service@nike.co.kr</a>
+                  | <br />호스팅서비스사업자 (유)나이키코리아
+                </p>
+              </div>
+            </div>
+          </div>
+        </template>
+        <nike-header>나이키 헤더</nike-header>
+        <nike-footer>나이키 푸터</nike-footer>
 
         <div class="order-button">주문하기</div>
     </div>
     <script src="prdBasket.js"></script>
+    <script src="웹 컴포넌트/test.js"></script>
 </body>
 </html>
