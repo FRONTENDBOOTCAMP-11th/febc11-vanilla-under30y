@@ -57,6 +57,15 @@ input {
 		'Segoe UI Symbol',
 		sans-serif;
 	font-size: 62.5%;
+
+	--color-black-1: #111111;
+	--color-gray-1: #f5f5f5;
+	--color-gray-2: #e5e5e5;
+	--color-gray-3: #cacacb;
+	--color-gray-4: #9e9ea0;
+	--color-gray-5: #707072;
+	--color-green-1: #007d48;
+	--color-red-1: #9e3500;
 }
 
 /* Header */
@@ -107,13 +116,44 @@ input {
 	/* flex-shrink: 0; */
 }
 
-.user-large-input {
-	padding: 16px 12px;
+.large {
 	width: 100%;
-	border: 1px solid #707072;
+	box-sizing: border-box;
+	padding: 16px 12px;
+	border: 1px solid var(--color-gray-5);
 	border-radius: 8px;
 	font-size: 16px;
-	flex-shrink: 0;
+	outline: none;
+}
+
+.input-container {
+	position: relative;
+}
+
+.floating-label {
+	position: absolute;
+	left: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+	background-color: white;
+	padding: 0 4px;
+	color: var(--color-gray-5);
+	transition: all 0.2s ease-in-out;
+	pointer-events: none;
+}
+
+/* 포커스되거나 값이 있을 때 라벨 위치 이동 */
+.user-input:focus + .floating-label,
+.user-input:not(:placeholder-shown) + .floating-label {
+	top: 0;
+	font-size: 12px;
+	transform: translateY(-50%);
+}
+
+/* 포커스 시 input 스타일 */
+.user-large-input:focus {
+	border-color: var(--color-black-1);
 }
 
 .pw-conditions {
@@ -157,7 +197,7 @@ input {
 }
 
 /* 기본 라디오 버튼 숨기기 */
-.term input[type='radio'] {
+input[type='radio'] {
 	position: absolute;
 	opacity: 0;
 	width: 0;
@@ -182,11 +222,11 @@ input {
 }
 
 /* 체크된 상태일 때 이미지 표시 전환 */
-.custom-radio input[type='radio']:checked ~ .unchecked {
+.term input[type='radio']:checked ~ .unchecked {
 	display: none;
 }
 
-.custom-radio input[type='radio']:checked ~ .checked {
+.term input[type='radio']:checked ~ .checked {
 	display: block;
 }
 
