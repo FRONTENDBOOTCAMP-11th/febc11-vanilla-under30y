@@ -339,15 +339,15 @@
 							<img src="../images/product/shoes9.png" style="display: block"/>
 						</div>
 						<!-- 해당 상품의 다른 색상 등을 볼 수 있음 -->
-						<div class="prodImageColor">
+						<div class="prodImageColor" id="prodImageFrame">
 							<!-- 선택시 테두리가 검게 하고, 선택효과를 넣기 위해 div로 감쌈 -->
-							<div class="prodImageColorFrame" onclick="colorSelect(0)">
+							<div class="prodImageColorFrame">
 								<img src="../images/product/shoes11.png">
 							</div>
-							<div class="prodImageColorFrame" onclick="colorSelect(1)">
+							<div class="prodImageColorFrame">
 								<img src="../images/product/shoes12.png">
 							</div>
-							<div class="prodImageColorFrame selected" onclick="colorSelect(2)">
+							<div class="prodImageColorFrame selected">
 								<img src="../images/product/shoes1.png">
 							</div>
 						</div>
@@ -355,7 +355,7 @@
 					<div class="sizeArea">
 						<div class="sizeAreaText"><span>사이즈 선택</span><span class="sizeGuide">사이즈 가이드</span></div>
 						<div class="sizeSelection">
-							<div class="size" onclick="">250</div>
+							<div class="size">250</div>
 							<div class="size">255</div>
 							<div class="size">260</div>
 							<div class="size">265</div>
@@ -467,10 +467,10 @@
 			<div class="recommended">
 				<div class="recommendedHeader">
 					<h1>추천 제품</h1>
-					<img class="btnLeft" src="../images/icons/IconSlideLeft.png">
+					<img class="btnLeft off" src="../images/icons/IconSlideLeft.png">
 					<img class="btnRight" src="../images/icons/IconSlideRight.png">					
 				</div>
-				<div class="recommendedItemsSection">
+				<div class="recommendedItemsSection" id="recommendedItemsSection">
 					<div class="recommendedItem" onclick="">
 						<img src="../images/product/shoes14.png" style="display: block; width: 196px; height: 196px;">
 						<div style="margin: 11.75px 0;">

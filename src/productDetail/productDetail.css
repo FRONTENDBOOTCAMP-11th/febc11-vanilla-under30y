@@ -155,7 +155,7 @@ img {
 .size.off {
 	background-color: var(--color-gray-3);
 	color: var(--color-gray-4);
-	cursor: none;
+	cursor: default;
 }
 
 /* hover 상호작용, 클릭 시 작용은 JS로 구현 */
@@ -163,7 +163,7 @@ img {
 	border: solid 1px var(--color-black-1);
 }
 
-.size:focus {
+.size.selected {
 	border: solid 1px var(--color-black-1);
 }
 
