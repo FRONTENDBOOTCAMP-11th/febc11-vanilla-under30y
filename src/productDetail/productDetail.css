@@ -108,6 +108,8 @@ img {
 	aspect-ratio: 1 / 1;
 	border-radius: 5px;
 	overflow: hidden;
+
+	cursor: pointer;
 }
 
 .prodImageColorFrame.selected {
@@ -147,11 +149,13 @@ img {
 	line-height: 300%;
 	border-radius: 4px;
 	font-weight: 400;
+	cursor: pointer;
 }
 
 .size.off {
 	background-color: var(--color-gray-3);
 	color: var(--color-gray-4);
+	cursor: none;
 }
 
 /* hover 상호작용, 클릭 시 작용은 JS로 구현 */
@@ -466,7 +470,6 @@ details[close] summary ~ * {
 
 .show-modal {
 	bottom: 90%;
-
 }
 
 .productDetailContent {

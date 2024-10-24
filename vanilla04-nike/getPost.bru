@@ -1,0 +1,15 @@
+meta {
+  name: getPost
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/posts?type=info
+  body: none
+  auth: none
+}
+
+params:query {
+  type: info
+}
