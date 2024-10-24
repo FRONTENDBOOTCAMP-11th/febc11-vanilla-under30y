@@ -1,46 +1,3 @@
-// 상단 내비게이션 바 드래그
-let mouseDown = false
-let startX, scrollLeft
-const slider = document.getElementById('navi')
-
-const startDragging = e => {
-	mouseDown = true
-	startX = e.pageX - slider.offsetLeft
-	scrollLeft = slider.scrollLeft
-}
-
-const stopDragging = e => {
-	mouseDown = false
-}
-
-const move = e => {
-	e.preventDefault()
-	if (!mouseDown) {
-		return
-	}
-	const x = e.pageX - slider.offsetLeft
-	const scroll = x - startX
-	slider.scrollLeft = scrollLeft - scroll
-}
-
-// Add the event listeners
-slider.addEventListener('mousemove', move, false)
-slider.addEventListener('mousedown', startDragging, false)
-slider.addEventListener('mouseup', stopDragging, false)
-slider.addEventListener('mouseleave', stopDragging, false)
-// 여기까지 상단 드래그 바
-
-// 필터 메뉴
-// Action Sheet 보이기
-function showActionSheet() {
-	document.getElementById('filter').classList.add('active')
-}
-
-// Action Sheet 감추기
-function hideActionSheet() {
-	document.getElementById('filter').classList.remove('active')
-}
-
 // Header, Footer 컴포넌트화
 class NikeHeader extends HTMLElement {
 	constructor() {
@@ -220,8 +177,6 @@ class NikeHeader extends HTMLElement {
 	}
 }
 
-customElements.define('nike-header', NikeHeader)
-
 class NikeFooter extends HTMLElement {
 	constructor() {
 		super()
@@ -232,4 +187,69 @@ class NikeFooter extends HTMLElement {
 	}
 }
 
+// 상단 내비게이션 바 드래그
+function naviDrag() {
+	let mouseDown = false
+	let startX, scrollLeft
+	const slider = document.getElementById('navi')
+
+	const startDragging = e => {
+		mouseDown = true
+		startX = e.pageX - slider.offsetLeft
+		scrollLeft = slider.scrollLeft
+	}
+
+	const stopDragging = e => {
+		mouseDown = false
+	}
+
+	const move = e => {
+		e.preventDefault()
+		if (!mouseDown) {
+			return
+		}
+		const x = e.pageX - slider.offsetLeft
+		const scroll = x - startX
+		slider.scrollLeft = scrollLeft - scroll
+	}
+
+	// Add the event listeners
+	slider.addEventListener('mousemove', move, false)
+	slider.addEventListener('mousedown', startDragging, false)
+	slider.addEventListener('mouseup', stopDragging, false)
+	slider.addEventListener('mouseleave', stopDragging, false)
+}
+
+// 필터 메뉴
+// Action Sheet 보이기
+function showActionSheet() {
+	document.getElementById('filter').classList.add('active')
+}
+
+// Action Sheet 감추기
+function hideActionSheet() {
+	document.getElementById('filter').classList.remove('active')
+}
+
+// 상품 전체 개수 세는 함수
+function countAllProduct(data) {
+	let productCount = document.getElementById('product-count')
+	productCount.innerText = `${data}개의 결과`
+}
+
+const ApiUrl = 'https://11.fesp.shop'
+const ClientId = 'vanilla04'
+let xhr = new XMLHttpRequest()
+
+xhr.open('get', `${ApiUrl}/products`, true)
+xhr.setRequestHeader('client-id', `${ClientId}`)
+xhr.send()
+xhr.onload = function () {
+	if (xhr.status === 200) {
+		let data = JSON.parse(xhr.responseText)
+		countAllProduct(data.item.length) // 상품 전체 개수 결과 도출
+	}
+}
+
+customElements.define('nike-header', NikeHeader)
 customElements.define('nike-footer', NikeFooter)

@@ -810,18 +810,19 @@
 				<nike-header>나이키 헤더</nike-header>
 				<!-- 상품 카테고리 선택 -->
 				<div class="header__category">
-					<ol class="header__category--type-detail">
+					<!-- <ol class="header__category--type-detail">
 						<li>라이프스타일</li>
 						<li>/</li>
 						<li>신발</li>
-					</ol>
-					<h1 class="header__category--type">신제품</h1>
+					</ol> -->
+					<h1 class="header__category--type">모든 상품</h1>
 				</div>
 			</header>
 			<div class="content">
 				<!-- 상품 카테고리를 선택할 수 있는 내비게이션 -->
-				<div class="content__product-category">
+				<div class="content__product-category" onclick="naviDrag()">
 					<ul id="navi">
+						<li onclick="alert('전체에용')">전체</li>
 						<li onclick="alert('신발이에용')">신발</li>
 						<li>탑 & 티셔츠</li>
 						<li onclick="alert('후디에용')">후디 & 크루</li>
@@ -839,8 +840,11 @@
 				<div class="content__product-list">
 					<!-- 상품 리스트 헤더 -->
 					<div class="content__product-list--header">
-						<p class="content__product-list--header-research">
-							741개의 결과
+						<p
+							class="content__product-list--header-research"
+							id="product-count"
+						>
+							n개의 결과
 						</p>
 						<!-- 필터 버튼 클릭시 상호작용 -->
 						<!-- 전체를 암묵적으로 담고있는 div -->
