@@ -1,102 +1,110 @@
-import moment from 'moment';
+import moment from 'moment'
 
 function getTime(day = 0, second = 0) {
-  return moment().add(day, 'days').add(second, 'seconds').format('YYYY.MM.DD HH:mm:ss');
+    return moment()
+        .add(day, 'days')
+        .add(second, 'seconds')
+        .format('YYYY.MM.DD HH:mm:ss')
 }
 
 export const initData = async (clientId, nextSeq) => {
-  return {
-    // 회원
-    user: [
-      {
-        _id: await nextSeq('user'),
-        email: 'admin@fesp.shop',
-        password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
-        name: '무지',
-        type: 'admin',
-        loginType: 'email',
-        image: `/files/${clientId}/user-muzi.webp`,
-        createdAt: getTime(-100, -60 * 60 * 3),
-        updatedAt: getTime(-100, -60 * 60 * 3),
-        extra: {
-          job: '관리자',
-        }
-      },
-      {
-        _id: await nextSeq('user'),
-        email: 'w1@gmail.com',
-        password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
-        name: 'AB',
-        type: 'seller',
-        loginType: 'email',
-        image: `/files/${clientId}/user-neo.webp`,
-        createdAt: getTime(-50),
-        updatedAt: getTime(-30, -60 * 60 * 3),
-        extra: {
-          job: '마케터',
-          biography: '서른살, 새내기 취준생',
-          keyword: ['취업', '노션', '포트폴리오'],
-        },
-      },
-      {
-        _id: await nextSeq('user'),
-        email: 'w2@gmail.com',
-        password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
-        name: '자기반성',
-        type: 'seller',
-        loginType: 'email',
-        image: `/files/${clientId}/user-jayg.webp`,
-        createdAt: getTime(-40, -60 * 30),
-        updatedAt: getTime(-30, -60 * 20),
-        extra: {
-          job: '자기탐구인문학 크리에이터',
-          biography: '공상가, AB형, ENFP 성향을 똑 닮은 딸을 키우고 있는 해외맘. 세상의 모든 할머니, 엄마와 딸을 응원합니다. 열심히 일하며 생명체를 키워나가고 있습니다. 자기 탐구 인문학자',
-          keyword: ['인문학', '공상가', '엄마'],
-        },
-      },
-      {
-        _id: await nextSeq('user'),
-        email: 'w3@gmail.com',
-        password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
-        name: 'AI러 이채문',
-        type: 'seller',
-        loginType: 'kakao',
-        image: `/files/${clientId}/user-apeach.webp`,
-        createdAt: getTime(-20, -60 * 22),
-        updatedAt: getTime(-10, -60 * 11),
-        extra: {
-          job: 'edifice 매니저',
-          biography: '프롬프트 기획 전문가 & GPT전문강사, 강연자',
-          keyword: ['AI', 'GPT', '프롬프트', '강사'],
-        },
-      },
-    ],
-    // 상품
-    product: [],
-    // 주문
-    order: [],
-    // 후기
-    review: [],
-    // 장바구니
-    cart: [],
-    // 즐겨찾기/북마크
-    bookmark: [],
-    // QnA, 공지사항, 게시판
-    post: [
-      {
-        _id: await nextSeq('post'),
-        type: 'info',
-        title: '[취업특강] 노션 포트폴리오 만들기',
-        extra: {
-          subTitle: 'with 노슈니, 슈크림 마을, 마포청년나루',
-        },
-        views: 5,
-        user: {
-          _id: 2,
-          name: 'AB',
-          image: `/files/${clientId}/user-neo.webp`,
-        },
-        content: `
+    return {
+        // 회원
+        user: [
+            {
+                _id: await nextSeq('user'),
+                email: 'admin@fesp.shop',
+                password:
+                    '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
+                name: '무지',
+                type: 'admin',
+                loginType: 'email',
+                image: `/files/${clientId}/user-muzi.webp`,
+                createdAt: getTime(-100, -60 * 60 * 3),
+                updatedAt: getTime(-100, -60 * 60 * 3),
+                extra: {
+                    job: '관리자'
+                }
+            },
+            {
+                _id: await nextSeq('user'),
+                email: 'w1@gmail.com',
+                password:
+                    '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
+                name: 'AB',
+                type: 'seller',
+                loginType: 'email',
+                image: `/files/${clientId}/user-neo.webp`,
+                createdAt: getTime(-50),
+                updatedAt: getTime(-30, -60 * 60 * 3),
+                extra: {
+                    job: '마케터',
+                    biography: '서른살, 새내기 취준생',
+                    keyword: ['취업', '노션', '포트폴리오']
+                }
+            },
+            {
+                _id: await nextSeq('user'),
+                email: 'w2@gmail.com',
+                password:
+                    '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
+                name: '자기반성',
+                type: 'seller',
+                loginType: 'email',
+                image: `/files/${clientId}/user-jayg.webp`,
+                createdAt: getTime(-40, -60 * 30),
+                updatedAt: getTime(-30, -60 * 20),
+                extra: {
+                    job: '자기탐구인문학 크리에이터',
+                    biography:
+                        '공상가, AB형, ENFP 성향을 똑 닮은 딸을 키우고 있는 해외맘. 세상의 모든 할머니, 엄마와 딸을 응원합니다. 열심히 일하며 생명체를 키워나가고 있습니다. 자기 탐구 인문학자',
+                    keyword: ['인문학', '공상가', '엄마']
+                }
+            },
+            {
+                _id: await nextSeq('user'),
+                email: 'w3@gmail.com',
+                password:
+                    '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
+                name: 'AI러 이채문',
+                type: 'seller',
+                loginType: 'kakao',
+                image: `/files/${clientId}/user-apeach.webp`,
+                createdAt: getTime(-20, -60 * 22),
+                updatedAt: getTime(-10, -60 * 11),
+                extra: {
+                    job: 'edifice 매니저',
+                    biography: '프롬프트 기획 전문가 & GPT전문강사, 강연자',
+                    keyword: ['AI', 'GPT', '프롬프트', '강사']
+                }
+            }
+        ],
+        // 상품
+        product: [],
+        // 주문
+        order: [],
+        // 후기
+        review: [],
+        // 장바구니
+        cart: [],
+        // 즐겨찾기/북마크
+        bookmark: [],
+        // QnA, 공지사항, 게시판
+        post: [
+            {
+                _id: await nextSeq('post'),
+                type: 'info',
+                title: '[취업특강] 노션 포트폴리오 만들기',
+                extra: {
+                    subTitle: 'with 노슈니, 슈크림 마을, 마포청년나루'
+                },
+                views: 5,
+                user: {
+                    _id: 2,
+                    name: 'AB',
+                    image: `/files/${clientId}/user-neo.webp`
+                },
+                content: `
 <div class="wrap_body text_align_left finish_txt">
   <blockquote class="blockquote_type1 wrap_item item_type_text"
     data-app="{&quot;type&quot;:&quot;quotation&quot;,&quot;kind&quot;:&quot;quote&quot;,&quot;data&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;text&quot;:&quot;Intro&quot;},{&quot;type&quot;:&quot;br&quot;},{&quot;type&quot;:&quot;br&quot;}]}"
@@ -394,42 +402,42 @@ export const initData = async (clientId, nextSeq) => {
     data-app="{&quot;type&quot;:&quot;text&quot;,&quot;data&quot;:[{&quot;type&quot;:&quot;br&quot;}]}"
     data-block-index="88" data-shown="false"><br></p>
 </div>`,
-        replies: [
-          {
-            _id: await nextSeq('reply'),
-            user: {
-              _id: 3,
-              name: '자기반성',
+                replies: [
+                    {
+                        _id: await nextSeq('reply'),
+                        user: {
+                            _id: 3,
+                            name: '자기반성'
+                        },
+                        content: '1등',
+                        like: 5,
+                        createdAt: getTime(-2, -60 * 60 * 20),
+                        updatedAt: getTime(-2, -60 * 60 * 2)
+                    },
+                    {
+                        _id: await nextSeq('reply'),
+                        user: {
+                            _id: 4,
+                            name: 'AI러 이채문',
+                            image: `/files/${clientId}/user-apeach.webp`
+                        },
+                        content: '좋은글 잘 보고 갑니다.',
+                        like: 7,
+                        createdAt: getTime(-2, -60 * 60 * 10),
+                        updatedAt: getTime(-2, -60 * 60 * 1)
+                    }
+                ],
+                createdAt: getTime(-3, -60 * 60 * 2),
+                updatedAt: getTime(-3, -60 * 60 * 2)
             },
-            content: '1등',
-            like: 5,
-            createdAt: getTime(-2, -60 * 60 * 20),
-            updatedAt: getTime(-2, -60 * 60 * 2),
-          },
-          {
-            _id: await nextSeq('reply'),
-            user: {
-              _id: 4,
-              name: 'AI러 이채문',
-              image: `/files/${clientId}/user-apeach.webp`,
-            },
-            content: '좋은글 잘 보고 갑니다.',
-            like: 7,
-            createdAt: getTime(-2, -60 * 60 * 10),
-            updatedAt: getTime(-2, -60 * 60 * 1),
-          },
-        ],
-        createdAt: getTime(-3, -60 * 60 * 2),
-        updatedAt: getTime(-3, -60 * 60 * 2),
-      },
-      {
-        _id: await nextSeq('post'),
-        type: 'info',
-        title: 'GPT로 일한다면, 결국 프롬프팅',
-        extra: {
-          subTitle: '토큰 소비 없이 사고 과정 프롬프팅 활용',
-        },
-        content: `
+            {
+                _id: await nextSeq('post'),
+                type: 'info',
+                title: 'GPT로 일한다면, 결국 프롬프팅',
+                extra: {
+                    subTitle: '토큰 소비 없이 사고 과정 프롬프팅 활용'
+                },
+                content: `
 <div class="wrap_body text_align_left finish_txt">
   <p class="wrap_item item_type_text"
     data-app="{&quot;type&quot;:&quot;text&quot;,&quot;data&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;text&quot;:&quot;Reddit의 PromptEngineering 커뮤니티에서 한 사용자가 추가 토큰을 사용하지 않고도 \u0027사고 과정(chain of thought)\u0027 프롬프팅의 이점을 누릴 수 있는 새로운 방법을 제안했습니다.&quot;}]}"
@@ -526,48 +534,43 @@ export const initData = async (clientId, nextSeq) => {
     data-app="{&quot;type&quot;:&quot;text&quot;,&quot;data&quot;:[{&quot;type&quot;:&quot;br&quot;}]}"
     data-block-index="23" data-shown="false"><br></p>
 </div>`,
-        views: 318,
-        user: {
-          _id: 4,
-          name: 'AI러 이채문',
-          image: '/files/00-next-level/user-apeach.webp',
-        },
-        createdAt: getTime(-3, -60 * 60 * 20),
-        updatedAt: getTime(-2, -60 * 60 * 10),
-        replies: [
-          {
-            _id: await nextSeq('reply'),
-            content: '프롬프팅이 중요하군요...',
-            user: {
-              _id: 2,
-              name: 'AB',
-              image: `/files/${clientId}/user-neo.webp`
-            },
-            createdAt: getTime(-2, -60 * 60 * 20),
-            updatedAt: getTime(-2, -60 * 60 * 2)
-          },
-          {
-            _id: await nextSeq('reply'),
-            content: 'IT에 무지한 저에게는 신기한 글이네요^^',
-            user: {
-              _id: 3,
-              name: '자기반성',
-              image: `/files/${clientId}/user-jayg.webp`
-            },
-            createdAt: getTime(-2, -60 * 60 * 20),
-            updatedAt: getTime(-2, -60 * 60 * 20)
-          },
-
-
-        ]
-      }
-    ],
-    // 코드
-    code: [
-    ],
-    // 설정
-    config: [
-
-    ],
-  }
-};
+                views: 318,
+                user: {
+                    _id: 4,
+                    name: 'AI러 이채문',
+                    image: '/files/00-next-level/user-apeach.webp'
+                },
+                createdAt: getTime(-3, -60 * 60 * 20),
+                updatedAt: getTime(-2, -60 * 60 * 10),
+                replies: [
+                    {
+                        _id: await nextSeq('reply'),
+                        content: '프롬프팅이 중요하군요...',
+                        user: {
+                            _id: 2,
+                            name: 'AB',
+                            image: `/files/${clientId}/user-neo.webp`
+                        },
+                        createdAt: getTime(-2, -60 * 60 * 20),
+                        updatedAt: getTime(-2, -60 * 60 * 2)
+                    },
+                    {
+                        _id: await nextSeq('reply'),
+                        content: 'IT에 무지한 저에게는 신기한 글이네요^^',
+                        user: {
+                            _id: 3,
+                            name: '자기반성',
+                            image: `/files/${clientId}/user-jayg.webp`
+                        },
+                        createdAt: getTime(-2, -60 * 60 * 20),
+                        updatedAt: getTime(-2, -60 * 60 * 20)
+                    }
+                ]
+            }
+        ],
+        // 코드
+        code: [],
+        // 설정
+        config: []
+    }
+}

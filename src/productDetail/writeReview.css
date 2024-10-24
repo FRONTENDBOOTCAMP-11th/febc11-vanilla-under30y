@@ -4,148 +4,148 @@ h1,
 span,
 input,
 p {
-	margin: unset;
-	padding: unset;
-	font-size: unset;
-	font-weight: unset;
+    margin: unset;
+    padding: unset;
+    font-size: unset;
+    font-weight: unset;
 }
 
 img {
-	width: 100%;
+    width: 100%;
 }
 
 /* typography */
 :root {
-	font-family: 'noto Sans KR';
-	--color-black: #111111;
-	--color-gray-1: #707072;
-	--color-gray-2: #e5e5e5;
-	word-break: keep-all;
+    font-family: 'noto Sans KR';
+    --color-black: #111111;
+    --color-gray-1: #707072;
+    --color-gray-2: #e5e5e5;
+    word-break: keep-all;
 }
 
 /* layer */
 /* 자식 페이지로서 반응형이 아닌 고정형으로 디자인 */
 body {
-	width: 345px;
+    width: 345px;
 }
 
 .l_wrapper {
-	width: auto;
-	max-width: 297px;
-	max-height: 985px;
-	margin: 0 24px;
+    width: auto;
+    max-width: 297px;
+    max-height: 985px;
+    margin: 0 24px;
 }
 
 /* design */
 
 /* close button */
 .closeButton {
-	width: 29px;
-	height: 29px;
-	margin: 19px 19px 12px auto;
+    width: 29px;
+    height: 29px;
+    margin: 19px 19px 12px auto;
 }
 
 /* 리뷰 대상을 표시하기 위한 영역 */
 
 .reviewTarget {
-	border-bottom: solid 1px var(--color-gray-2);
-	font-size: 16px;
-	color: var(--color-black);
-	line-height: 150%;
-	font-weight: 500;
+    border-bottom: solid 1px var(--color-gray-2);
+    font-size: 16px;
+    color: var(--color-black);
+    line-height: 150%;
+    font-weight: 500;
 }
 
 .reviewTarget h1 {
-	font-size: 20px;
-	line-height: 120%;
-	margin-bottom: 4px;
+    font-size: 20px;
+    line-height: 120%;
+    margin-bottom: 4px;
 }
 
 .reviewInstruction {
-	display: block;
-	color: var(--color-gray-1);
-	margin-bottom: 36px;
-	font-weight: 400;
+    display: block;
+    color: var(--color-gray-1);
+    margin-bottom: 36px;
+    font-weight: 400;
 }
 
 .reviewingProduct {
-	position: relative;
-	color: var(--color-black);
-	margin-bottom: 31.75px;
+    position: relative;
+    color: var(--color-black);
+    margin-bottom: 31.75px;
 }
 
 .reviewingProduct img {
-	width: 60px;
-	aspect-ratio: 1 / 1;
+    width: 60px;
+    aspect-ratio: 1 / 1;
 }
 
 .reviewingProduct span {
-	position: absolute;
-	left: 68px;
+    position: absolute;
+    left: 68px;
 }
 
 .ratingArea {
-	height: 128px;
+    height: 128px;
 }
 
 .reviewStars {
-	margin: 28.85px 37.94px 41.45px 38px;
+    margin: 28.85px 37.94px 41.45px 38px;
 }
 
 /* 리뷰 작성 구역 */
 
 .reviewInput {
-	margin-top: 37.5px;
+    margin-top: 37.5px;
 }
 
 .reviewInput h1 {
-	margin-bottom: 10.5px;
+    margin-bottom: 10.5px;
 }
 
 .reviewInput textarea {
-	width: 100%;
-	border-radius: 8px;
-	padding-top: 16px;
-	padding-left: 18px;
-	padding-right: 18px;
-	border: solid 1px var(--color-gray-1);
-	resize: none;
-	box-sizing: border-box;
-	font-family: 'noto Sans KR';
-	font-size: 12px;
-	margin-bottom: 4px;
+    width: 100%;
+    border-radius: 8px;
+    padding-top: 16px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border: solid 1px var(--color-gray-1);
+    resize: none;
+    box-sizing: border-box;
+    font-family: 'noto Sans KR';
+    font-size: 12px;
+    margin-bottom: 4px;
 }
 
 .review {
-	height: 125px;
-	padding-bottom: 13px;
+    height: 125px;
+    padding-bottom: 13px;
 }
 
 .reviewTitleInput {
-	height: 58px;
-	padding-bottom: 9px;
+    height: 58px;
+    padding-bottom: 9px;
 }
 
 .reviewInput span {
-	display: block;
-	font-size: 12px;
-	color: var(--color-gray-1);
-	margin-left: 12px;
-	margin-right: 4.29px;
+    display: block;
+    font-size: 12px;
+    color: var(--color-gray-1);
+    margin-left: 12px;
+    margin-right: 4.29px;
 }
 
 .reviewTitle {
-	margin-top: 25.5px;
+    margin-top: 25.5px;
 }
 
 .confirm {
-	margin: 37px 0 34px 0;
-	width: 100%;
-	padding: 18px 0;
-	border: unset;
-	border-radius: 30px;
-	background-color: var(--color-black);
-	color: white;
-	font-size: 16px;
-	font-weight: 500;
+    margin: 37px 0 34px 0;
+    width: 100%;
+    padding: 18px 0;
+    border: unset;
+    border-radius: 30px;
+    background-color: var(--color-black);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
 }

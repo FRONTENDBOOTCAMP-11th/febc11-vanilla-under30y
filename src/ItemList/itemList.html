@@ -1,610 +1,610 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
-		<title>상품 리스트</title>
-	</head>
-	<body>
-		<template id="nike-header">
-			<style>
-				.header {
-					display: flex;
-					max-height: 60px;
-					gap: 5px;
-					margin-left: 14px;
-					margin-right: 24px;
-				}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>상품 리스트</title>
+    </head>
+    <body>
+        <template id="nike-header">
+            <style>
+                .header {
+                    display: flex;
+                    max-height: 60px;
+                    gap: 5px;
+                    margin-left: 14px;
+                    margin-right: 24px;
+                }
 
-				.header--img {
-					/* 헤더 로고를 제외한 나머지 이미지들 설정 */
-					width: 36px;
-					height: 36px;
-					margin-top: auto;
-					margin-bottom: auto;
-				}
+                .header--img {
+                    /* 헤더 로고를 제외한 나머지 이미지들 설정 */
+                    width: 36px;
+                    height: 36px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
 
-				.header--img.logo {
-					/* 헤더 로고 이미지 설정 */
-					margin-right: auto;
-					width: 76px;
-					height: 60px;
-				}
-			</style>
-			<!--상부 네비게이션 바(헤더)-->
-			<div class="header">
-				<img
-					src="../images/logo/LOGO.svg"
-					alt="나이키 로고"
-					class="header--img logo"
-				/>
-				<img
-					src="../images/icons/IconSearch.svg"
-					alt="검색"
-					class="header--img search"
-				/>
-				<img
-					src="../images/icons/IconProfile.svg"
-					alt="프로필"
-					class="header--img profile"
-				/>
-				<img
-					src="../images/icons/IconCart.svg"
-					alt="장바구니"
-					class="header--img cart"
-				/>
-				<img
-					src="../images/icons/IconMenu.svg"
-					alt="메뉴"
-					class="header--img menu"
-				/>
-			</div>
-		</template>
-		<template id="nike-footer">
-			<style>
-				/* Css Reset */
-				a {
-					text-decoration: unset;
-					color: unset;
-				}
+                .header--img.logo {
+                    /* 헤더 로고 이미지 설정 */
+                    margin-right: auto;
+                    width: 76px;
+                    height: 60px;
+                }
+            </style>
+            <!--상부 네비게이션 바(헤더)-->
+            <div class="header">
+                <img
+                    src="../images/logo/LOGO.svg"
+                    alt="나이키 로고"
+                    class="header--img logo"
+                />
+                <img
+                    src="../images/icons/IconSearch.svg"
+                    alt="검색"
+                    class="header--img search"
+                />
+                <img
+                    src="../images/icons/IconProfile.svg"
+                    alt="프로필"
+                    class="header--img profile"
+                />
+                <img
+                    src="../images/icons/IconCart.svg"
+                    alt="장바구니"
+                    class="header--img cart"
+                />
+                <img
+                    src="../images/icons/IconMenu.svg"
+                    alt="메뉴"
+                    class="header--img menu"
+                />
+            </div>
+        </template>
+        <template id="nike-footer">
+            <style>
+                /* Css Reset */
+                a {
+                    text-decoration: unset;
+                    color: unset;
+                }
 
-				p {
-					margin: unset;
-					padding: unset;
-				}
+                p {
+                    margin: unset;
+                    padding: unset;
+                }
 
-				/* Web Design */
-				.footer-wrapper {
-					margin-top: 48px;
-					margin-bottom: 70px;
-				}
+                /* Web Design */
+                .footer-wrapper {
+                    margin-top: 48px;
+                    margin-bottom: 70px;
+                }
 
-				.footer-wrapper::before {
-					display: block;
-					content: '';
-					border: solid 1px #e5e5e5;
-					min-width: 312px;
-					margin: auto;
-					margin-left: 24px;
-					margin-right: 24px;
-				}
+                .footer-wrapper::before {
+                    display: block;
+                    content: '';
+                    border: solid 1px #e5e5e5;
+                    min-width: 312px;
+                    margin: auto;
+                    margin-left: 24px;
+                    margin-right: 24px;
+                }
 
-				.drop-box::after {
-					/* 각 안내 카테고리를 구분하는 선 */
-					display: block;
-					content: '';
-					border: solid 1px #e5e5e5;
-					min-width: 312px;
-					margin: auto;
-				}
+                .drop-box::after {
+                    /* 각 안내 카테고리를 구분하는 선 */
+                    display: block;
+                    content: '';
+                    border: solid 1px #e5e5e5;
+                    min-width: 312px;
+                    margin: auto;
+                }
 
-				.drop-box {
-					min-width: 312px;
-					margin-left: 24px;
-					margin-right: 24px;
-				}
+                .drop-box {
+                    min-width: 312px;
+                    margin-left: 24px;
+                    margin-right: 24px;
+                }
 
-				.drop-box .content p {
-					/* p 태그만 지칭.. 유지보수성-- */
-					padding-top: 10px;
-				}
+                .drop-box .content p {
+                    /* p 태그만 지칭.. 유지보수성-- */
+                    padding-top: 10px;
+                }
 
-				.drop-box details {
-					/* overflow: hidden; */
-					/* padding-left: 10px;
+                .drop-box details {
+                    /* overflow: hidden; */
+                    /* padding-left: 10px;
 		  padding-right: 15px; */
-					font-size: 14px;
-					font-weight: 500;
-					color: rgb(112, 112, 114);
-				}
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgb(112, 112, 114);
+                }
 
-				.drop-box summary {
-					list-style: none;
-					cursor: pointer;
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					font-size: 14px;
-					font-weight: 400;
-					color: #111;
-				}
+                .drop-box summary {
+                    list-style: none;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #111;
+                }
 
-				.drop-box summary::after {
-					/* 선택 시 화살표 애니메이션 */
-					content: url(../images/icons/Down.svg);
-					transition: 0.5s transform;
-				}
+                .drop-box summary::after {
+                    /* 선택 시 화살표 애니메이션 */
+                    content: url(../images/icons/Down.svg);
+                    transition: 0.5s transform;
+                }
 
-				.drop-box details[open] summary::after {
-					transform: rotateZ(-180deg);
-				}
+                .drop-box details[open] summary::after {
+                    transform: rotateZ(-180deg);
+                }
 
-				.drop-box span {
-					position: relative;
-					display: flex;
-					align-items: center;
-					height: 4rem;
-				}
+                .drop-box span {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    height: 4rem;
+                }
 
-				.drop-box div.content {
-					box-sizing: border-box;
-					max-height: 0;
-					overflow: hidden;
-					font-size: 14px;
-					font-weight: 400;
-					color: #707072;
-					transition: max-height 500ms ease-out;
-				}
+                .drop-box div.content {
+                    box-sizing: border-box;
+                    max-height: 0;
+                    overflow: hidden;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #707072;
+                    transition: max-height 500ms ease-out;
+                }
 
-				.drop-box div.content p:last-child {
-					margin-bottom: 30px;
-				}
+                .drop-box div.content p:last-child {
+                    margin-bottom: 30px;
+                }
 
-				.drop-box details[open] + div.content {
-					max-height: 800px;
-					transition: max-height 1000ms ease-out;
-				}
+                .drop-box details[open] + div.content {
+                    max-height: 800px;
+                    transition: max-height 1000ms ease-out;
+                }
 
-				.footer__policy {
-					/* 개인정보처리방침 */
-					font-size: 14px;
-					font-weight: 400;
-					color: #707072;
-					margin-bottom: 26px;
-					padding: 24px;
-				}
+                .footer__policy {
+                    /* 개인정보처리방침 */
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #707072;
+                    margin-bottom: 26px;
+                    padding: 24px;
+                }
 
-				.footer__policy p {
-					/* p 태그만 지칭.. 유지보수성-- */
-					padding-top: 6.25px;
-					padding-bottom: 7.25px;
-				}
+                .footer__policy p {
+                    /* p 태그만 지칭.. 유지보수성-- */
+                    padding-top: 6.25px;
+                    padding-bottom: 7.25px;
+                }
 
-				.footer__policy .person {
-					font-weight: bold;
-				}
+                .footer__policy .person {
+                    font-weight: bold;
+                }
 
-				.footer__company-info::before {
-					display: block;
-					content: '';
-					border: solid 1px #e5e5e5;
-					min-width: 312px;
-					margin: auto;
-				}
+                .footer__company-info::before {
+                    display: block;
+                    content: '';
+                    border: solid 1px #e5e5e5;
+                    min-width: 312px;
+                    margin: auto;
+                }
 
-				.footer__company-info {
-					padding: 24px;
-					font-size: 14px;
-					font-weight: 400;
-					color: #707072;
-					line-height: 1.75;
-				}
+                .footer__company-info {
+                    padding: 24px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #707072;
+                    line-height: 1.75;
+                }
 
-				.footer__company-info a {
-					text-decoration: underline;
-					text-decoration-color: #707072;
-				}
+                .footer__company-info a {
+                    text-decoration: underline;
+                    text-decoration-color: #707072;
+                }
 
-				.footer__company-info p {
-					padding-top: 24px;
-					padding-bottom: 47.75px;
-				}
-			</style>
-			<div class="footer-wrapper">
-				<div class="drop-box">
-					<details>
-						<summary>
-							<span>안내</span>
-						</summary>
-					</details>
-					<div class="content">
-						<p>
-							<a href="https://www.nike.com/kr/membership">
-								멤버 가입</a
-							>
-						</p>
-						<p>
-							<a href="https://www.nike.com/kr/retail"
-								>매장 찾기</a
-							>
-						</p>
-						<p>
-							<a href="https://www.nike.com/kr/stories"
-								>나이키 저널</a
-							>
-						</p>
-					</div>
-				</div>
-				<div class="drop-box">
-					<details>
-						<summary>
-							<span>고객센터</span>
-						</summary>
-					</details>
-					<div class="content">
-						<p>
-							<a href="https://www.nike.com/kr/orders/details/">
-								주문배송조회</a
-							>
-						</p>
-						<p>
-							<a
-								href="https://www.nike.com/kr/help/a/returns-policy"
-								>반품 정책</a
-							>
-						</p>
-						<p>
-							<a
-								href="https://www.nike.com/kr/help/a/payment-options"
-								>결제 방법</a
-							>
-						</p>
-						<p>
-							<a href="https://www.nike.com/kr/help/a/an"
-								>공지사항</a
-							>
-						</p>
-						<p>
-							<a href="https://www.nike.com/kr/help/#contact"
-								>문의하기</a
-							>
-						</p>
-					</div>
-				</div>
-				<div class="drop-box">
-					<details>
-						<summary>
-							<span>회사소개</span>
-						</summary>
-					</details>
-					<div class="content">
-						<p>
-							<a href="https://about.nike.com/en/"> About Nike</a>
-						</p>
-						<p>
-							<a href="https://about.nike.com/en/newsroom"
-								>소식</a
-							>
-						</p>
-						<p>
-							<a href="https://jobs.nike.com/">채용</a>
-						</p>
-						<p>
-							<a
-								href="https://investors.nike.com/Home/default.aspx"
-								>투자자</a
-							>
-						</p>
-						<p>
-							<a href="https://www.nike.com/kr/sustainability"
-								>지속가능성</a
-							>
-						</p>
-					</div>
-				</div>
-				<div class="footer">
-					<!-- 이용 약관 및 개인정보처리방침 -->
-					<div class="footer__policy">
-						<p>© 2024 Nike, Inc. All Rights Reserved</p>
-						<p>이용약관</p>
-						<p class="person">개인정보처리방침</p>
-						<p>위치정보이용약관</p>
-						<p>영상정보처리기기 운영 방침</p>
-					</div>
-					<!-- 회사 정보 -->
-					<div class="footer__company-info">
-						<p>
-							(유)나이키코리아 대표 Kimberlee Lynn Chang Mendes,
-							킴벌리 린 창 멘데스 | 서울 강남구 테헤란로 152
-							강남파이낸스센터 30층 | 통신판매업신고번호
-							2011-서울강남-03461 | 등록번호 220-88-09068<br />
-							<a href="#">사업자 정보 확인</a><br />고객센터 전화
-							문의 <a href="#">080-022-0182</a> FAX 02-6744-5880 |
-							이메일
-							<a href="#">service@nike.co.kr</a>
-							| <br />호스팅서비스사업자 (유)나이키코리아
-						</p>
-					</div>
-				</div>
-			</div>
-		</template>
-		<div class="wrapper">
-			<header>
-				<nike-header>나이키 헤더</nike-header>
-				<!-- 상품 카테고리 선택 -->
-				<div class="header__category">
-					<ol class="header__category--type-detail">
-						<li>라이프스타일</li>
-						<li>/</li>
-						<li>신발</li>
-					</ol>
-					<h1 class="header__category--type">신제품</h1>
-				</div>
-			</header>
-			<div class="content">
-				<!-- 상품 카테고리를 선택할 수 있는 내비게이션 -->
-				<div class="content__product-category">
-					<ul id="navi">
-						<li onclick="alert('신발이에용')">신발</li>
-						<li>탑 & 티셔츠</li>
-						<li onclick="alert('후디에용')">후디 & 크루</li>
-						<li>재킷 & 베스트</li>
-						<li>펜츠 & 타이츠</li>
-						<li>쇼츠</li>
-						<li>스포즈 브라</li>
-						<li>트랙수트</li>
-						<li>점프수트 & 롬퍼스</li>
-						<li>스커트 & 드레스</li>
-						<li>양말</li>
-						<li>용품</li>
-					</ul>
-				</div>
-				<div class="content__product-list">
-					<!-- 상품 리스트 헤더 -->
-					<div class="content__product-list--header">
-						<p class="content__product-list--header-research">
-							741개의 결과
-						</p>
-						<!-- 필터 버튼 클릭시 상호작용 -->
-						<!-- 전체를 암묵적으로 담고있는 div -->
-						<div
-							class="content__product-list--header-filter"
-							id="filter"
-						>
-							<!-- 옵션들을 감싼 div -->
-							<div
-								class="content__product-list--header-filter-option"
-							>
-								<form action="#" method="get">
-									<div class="filter-header">
-										<h1 class="filter-header title">
-											필터
-										</h1>
-										<button
-											class="content__product-list--header-filter-option-close"
-											onclick="hideActionSheet()"
-										>
-											<img
-												src="../images/icons/IconExit.svg"
-												alt="닫기 버튼"
-											/>
-										</button>
-									</div>
-									<!-- 여러 선택 옵션들 -->
-									<div class="filter-content">
-										<!-- 정렬 기준 div -->
-										<div class="filter-standard">
-											<h1>정렬 기준</h1>
-											<div>
-												<input
-													type="radio"
-													name="standard"
-												/>추천순
-											</div>
-											<div>
-												<input
-													type="radio"
-													name="standard"
-												/>최신순
-											</div>
-											<div>
-												<input
-													type="radio"
-													name="standard"
-												/>높은 가격순
-											</div>
-											<div>
-												<input
-													type="radio"
-													name="standard"
-												/>낮은 가격순<br />
-											</div>
-										</div>
-										<div class="filter-gender">
-											<h1>성별</h1>
-											<div>
-												<input type="checkbox" />남성
-											</div>
-											<div>
-												<input type="checkbox" />여성
-											</div>
-											<div>
-												<input type="checkbox" />유니
-												섹스
-											</div>
-										</div>
-										<div class="filter-money">
-											<h1>가격대</h1>
-											<div>
-												<input type="checkbox" />0 -
-												50,000 원
-											</div>
-											<div>
-												<input type="checkbox" />50,000
-												- 100,000 원
-											</div>
-											<div>
-												<input type="checkbox" />100,000
-												- 150,000 원
-											</div>
-											<div>
-												<input type="checkbox" />150,000
-												- 200,000 원
-											</div>
-											<div>
-												<input type="checkbox" />200,000
-												원 +
-											</div>
-										</div>
-									</div>
-									<div class="filter-footer">
-										<button class="reset" type="reset">
-											지우기
-										</button>
-										<button class="submit">적용</button>
-									</div>
-								</form>
-							</div>
-						</div>
-						<button
-							onclick="showActionSheet()"
-							class="filter-button"
-						>
-							필터
-							<img src="../images/icons/Filter.svg" alt="" />
-						</button>
-					</div>
-					<div class="content__product-list--inside">
-						<!-- 상품 목록 -->
-						<div class="content__product-list--inside-product">
-							<a href="http://www.naver.com">
-								<!-- 상품 목록 中 이미지 -->
-								<div
-									class="content__product-list--inside-product-img"
-								>
-									<img
-										src="../images/product/shoes1.svg"
-										alt=""
-									/>
-								</div>
-								<!-- 상품 목록 中 설명 -->
-								<div
-									class="content__product-list--inside-product-explain"
-								>
-									<p
-										class="content__product-list--inside-product-explain new"
-									>
-										신제품
-									</p>
-									<p
-										class="content__product-list--inside-product-explain product-name"
-									>
-										나이키 줌보메로 5
-									</p>
-									<p
-										class="content__product-list--inside-product-explain product-category"
-									>
-										여성 신발
-									</p>
-									<p
-										class="content__product-list--inside-product-explain product-color"
-									>
-										1개 색상
-									</p>
-									<p
-										class="content__product-list--inside-product-explain product-price"
-									>
-										209,000 원
-									</p>
-								</div>
-							</a>
-						</div>
-						<div class="content__product-list--inside-product">
-							<div
-								class="content__product-list--inside-product-img"
-							>
-								<img
-									src="../images/product/shoes2.svg"
-									alt=""
-								/>
-							</div>
-							<div
-								class="content__product-list--inside-product-explain"
-							>
-								<p
-									class="content__product-list--inside-product-explain new"
-								>
-									신제품
-								</p>
-								<p
-									class="content__product-list--inside-product-explain product-name"
-								>
-									테이텀 2 PF
-								</p>
-								<p
-									class="content__product-list--inside-product-explain product-category"
-								>
-									농구화
-								</p>
-								<p
-									class="content__product-list--inside-product-explain product-color"
-								>
-									1개 색상
-								</p>
-								<p
-									class="content__product-list--inside-product-explain product-price"
-								>
-									149,000 원
-								</p>
-							</div>
-						</div>
-						<div class="content__product-list--inside-product">
-							<div
-								class="content__product-list--inside-product-img"
-							>
-								<img
-									src="../images/product/shoes3.svg"
-									alt=""
-								/>
-							</div>
-							<div
-								class="content__product-list--inside-product-explain"
-							>
-								<p
-									class="content__product-list--inside-product-explain new"
-								>
-									신제품
-								</p>
-								<p
-									class="content__product-list--inside-product-explain product-name"
-								>
-									나이키 줌보메로 5
-								</p>
-								<p
-									class="content__product-list--inside-product-explain product-category"
-								>
-									여성 신발
-								</p>
-								<p
-									class="content__product-list--inside-product-explain product-color"
-								>
-									1개 색상
-								</p>
-								<p
-									class="content__product-list--inside-product-explain product-price"
-								>
-									209,000 원
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<footer>
-				<nike-footer>나이키 푸터</nike-footer>
-			</footer>
-		</div>
-		<script src="itemList.js"></script>
-	</body>
+                .footer__company-info p {
+                    padding-top: 24px;
+                    padding-bottom: 47.75px;
+                }
+            </style>
+            <div class="footer-wrapper">
+                <div class="drop-box">
+                    <details>
+                        <summary>
+                            <span>안내</span>
+                        </summary>
+                    </details>
+                    <div class="content">
+                        <p>
+                            <a href="https://www.nike.com/kr/membership">
+                                멤버 가입</a
+                            >
+                        </p>
+                        <p>
+                            <a href="https://www.nike.com/kr/retail"
+                                >매장 찾기</a
+                            >
+                        </p>
+                        <p>
+                            <a href="https://www.nike.com/kr/stories"
+                                >나이키 저널</a
+                            >
+                        </p>
+                    </div>
+                </div>
+                <div class="drop-box">
+                    <details>
+                        <summary>
+                            <span>고객센터</span>
+                        </summary>
+                    </details>
+                    <div class="content">
+                        <p>
+                            <a href="https://www.nike.com/kr/orders/details/">
+                                주문배송조회</a
+                            >
+                        </p>
+                        <p>
+                            <a
+                                href="https://www.nike.com/kr/help/a/returns-policy"
+                                >반품 정책</a
+                            >
+                        </p>
+                        <p>
+                            <a
+                                href="https://www.nike.com/kr/help/a/payment-options"
+                                >결제 방법</a
+                            >
+                        </p>
+                        <p>
+                            <a href="https://www.nike.com/kr/help/a/an"
+                                >공지사항</a
+                            >
+                        </p>
+                        <p>
+                            <a href="https://www.nike.com/kr/help/#contact"
+                                >문의하기</a
+                            >
+                        </p>
+                    </div>
+                </div>
+                <div class="drop-box">
+                    <details>
+                        <summary>
+                            <span>회사소개</span>
+                        </summary>
+                    </details>
+                    <div class="content">
+                        <p>
+                            <a href="https://about.nike.com/en/"> About Nike</a>
+                        </p>
+                        <p>
+                            <a href="https://about.nike.com/en/newsroom"
+                                >소식</a
+                            >
+                        </p>
+                        <p>
+                            <a href="https://jobs.nike.com/">채용</a>
+                        </p>
+                        <p>
+                            <a
+                                href="https://investors.nike.com/Home/default.aspx"
+                                >투자자</a
+                            >
+                        </p>
+                        <p>
+                            <a href="https://www.nike.com/kr/sustainability"
+                                >지속가능성</a
+                            >
+                        </p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <!-- 이용 약관 및 개인정보처리방침 -->
+                    <div class="footer__policy">
+                        <p>© 2024 Nike, Inc. All Rights Reserved</p>
+                        <p>이용약관</p>
+                        <p class="person">개인정보처리방침</p>
+                        <p>위치정보이용약관</p>
+                        <p>영상정보처리기기 운영 방침</p>
+                    </div>
+                    <!-- 회사 정보 -->
+                    <div class="footer__company-info">
+                        <p>
+                            (유)나이키코리아 대표 Kimberlee Lynn Chang Mendes,
+                            킴벌리 린 창 멘데스 | 서울 강남구 테헤란로 152
+                            강남파이낸스센터 30층 | 통신판매업신고번호
+                            2011-서울강남-03461 | 등록번호 220-88-09068<br />
+                            <a href="#">사업자 정보 확인</a><br />고객센터 전화
+                            문의 <a href="#">080-022-0182</a> FAX 02-6744-5880 |
+                            이메일
+                            <a href="#">service@nike.co.kr</a>
+                            | <br />호스팅서비스사업자 (유)나이키코리아
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <div class="wrapper">
+            <header>
+                <nike-header>나이키 헤더</nike-header>
+                <!-- 상품 카테고리 선택 -->
+                <div class="header__category">
+                    <ol class="header__category--type-detail">
+                        <li>라이프스타일</li>
+                        <li>/</li>
+                        <li>신발</li>
+                    </ol>
+                    <h1 class="header__category--type">신제품</h1>
+                </div>
+            </header>
+            <div class="content">
+                <!-- 상품 카테고리를 선택할 수 있는 내비게이션 -->
+                <div class="content__product-category">
+                    <ul id="navi">
+                        <li onclick="alert('신발이에용')">신발</li>
+                        <li>탑 & 티셔츠</li>
+                        <li onclick="alert('후디에용')">후디 & 크루</li>
+                        <li>재킷 & 베스트</li>
+                        <li>펜츠 & 타이츠</li>
+                        <li>쇼츠</li>
+                        <li>스포즈 브라</li>
+                        <li>트랙수트</li>
+                        <li>점프수트 & 롬퍼스</li>
+                        <li>스커트 & 드레스</li>
+                        <li>양말</li>
+                        <li>용품</li>
+                    </ul>
+                </div>
+                <div class="content__product-list">
+                    <!-- 상품 리스트 헤더 -->
+                    <div class="content__product-list--header">
+                        <p class="content__product-list--header-research">
+                            741개의 결과
+                        </p>
+                        <!-- 필터 버튼 클릭시 상호작용 -->
+                        <!-- 전체를 암묵적으로 담고있는 div -->
+                        <div
+                            class="content__product-list--header-filter"
+                            id="filter"
+                        >
+                            <!-- 옵션들을 감싼 div -->
+                            <div
+                                class="content__product-list--header-filter-option"
+                            >
+                                <form action="#" method="get">
+                                    <div class="filter-header">
+                                        <h1 class="filter-header title">
+                                            필터
+                                        </h1>
+                                        <button
+                                            class="content__product-list--header-filter-option-close"
+                                            onclick="hideActionSheet()"
+                                        >
+                                            <img
+                                                src="../images/icons/IconExit.svg"
+                                                alt="닫기 버튼"
+                                            />
+                                        </button>
+                                    </div>
+                                    <!-- 여러 선택 옵션들 -->
+                                    <div class="filter-content">
+                                        <!-- 정렬 기준 div -->
+                                        <div class="filter-standard">
+                                            <h1>정렬 기준</h1>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="standard"
+                                                />추천순
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="standard"
+                                                />최신순
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="standard"
+                                                />높은 가격순
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="standard"
+                                                />낮은 가격순<br />
+                                            </div>
+                                        </div>
+                                        <div class="filter-gender">
+                                            <h1>성별</h1>
+                                            <div>
+                                                <input type="checkbox" />남성
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" />여성
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" />유니
+                                                섹스
+                                            </div>
+                                        </div>
+                                        <div class="filter-money">
+                                            <h1>가격대</h1>
+                                            <div>
+                                                <input type="checkbox" />0 -
+                                                50,000 원
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" />50,000
+                                                - 100,000 원
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" />100,000
+                                                - 150,000 원
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" />150,000
+                                                - 200,000 원
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" />200,000
+                                                원 +
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-footer">
+                                        <button class="reset" type="reset">
+                                            지우기
+                                        </button>
+                                        <button class="submit">적용</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <button
+                            onclick="showActionSheet()"
+                            class="filter-button"
+                        >
+                            필터
+                            <img src="../images/icons/Filter.svg" alt="" />
+                        </button>
+                    </div>
+                    <div class="content__product-list--inside">
+                        <!-- 상품 목록 -->
+                        <div class="content__product-list--inside-product">
+                            <a href="http://www.naver.com">
+                                <!-- 상품 목록 中 이미지 -->
+                                <div
+                                    class="content__product-list--inside-product-img"
+                                >
+                                    <img
+                                        src="../images/product/shoes1.svg"
+                                        alt=""
+                                    />
+                                </div>
+                                <!-- 상품 목록 中 설명 -->
+                                <div
+                                    class="content__product-list--inside-product-explain"
+                                >
+                                    <p
+                                        class="content__product-list--inside-product-explain new"
+                                    >
+                                        신제품
+                                    </p>
+                                    <p
+                                        class="content__product-list--inside-product-explain product-name"
+                                    >
+                                        나이키 줌보메로 5
+                                    </p>
+                                    <p
+                                        class="content__product-list--inside-product-explain product-category"
+                                    >
+                                        여성 신발
+                                    </p>
+                                    <p
+                                        class="content__product-list--inside-product-explain product-color"
+                                    >
+                                        1개 색상
+                                    </p>
+                                    <p
+                                        class="content__product-list--inside-product-explain product-price"
+                                    >
+                                        209,000 원
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="content__product-list--inside-product">
+                            <div
+                                class="content__product-list--inside-product-img"
+                            >
+                                <img
+                                    src="../images/product/shoes2.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="content__product-list--inside-product-explain"
+                            >
+                                <p
+                                    class="content__product-list--inside-product-explain new"
+                                >
+                                    신제품
+                                </p>
+                                <p
+                                    class="content__product-list--inside-product-explain product-name"
+                                >
+                                    테이텀 2 PF
+                                </p>
+                                <p
+                                    class="content__product-list--inside-product-explain product-category"
+                                >
+                                    농구화
+                                </p>
+                                <p
+                                    class="content__product-list--inside-product-explain product-color"
+                                >
+                                    1개 색상
+                                </p>
+                                <p
+                                    class="content__product-list--inside-product-explain product-price"
+                                >
+                                    149,000 원
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content__product-list--inside-product">
+                            <div
+                                class="content__product-list--inside-product-img"
+                            >
+                                <img
+                                    src="../images/product/shoes3.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div
+                                class="content__product-list--inside-product-explain"
+                            >
+                                <p
+                                    class="content__product-list--inside-product-explain new"
+                                >
+                                    신제품
+                                </p>
+                                <p
+                                    class="content__product-list--inside-product-explain product-name"
+                                >
+                                    나이키 줌보메로 5
+                                </p>
+                                <p
+                                    class="content__product-list--inside-product-explain product-category"
+                                >
+                                    여성 신발
+                                </p>
+                                <p
+                                    class="content__product-list--inside-product-explain product-color"
+                                >
+                                    1개 색상
+                                </p>
+                                <p
+                                    class="content__product-list--inside-product-explain product-price"
+                                >
+                                    209,000 원
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <nike-footer>나이키 푸터</nike-footer>
+            </footer>
+        </div>
+        <script src="itemList.js"></script>
+    </body>
 </html>
