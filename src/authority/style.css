@@ -17,12 +17,14 @@ button {
 
 input {
 	all: unset;
+	box-sizing: border-box;
 }
+
+/* Root */
 
 /* Typography */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
-/* Root */
 :root {
 	font-family:
 		'Pretendard Variable',
@@ -41,19 +43,38 @@ input {
 		'Segoe UI Symbol',
 		sans-serif;
 	font-size: 62.5%;
-
-	--color-black: #111111;
-	--color-gray-1: #f5f5f5;
-	--color-gray-2: #e5e5e5;
-	--color-gray-3: #cacacb;
-	--color-gray-4: #9e9ea0;
-	--color-gray-5: #707072;
-	--color-white: #ffffff;
-	--color-green-1: #007d48;
-	--color-red-1: #b40000;
 }
 
-/* CSS */
+.title {
+	font-size: 28px;
+	margin-bottom: 24px;
+}
+
+.required {
+	font-size: 14px;
+	color: #111;
+}
+
+.divider {
+	height: 1px;
+	background-color: #ccc; /* 원하는 색상으로 변경 */
+	border: none;
+}
+
+.authority-text {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 150%;
+}
+
+.description {
+	font-size: 14px;
+	color: #757575;
+	line-height: 150%;
+	margin: 24px 0;
+}
+
+/* */
 .header {
 	box-shadow: inset 0 0 20px red;
 	height: 100px;
@@ -71,89 +92,56 @@ input {
 
 .contents {
 	padding: 36px;
-}
-
-.title-headings {
-	height: 66px;
-}
-
-/* div email */
-.input-email-form {
-	box-shadow: inset 0 0 20px yellowgreen;
-}
-
-.title-login {
-	font-size: 28px;
-}
-
-.input-container {
-	position: relative;
 	box-shadow: inset 0 0 20px skyblue;
 }
 
-.user-login-input {
-	padding: 16px 12px;
-	width: 100%;
-	box-sizing: border-box;
-	border: 1px solid var(--color-black);
-	border-radius: 8px;
-	font-size: 16px;
-	margin-top: 28px;
-	margin-bottom: 20px;
-}
-
-.floating-label {
-	position: absolute;
-	top: 28px;
-	left: 16px;
-	transform: translateY(-50%);
-	background-color: var(--color-white);
-	color: var(--color-gray-4);
-	opacity: 0%;
-	pointer-events: none;
-}
-
-.user-login-input:active {
-	border: 1px solid var(--color-black);
-}
-
-.input-field:focus + .floating-label,
-.input-field:not(:placeholder-shown) + .floating-label {
-	opacity: 100%;
-	color: var(--color-black);
-}
-
-.description {
-	font-size: 16px;
-	color: var(--color-gray-5);
-	line-height: 150%;
-	margin-top: 26px;
-	margin-bottom: 40px;
-}
-
-/* div password */
-.input-pw-form {
-	box-shadow: inset 0 0 20px greenyellow;
-}
-
-.user-email {
-	font-size: 16px;
-	color: #111111;
+.authority {
 	position: relative;
-	top: 10px;
-}
-
-.search-pw {
-	font-size: 16px;
-	color: #757575;
-	line-height: 150%;
-	margin-bottom: 90px;
-}
-
-.button-area {
 	display: flex;
-	justify-content: space-between;
-	width: 100%;
+	align-items: flex-start;
+	gap: 8px;
+	cursor: pointer;
+	margin: 12px 0;
+}
+
+/* 기본 라디오 버튼 숨기기 */
+.term input[type='radio'] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* 라디오 아이콘 스타일링 */
+.radio-icon {
+	width: 20px;
+	height: 20px;
+	display: none;
+}
+
+/* 체크되지 않은 상태의 이미지 */
+.radio-icon.unchecked {
+	display: block;
+}
+
+/* 체크된 상태의 이미지 */
+.radio-icon.checked {
+	display: none;
+}
+
+/* 체크된 상태일 때 이미지 표시 전환 */
+.custom-radio input[type='radio']:checked ~ .unchecked {
+	display: none;
+}
+
+.custom-radio input[type='radio']:checked ~ .checked {
+	display: block;
+}
+
+.buttons-wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 12px;
 }
 
 .button-black {
@@ -161,7 +149,7 @@ input {
 	background-color: black;
 	border: none;
 	text-align: center;
-	width: 90px;
+	width: 100%;
 	height: 52px;
 	border-radius: 26px;
 	font-size: 16px;
@@ -174,7 +162,7 @@ input {
 	background-color: white;
 	box-shadow: 0 0 0 1px black inset;
 	text-align: center;
-	width: 90px;
+	width: 100%;
 	height: 52px;
 	border-radius: 26px;
 	font-size: 16px;

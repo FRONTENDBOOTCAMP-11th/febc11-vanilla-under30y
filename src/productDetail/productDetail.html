@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="productDetail.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="l_wrapper">
+			<template id="nike-header">
+				<style>
+				  .header {
+					display: flex;
+					max-height: 60px;
+					gap: 5px;
+					margin-left: 14px;
+					margin-right: 24px;
+				  }
+		  
+				  .header--img {
+					/* 헤더 로고를 제외한 나머지 이미지들 설정 */
+					width: 36px;
+					height: 36px;
+					margin-top: auto;
+					margin-bottom: auto;
+				  }
+		  
+				  .header--img.logo {
+					/* 헤더 로고 이미지 설정 */
+					margin-right: auto;
+					width: 76px;
+					height: 60px;
+				  }
+				</style>
+				<div class="header">
+				  <img
+					src="../images/logo/LOGO.svg"
+					alt="나이키 로고"
+					class="header--img logo"
+				  />
+				  <img
+					src="../images/icons/IconSearch.svg"
+					alt="검색"
+					class="header--img search"
+				  />
+				  <img
+					src="../images/icons/IconProfile.svg"
+					alt="프로필"
+					class="header--img profile"
+				  />
+				  <img
+					src="../images/icons/IconCart.svg"
+					alt="장바구니"
+					class="header--img cart"
+				  />
+				  <img
+					src="../images/icons/IconMenu.svg"
+					alt="메뉴"
+					class="header--img menu"
+				  />
+				</div>
+			</template>
+			<!-- 푸터 css와 html이 있습니다. :) -->
+			<template id="nike-footer">
+				<style>
+				  /* Css Reset */
+				  a {
+					text-decoration: unset;
+					color: unset;
+				  }
+		  
+				  p {
+					margin: unset;
+					padding: unset;
+				  }
+		  
+				  /* Web Design */
+				  .footer-wrapper {
+					margin-top: 48px;
+					margin-bottom: 70px;
+				  }
+		  
+				  .footer-wrapper::before {
+					display: block;
+					content: "";
+					border: solid 1px #e5e5e5;
+					min-width: 312px;
+					margin: auto;
+					margin-left: 24px;
+					margin-right: 24px;
+				  }
+		  
+				  .drop-box::after {
+					/* 각 안내 카테고리를 구분하는 선 */
+					display: block;
+					content: "";
+					border: solid 1px #e5e5e5;
+					min-width: 312px;
+					margin: auto;
+				  }
+		  
+				  .drop-box {
+					min-width: 312px;
+					margin-left: 24px;
+					margin-right: 24px;
+				  }
+		  
+				  .drop-box .content p {
+					/* p 태그만 지칭.. 유지보수성-- */
+					padding-top: 10px;
+				  }
+		  
+				  .drop-box details {
+					/* overflow: hidden; */
+					/* padding-left: 10px;
+			  padding-right: 15px; */
+					font-size: 14px;
+					font-weight: 500;
+					color: rgb(112, 112, 114);
+				  }
+		  
+				  .drop-box summary {
+					list-style: none;
+					cursor: pointer;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					font-size: 14px;
+					font-weight: 400;
+					color: #111;
+				  }
+		  
+				  .drop-box summary::after {
+					/* 선택 시 화살표 애니메이션 */
+					content: url(../images/icons/Down.svg);
+					transition: 0.5s transform;
+				  }
+		  
+				  .drop-box details[open] summary::after {
+					transform: rotateZ(-180deg);
+				  }
+		  
+				  .drop-box span {
+					position: relative;
+					display: flex;
+					align-items: center;
+					height: 4rem;
+				  }
+		  
+				  .drop-box div.content {
+					box-sizing: border-box;
+					max-height: 0;
+					overflow: hidden;
+					font-size: 14px;
+					font-weight: 400;
+					color: #707072;
+					transition: max-height 500ms ease-out;
+				  }
+		  
+				  .drop-box div.content p:last-child {
+					margin-bottom: 30px;
+				  }
+		  
+				  .drop-box details[open] + div.content {
+					max-height: 800px;
+					transition: max-height 1000ms ease-out;
+				  }
+		  
+				  .footer__policy {
+					/* 개인정보처리방침 */
+					font-size: 14px;
+					font-weight: 400;
+					color: #707072;
+					margin-bottom: 26px;
+					padding: 24px;
+				  }
+		  
+				  .footer__policy p {
+					/* p 태그만 지칭.. 유지보수성-- */
+					padding-top: 6.25px;
+					padding-bottom: 7.25px;
+				  }
+		  
+				  .footer__policy .person {
+					font-weight: bold;
+				  }
+		  
+				  .footer__company-info::before {
+					display: block;
+					content: "";
+					border: solid 1px #e5e5e5;
+					min-width: 312px;
+					margin: auto;
+				  }
+		  
+				  .footer__company-info {
+					padding: 24px;
+					font-size: 14px;
+					font-weight: 400;
+					color: #707072;
+					line-height: 1.75;
+				  }
+		  
+				  .footer__company-info a {
+					text-decoration: underline;
+					text-decoration-color: #707072;
+				  }
+		  
+				  .footer__company-info p {
+					padding-top: 24px;
+					padding-bottom: 47.75px;
+				  }
+				</style>
+				<div class="footer-wrapper">
+				  <div class="drop-box">
+					<details>
+					  <summary>
+						<span>안내</span>
+					  </summary>
+					</details>
+					<div class="content">
+					  <p>
+						<a href="https://www.nike.com/kr/membership"> 멤버 가입</a>
+					  </p>
+					  <p>
+						<a href="https://www.nike.com/kr/retail">매장 찾기</a>
+					  </p>
+					  <p>
+						<a href="https://www.nike.com/kr/stories">나이키 저널</a>
+					  </p>
+					</div>
+				  </div>
+				  <div class="drop-box">
+					<details>
+					  <summary>
+						<span>고객센터</span>
+					  </summary>
+					</details>
+					<div class="content">
+					  <p>
+						<a href="https://www.nike.com/kr/orders/details/">
+						  주문배송조회</a
+						>
+					  </p>
+					  <p>
+						<a href="https://www.nike.com/kr/help/a/returns-policy"
+						  >반품 정책</a
+						>
+					  </p>
+					  <p>
+						<a href="https://www.nike.com/kr/help/a/payment-options"
+						  >결제 방법</a
+						>
+					  </p>
+					  <p>
+						<a href="https://www.nike.com/kr/help/a/an">공지사항</a>
+					  </p>
+					  <p>
+						<a href="https://www.nike.com/kr/help/#contact">문의하기</a>
+					  </p>
+					</div>
+				  </div>
+				  <div class="drop-box">
+					<details>
+					  <summary>
+						<span>회사소개</span>
+					  </summary>
+					</details>
+					<div class="content">
+					  <p>
+						<a href="https://about.nike.com/en/"> About Nike</a>
+					  </p>
+					  <p>
+						<a href="https://about.nike.com/en/newsroom">소식</a>
+					  </p>
+					  <p>
+						<a href="https://jobs.nike.com/">채용</a>
+					  </p>
+					  <p>
+						<a href="https://investors.nike.com/Home/default.aspx">투자자</a>
+					  </p>
+					  <p>
+						<a href="https://www.nike.com/kr/sustainability">지속가능성</a>
+					  </p>
+					</div>
+				  </div>
+				  <div class="footer">
+					<!-- 이용 약관 및 개인정보처리방침 -->
+					<div class="footer__policy">
+					  <p>© 2024 Nike, Inc. All Rights Reserved</p>
+					  <p>이용약관</p>
+					  <p class="person">개인정보처리방침</p>
+					  <p>위치정보이용약관</p>
+					  <p>영상정보처리기기 운영 방침</p>
+					</div>
+					<!-- 회사 정보 -->
+					<div class="footer__company-info">
+					  <p>
+						(유)나이키코리아 대표 Kimberlee Lynn Chang Mendes, 킴벌리 린 창
+						멘데스 | 서울 강남구 테헤란로 152 강남파이낸스센터 30층 |
+						통신판매업신고번호 2011-서울강남-03461 | 등록번호 220-88-09068<br />
+						<a href="#">사업자 정보 확인</a><br />고객센터 전화 문의
+						<a href="#">080-022-0182</a> FAX 02-6744-5880 | 이메일
+						<a href="#">service@nike.co.kr</a>
+						| <br />호스팅서비스사업자 (유)나이키코리아
+					  </p>
+					</div>
+				  </div>
+				</div>
+			</template>
+			<nike-header>나이키 헤더</nike-header>
+			<!-- 전체 상품 소개 파트 -->
+			<main class="prodMain">
+				<!-- 상품명, 상품 이미지, 상품 소개 문구 등을 표시 -->
+				<div class="prodInfo">
+					<h1 class="prodName">테이텀 2 PF</h3>
+					<h2 class="prodCategory">농구화</h4>
+					<div class="prodPrice">
+						<span id="prevPrice" style="margin-right: 8px;">149,000 원</span>
+						<span id="curPrice" style="color: #9e9ea0; text-decoration-line: line-through; margin-right: 8px;">249,000 원</span>
+						<span id="salesRate" style="color: #007d48;">10% 할인</span>
+					</div>
+					<div class="prodImage">
+						<!-- 해당 상품의 다른 구도를 볼 수 있음 -->
+						<div class="prodImageFrame">
+							<img src="../images/product/shoes1.png" style="display: block"/>
+							<img src="../images/product/shoes2.png" style="display: block"/>
+							<img src="../images/product/shoes3.png" style="display: block"/>
+							<img src="../images/product/shoes4.png" style="display: block"/>
+							<img src="../images/product/shoes5.png" style="display: block"/>
+							<img src="../images/product/shoes6.png" style="display: block"/>
+							<img src="../images/product/shoes7.png" style="display: block"/>
+							<img src="../images/product/shoes8.png" style="display: block"/>
+							<img src="../images/product/shoes9.png" style="display: block"/>
+						</div>
+						<!-- 해당 상품의 다른 색상 등을 볼 수 있음 -->
+						<div class="prodImageSet">
+							<!-- 선택시 테두리가 검게 하고, 선택효과를 넣기 위해 div로 감쌈 -->
+							<div class="prodImageSetFrame">
+								<img src="../images/product/shoes11.png">
+							</div>
+							<div class="prodImageSetFrame">
+								<img src="../images/product/shoes12.png">
+							</div>
+							<div class="prodImageSetFrame selected">
+								<img src="../images/product/shoes1.png">
+							</div>
+						</div>
+					</div>
+					<div class="sizeArea">
+						<div class="sizeAreaText"><span>사이즈 선택</span><span class="sizeGuide">사이즈 가이드</span></div>
+						<div class="sizeSelection">
+							<div class="size " onclick="">250</div>
+							<div class="size ">255</div>
+							<div class="size">260</div>
+							<div class="size">265</div>
+							<div class="size">270</div>
+							<div class="size">275</div>
+							<div class="size">280</div>
+							<div class="size">285</div>
+							<div class="size">290</div>
+							<div class="size off">295</div>
+							<div class="size">300</div>
+							<div class="size off">305</div>
+							<div class="size off">310</div>
+						</div>
+					</div>
+					<form class="btnArea">
+						<!-- 이 부분은 차후 상의 후 변경될 가능성이 있음 -->
+						<button onclick="" class="btn basket"><p>장바구니</p></button><br />
+						<button onclick="" class="btn wishList">
+							<div>
+								<span class="btnText">위시리스트</span><svg class="heartImg" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M17.594 3.75002C18.918 3.75002 20.162 4.26602 21.098 5.20102C22.0262 6.13093 22.5475 7.39113 22.5475 8.70502C22.5475 10.0189 22.0262 11.2791 21.098 12.209L12.8 20.508L4.50101 12.209C3.57312 11.2791 3.052 10.0192 3.052 8.70552C3.052 7.39188 3.57312 6.13189 4.50101 5.20202C4.96004 4.74032 5.50609 4.37425 6.10756 4.12501C6.70902 3.87578 7.35395 3.74832 8.00501 3.75002C9.32901 3.75002 10.573 4.26602 11.509 5.20102L12.269 5.96102L12.8 6.49202L13.33 5.96102L14.09 5.20102C14.5492 4.73963 15.0953 4.37384 15.6968 4.12478C16.2982 3.87573 16.943 3.74835 17.594 3.75002Z" stroke="#111111" stroke-width="1.5"/>
+									</svg>
+							</div>
+						</button>
+					</form>
+					<div class="prodText">
+						<p>경기 종료 휘슬이 울릴 때까지는 끝난 것이 아닙니다. 테이텀 2와 함께 여유로운 에너지로 경기를 즐겨보세요.
+							무거운 고무 소재의 사용을 제한하여 더욱 가벼운 착화감을 선사합니다. 전체적으로 적용된 나이키 에어 스트로벨 유닛은 빠르게 방향을 바꿀 수 있도록 도와주며,
+							견고한 프레임과 발에 밀착되는 지지력 있는 폼이 어우러져 고정력 좋은 착화감을 선사합니다.</p>
+						<ul class="prodStyle">
+							<li>현재 컬러: 라이트 지트론/오로라 그린/ 아토믹 핑크/세일</li>
+							<li>스타일 번호: FJ6458-700</li>
+						</ul>
+					</div>
+					<p class="prodDetail" onclick="showModal()">상품 상세 정보 보기</p>
+				</div>
+				<!-- 제품 배송 정보, 리뷰 등등을 표시 -->
+				<div class="prodMoreInfo">	
+					<details class="prodDropDown service">
+						<summary class="prodDropDownHeader">무료 배송 및 반품</summary>
+						<div class="summaryContent">
+							<span>일반 배송</span>
+							<ul>
+								<li>배송지역: 전국 (일부 지역 제외)</li>
+								<li>배송비: 무료배송</li>
+								<li>제품 수령일로부터 14일 이내 제품에 대해서만 무료 반품 서비스가 가능합니다</li>
+							</ul><br/>
+							<span>오늘도착 서비스</span>
+							<ul>
+								<li>이용시간: 오전 10시 30분까지 결제 시, 당일 도착 (일요일, 공휴일 제외)</li>
+								<li>서비스지역: 서울∙과천∙의왕∙군포∙수원∙성남∙안양시 전체, 용인시 수지구∙기흥구, 부천시 중동∙상동∙심곡동</li>
+								<li>서비스비용: 5,000원</li>
+							</ul><br/>
+							<span>A/S 안내</span>
+							<ul>
+								<li>나이키 온라인에서 구매하신 제품에 대한 A/S 는 나이키코리아 고객센터(080-022-0182)에서 유선으로만 접수 가능합니다.</li>
+							</ul>
+						</div>
+					</details>
+					<details class="prodDropDown review">
+						<!-- 별들은 나중에 이미지로 대체할 것, 빈 별도 만들어야 한다 -->
+						<summary class="prodDropDownHeader">리뷰<span id="reviewNum">(2)</span>
+							<div class="reviewTotalStarsSum">★★★★★</div>
+						</summary>
+						<div class="summaryContent">
+							<div style="display: inline;" class="reviewTotalStars">★★★★★</div>
+							<span id="reviewTotalScore">4.7점</span>
+							<p class="writeReview">리뷰 작성하기</p>
+							<div class="reviewSection">
+								<div class="reviews">
+									<h3 class="reviewTitle">Nike Jam Shoe Revie</h3>
+									<div class="reviewStars">★★★★★</div>
+									<p class="reviewContent">The Nike Jam shoes are a dream to wear, with a snug yet comfortable fit that supports your feet during any activity.
+										The sleek, modern design with bold color combinations makes a stylish statement, perfect for any outfit. The
+									</p>
+								</div>
+								<div class="reviews">
+									<h3 class="reviewTitle">스티커가 왜 쉽게 빠지는 걸까요?</h3>
+									<div class="reviewStars">★★★★★</div>
+									<p class="reviewContent">안에 이 스티커가 원래 이렇게 쉽게 빠지나요? 한번밖에 안신었는데 벌써 빠졌네요???</p>
+								</div>
+							</div>
+						</div>
+					</details>
+					<details class="prodDropDown additional">
+						<summary class="prodDropDownHeader">추가 정보</summary>
+						<div class="summaryContent">
+							<ul>
+								<li>
+									제조연월: 수입제품으로 각 제품별 입고 시기에 따라 상이하여 정확한 제조연월 제공이 어렵습니다.
+									제조연월을 확인하시려면 고객센터에 문의하시기 바라며, 정확한 제조연월은 배송받으신 제품의 라벨을 참고하시기 바랍니다.
+								</li>
+								<li>A/S 책임자와 전화번호: (유)나이키코리아 온라인 스토어 고객센터 / 080-022-0182</li>
+								<li>세탁방법 및 취급시 주의사항: 자세한 내용은 '자세히 보기'를 클릭하여 확인 부탁드립니다.</li>
+								<li>미성년자 권리 보호 안내: 자세한 내용은 '자세히 보기' 를 클릭하여 확인 부탁드립니다.</li>
+								<li>
+									품질보증기준: 품질보증기간-섬유 및 일반 소재(구입 후 6개월), 가죽소재(구입 후 1년).
+									유통 중 손상되었거나 품질에 이상이 있는 제품에 한하여 소비자 피해 보상 규정에 의거 보상하여 드립니다.
+									단, 제품에 부착되어 있는 사용방법 및 취급 시 주의사항에 따라 제품을 관리해 주시고,
+									소비자 부주의로 인한 품질 이상 및 변형에 대해서는 책임을 지지 않습니다.
+								</li>
+								<li>제조자/수입품의 경우 수입자를 함께 표기: Nike. Inc / (유)나이키코리아</li>
+							</ul>
+						<div class="serviceContent">
+					</details>
+				</div>	
+			</main>
+			<!-- 메인 영역과 구분되는 추천 상품 파트 -->
+			<div class="recommended">
+				<div class="recommendedHeader">
+					<h1>추천 제품</h1>
+					<img class="btnLeft" src="../images/icons/IconSlideLeft.png">
+					<img class="btnRight" src="../images/icons/IconSlideRight.png">					
+				</div>
+				<div class="recommendedItemsSection">
+					<div class="recommendedItem" onclick="">
+						<img src="../images/product/shoes14.png" style="display: block; width: 196px; height: 196px;">
+						<div style="margin: 11.75px 0;">
+							<span class="recommendedItemName">나이키 줌 보메로 5</span><br/>
+							<span class="recommendedItemType">남성 신발</span><br/>
+						</div>
+						<span class="recommendedItemPrice">189,000 원</span>
+					</div>
+					<div class="recommendedItem" onclick="">
+						<img src="../images/product/hat.svg" style="display: block; width: 196px; height: 196px;">
+						<div style="margin: 11.75px 0;">
+							<span class="recommendedItemName">나이키 클럽</span><br/>
+							<span class="recommendedItemType">언스트럭쳐 데님 캡</span><br/>
+						</div>
+						<span class="recommendedItemPrice">39,000 원</span>
+					</div>
+				</div>
+			</div>
+			<!-- 푸터 쪽에서 확률적으로 문제를 발생 -->
+			<nike-footer>나이키 푸터</nike-footer>
+		</div>
+		<div class="footerBasketBtn">
+			장바구니
+		</div>
+		<!-- 바깥 영역을 클릭해도 닫힐 수 있도록 + 바깥 영역 블러 처리 -->
+		<div class="background" id="background" onclick="hideModal()"></div>
+		<div class="productDetail" id="productDetail">
+			<div class="productDetailContent">
+				<div>
+					<img src="../images/product/shoes1.png" />
+					<span class="productDetailItem"> 테이텀 2 PF </span>
+					<div class="prodPrice detailed">
+						<span id="prevPrice" style="margin-right: 8px;">149,000 원</span>
+						<span id="curPrice" style="color: #9e9ea0; text-decoration-line: line-through; margin-right: 8px;">249,000 원</span>
+						<span id="salesRate" style="color: #007d48;">10% 할인</span>
+					</div>
+					<div class="closeButton" onclick="hideModal()" onmouseover="">
+						<img src="../images/icons/IconExitGray.svg" />
+					</div>
+				</div>
+				<div class="productDetailDescription">
+					<p>경기 종료 휘슬이 울릴 때까지는 끝난 것이 아닙니다. 테이텀 2와 함께 여유로운 에너지로 경기를 즐겨보세요.
+						무거운 고무 소재의 사용을 제한하여 더욱 가벼운 착화감을 선사합니다. 전체적으로 적용된 나이키 에어 스트로벨 유닛은 빠르게 방향을 바꿀 수 있도록 도와주며,
+						견고한 프레임과 발에 밀착되는 지지력 있는 폼이 어우러져 고정력 좋은 착화감을 선사합니다.</p>
+
+					<h1 style="font-size: 20px; font-weight: 700; line-height: 300%;">꼭 맞는 핏</h1>
+					<p style="font-size: 14px;">밑창 아래부터 갑피 위쪽을 감싸는 프레임으로, 지면에 가까운 낮은 자세로 플레이할 때 지지력을 선사합니다.</p>
+					<h1 style="font-size: 20px; font-weight: 700; line-height: 300%;">뛰어난 그립력</h1>
+					<p style="font-size: 14px;">코트 위에서는 언제나 움직이게 되죠. 고무 밑창과 지면에 접촉하는 폼은 공격에서도, 수비에서도 반응성과 접지력을 높여주는 역할을 합니다.</p>
+					<h1 style="font-size: 20px; font-weight: 700; line-height: 300%;">경량 구조</h1>
+					<p style="font-size: 14px;">신발이 가벼워 뛰어오를 때 에너지를 아낄 수 있습니다. 고무 소재가 가장 필요한 밑창에는 고무가 사용됐지만, 충분한 접지력을 가진 폼이 무거운 무게를 지탱해줍니다.</p>
+					<h1 style="font-size: 20px; font-weight: 700; line-height: 300%;">상품 상세 정보</h1>
+					<p style="font-size: 14px;">야외 코트 경기를 위해 최적화된 넓은 디자인의 PF 에디션</p>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
