@@ -229,27 +229,30 @@ img {
 
 /* additional info area */
 
-.prodDropDown {
-	border-bottom: solid 1px #e5e5e5;
-	padding-bottom: 30px;
-}
-
 .prodDropDownHeader {
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 175%;
 	color: var(--color-black-1);
 	list-style-type: none;
-	padding-top: 30px;
+
 	position: relative;
 	cursor: pointer;
 }
 
 .summaryContent {
-	margin-top: 30px;
 	font-size: 12px;
 	width: 100%;
 	line-height: 170%;
+	border-bottom: solid 1px #e5e5e5;
+	padding-top: 30px;
+
+	margin-bottom: 30px;
+	max-height: 0px;
+	overflow: hidden;
+	transition:
+		max-height 500ms ease-out,
+		padding 500ms ease-out;
 }
 
 .summaryContent span {
@@ -268,7 +271,7 @@ img {
 }
 
 .prodDropDownHeader::after {
-	content: url(../images/icons/Down.svg);
+	content: url(../../assets/icons/carticon/Down.svg);
 	transition: 0.5s transform;
 	position: absolute;
 	right: 0;
@@ -285,14 +288,11 @@ img {
 }
 
 /* 애니메이션 효과 */
-details {
-	max-height: 95px;
-	overflow: hidden;
-	transition: max-height 200ms ease-in-out;
-}
 
-details[open] {
+.prodDropDown[open] + .summaryContent {
 	max-height: 100vh;
+	padding-bottom: 30px;
+	transition: max-height 1000ms ease-out;
 }
 
 /* review section */
