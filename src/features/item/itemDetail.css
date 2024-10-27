@@ -119,10 +119,11 @@ img {
 /* size selection */
 
 .sizeArea {
-	height: 196px;
+	height: fit-content;
 	font-size: 16px;
 	font-weight: 500;
 	color: var(--color-black-1);
+	margin-bottom: 32px;
 }
 
 .sizeAreaText {
@@ -174,7 +175,6 @@ img {
 
 /* button area */
 .btnArea {
-	margin-top: 64px;
 }
 
 .btn {
@@ -216,6 +216,11 @@ img {
 
 .prodStyle {
 	margin: 28px 24px 34px;
+}
+
+.prodStyle li {
+	list-style-type: disc;
+	margin-left: 10px;
 }
 
 .prodDetail {
