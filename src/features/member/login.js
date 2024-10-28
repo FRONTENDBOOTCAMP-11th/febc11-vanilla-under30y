@@ -1,7 +1,15 @@
 let inputEmailForm = document.querySelector('.input-email-form')
 let inputPasswordForm = document.querySelector('.input-pw-form')
 
+// 이메일 입력 후 계속을 눌렀을 때
 function buttonNext() {
+    // 이메일 입력 값 가져오기
+    const emailInput = document.getElementById('email');
+    const userEmailDisplay = document.querySelector('.user-email');
+
+    // 이메일 표시 업데이트
+    userEmailDisplay.textContent = emailInput.value;
+
     inputEmailForm.style.display = 'none'
     inputPasswordForm.style.display = 'block'
 }
@@ -11,18 +19,7 @@ function buttonLast() {
     inputPasswordForm.style.display = 'none'
 }
 
-
-let login = document.getElementById("login");
-
-login.addEventListener("click", function () {
-    let form = document.getElementById("form");
-    let email = document.getElementById("email");
-    let password = document.getElementById("password");
-
-    form.mothod = "GET";
-    form.submit();
-});
-
+// 이메일 유효성 검사
 function validateEmail(input) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const message = document.getElementById('validationMessage');
@@ -40,3 +37,16 @@ function validateEmail(input) {
         inputEmail.style.borderColor = 'var(--color-red-1)';
     }
 }
+
+
+// 로그인 데이터 전송
+let login = document.getElementById("login");
+
+login.addEventListener("click", function () {
+    let form = document.getElementById("form");
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+
+    form.mothod = "GET";
+    form.submit();
+});
