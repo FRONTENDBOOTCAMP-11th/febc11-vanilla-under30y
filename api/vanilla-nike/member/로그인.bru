@@ -1,0 +1,26 @@
+meta {
+  name: 로그인
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{url}}/users/login
+  body: json
+  auth: bearer
+}
+
+headers {
+  client-id: {{client-id}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "email": "hj@naver.com",
+    "password": "12345678"
+  }
+}

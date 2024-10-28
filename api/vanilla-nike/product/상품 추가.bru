@@ -1,0 +1,80 @@
+meta {
+  name: 상품 추가
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{url}}/seller/products
+  body: json
+  auth: bearer
+}
+
+headers {
+  client-id: {{client-id}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "price": 169000,
+    "quantity": 600,
+    "name": "나이키 에어포스 1 '07 WB",
+    "mainImages": [
+      {
+        "path": "/files/vanilla04/m5HJQ1voR.png",
+        "name": "m5HJQ1voR.png",
+        "originalname": "AIRFORCE1_WB01.png"
+      },
+      {
+        "path": "/files/vanilla04/WS41xAHxq.png",
+        "name": "WS41xAHxq.png",
+        "originalname": "AIRFORCE1_WB02.png"
+      },
+      {
+        "path": "/files/vanilla04/R4ebJBA-r.png",
+        "name": "R4ebJBA-r.png",
+        "originalname": "AIRFORCE1_WB03.png"
+      },
+      {
+        "path": "/files/vanilla04/q-erOKqvY.png",
+        "name": "q-erOKqvY.png",
+        "originalname": "AIRFORCE1_WB04.png"
+      },
+      {
+        "path": "/files/vanilla04/WaG97AOxx.png",
+        "name": "WaG97AOxx.png",
+        "originalname": "AIRFORCE1_WB05.png"
+      },
+      {
+        "path": "/files/vanilla04/kSfYVd96b.png",
+        "name": "kSfYVd96b.png",
+        "originalname": "AIRFORCE1_WB06.png"
+      },
+      {
+        "path": "/files/vanilla04/1ToY_WL_d.png",
+        "name": "1ToY_WL_d.png",
+        "originalname": "AIRFORCE1_WB07.png"
+      },
+      {
+        "path": "/files/vanilla04/U_3OGsYFf.png",
+        "name": "U_3OGsYFf.png",
+        "originalname": "AIRFORCE1_WB08.png"
+      }
+    ],
+    "content": "나이키 에어포스 1 '07 WB",
+    "extra": {
+      "depth": 2,
+      "parent": 8,
+      "size": [220, 225, 230, 235, 240, 245, 250, 255, 260],
+      "color": "플랙스/검 라이트 브라운/블랙/휘트",
+      "styleNo": "CJ9179-200",
+      "primeCost": 139000,
+      "shippingFees": 3000
+    }
+  }
+  
+}

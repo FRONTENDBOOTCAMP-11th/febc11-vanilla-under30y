@@ -424,6 +424,9 @@ body {
 }
 
 .content__product-list--inside-product-explain .product-name {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	font-size: 14px;
 	font-weight: 500;
 	color: #111;
