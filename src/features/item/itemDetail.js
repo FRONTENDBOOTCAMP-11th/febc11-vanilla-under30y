@@ -61,9 +61,9 @@ let product = new Product(
 
 //DB 상에 설정되어있는 제품에 따라 부모 = 제품의 원본, 자식 = 제품의 색상 바리에이션
 //
-let productParent
-let extraParent
-let productChild = []
+// let productParent = new Product()
+// let extraParent = new Extra()
+// let products = []
 
 // 제품 정보가 출력될 dom node 객체 획득 - prodInfo
 let prodTitleNode = document.getElementById('prodTitle')
@@ -174,7 +174,10 @@ function printProductImage(product) {
 	for (let i = 0; i < product.image.length; i++) {
 		let imageNode = document.createElement('img')
 		//이미지 경로는 DB 상의 경로를 토대로 수정할 예정
-		imageNode.setAttribute('src', `../../assets/item/${product.image[i]}`)
+		imageNode.setAttribute(
+			'src',
+			`../../assets/images/item/${product.image[i]}`
+		)
 		imageNode.setAttribute('style', 'display: block')
 		prodImageFrameNode.appendChild(imageNode)
 	}
@@ -186,7 +189,7 @@ function printProductImage(product) {
 	let prodImageColorImgNode = document.createElement('img')
 	prodImageColorImgNode.setAttribute(
 		'src',
-		`../../assets/item/${product.image[0]}`
+		`../../assets/images/item/${product.image[0]}`
 	)
 	prodImageColorFrameNode.appendChild(prodImageColorImgNode)
 	prodImageColorNode.appendChild(prodImageColorFrameNode)
@@ -247,6 +250,16 @@ showSizeArea(product)
 function printShippingInfo(product) {}
 
 function printReviewProduct(product) {}
+
+function axios() {
+	axios({
+		method: 'get',
+		url: `{{url}}/products/`
+	}).then(response => {
+		console.log(response.data.result)
+	})
+}
+axios()
 
 // 이미지 슬라이더
 // const imageSlider = document.getElementById('prodImageFrame')
