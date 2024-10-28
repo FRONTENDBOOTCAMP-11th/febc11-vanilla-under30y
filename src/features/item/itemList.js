@@ -54,18 +54,17 @@ function countAllProduct(data) {
 // api 접속
 const ApiUrl = 'https://11.fesp.shop'
 const ClientId = 'vanilla04'
+let data
 let xhr = new XMLHttpRequest()
-// sessionStorage.setItem('sort', 'false')
 
 xhr.open('get', `${ApiUrl}/products`, true)
 xhr.setRequestHeader('client-id', `${ClientId}`)
 xhr.send()
 xhr.onload = function () {
 	if (xhr.status === 200) {
-		let data = JSON.parse(xhr.responseText)
+		data = JSON.parse(xhr.responseText)
 		countAllProduct(data.item.length) // 상품 전체 개수 결과 도출
 		dataDivide(data) // 상품 분류
-		alert(sessionStorage.getItem('sort'))
 	}
 }
 
@@ -186,8 +185,30 @@ function addProductContent(isNew, name, gender, color, price) {
 const filterAdapt = document.getElementById('filter-adapt')
 filterAdapt.addEventListener('submit', function (e) {
 	e.preventDefault()
-	// var temp = document.querySelector('input[name="standard"]:checked').value
-	location.reload(true)
-	sessionStorage.setItem('sort', 'true')
-	alert(sessionStorage.getItem('sort'))
+	const filter = document.getElementById('filter')
+
+	var temp = document.querySelector('input[name="standard"]:checked').value
+	switch (temp) {
+		case 'recommended':
+			location.reload()
+			break
+		case 'latest': {
+			data.item.sort(
+				(a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+			)
+			dataDivide(data) // 상품 분류
+			break
+		}
+		case 'high-price': {
+			data.item.sort((a, b) => b.price - a.price)
+			dataDivide(data)
+			break
+		}
+		case 'low-price': {
+			data.item.sort((a, b) => a.price - b.price)
+			dataDivide(data)
+			break
+		}
+	}
+	filter.classList.remove('active')
 })
