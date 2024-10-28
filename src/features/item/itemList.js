@@ -48,25 +48,36 @@ hideFilter.onclick = () => {
 // 상품 전체 개수 세는 함수
 function countAllProduct(data) {
 	let productCount = document.getElementById('product-count')
-	productCount.innerText = `${data}개의 결과`
+	productCount.innerText = `${data.item.length}개의 결과`
 }
 
 // api 접속
 const ApiUrl = 'https://11.fesp.shop'
 const ClientId = 'vanilla04'
-let data
-let xhr = new XMLHttpRequest()
+let data, originalData
 
-xhr.open('get', `${ApiUrl}/products`, true)
-xhr.setRequestHeader('client-id', `${ClientId}`)
-xhr.send()
-xhr.onload = function () {
-	if (xhr.status === 200) {
-		data = JSON.parse(xhr.responseText)
-		countAllProduct(data.item.length) // 상품 전체 개수 결과 도출
-		dataDivide(data) // 상품 분류
-	}
-}
+// eslint-disable-next-line no-undef
+axios({
+	method: 'get',
+	url: `${ApiUrl}/products`,
+	headers: { 'client-id': ClientId }
+}).then(response => {
+	data = response.data
+	countAllProduct(data)
+	dataDivide(data)
+})
+
+// let xhr = new XMLHttpRequest()
+// xhr.open('get', `${ApiUrl}/products`, true)
+// xhr.setRequestHeader('client-id', `${ClientId}`)
+// xhr.send()
+// xhr.onload = function () {
+// 	if (xhr.status === 200) {
+// 		data = JSON.parse(xhr.responseText)
+// 		countAllProduct(data.item.length) // 상품 전체 개수 결과 도출
+// 		dataDivide(data) // 상품 분류
+// 	}
+// }
 
 // 상품 표시에 필요한 값들을 각 배열에 저장하는 함수
 function dataDivide(data) {
@@ -185,30 +196,61 @@ function addProductContent(isNew, name, gender, color, price) {
 const filterAdapt = document.getElementById('filter-adapt')
 filterAdapt.addEventListener('submit', function (e) {
 	e.preventDefault()
-	const filter = document.getElementById('filter')
+	// filterProduct()
+	sortProduct()
+	dataDivide(data) // 상품 분류
+})
 
-	var temp = document.querySelector('input[name="standard"]:checked').value
+// 정렬 구현
+function sortProduct() {
+	const filter = document.getElementById('filter')
+	let temp = document.querySelector('input[name="standard"]:checked').value
 	switch (temp) {
 		case 'recommended':
-			location.reload()
+			data.item.sort((a, b) => b.quantity - a.quantity)
 			break
 		case 'latest': {
 			data.item.sort(
 				(a, b) => new Date(b.createdAt) - new Date(a.createdAt)
 			)
-			dataDivide(data) // 상품 분류
 			break
 		}
 		case 'high-price': {
 			data.item.sort((a, b) => b.price - a.price)
-			dataDivide(data)
 			break
 		}
 		case 'low-price': {
 			data.item.sort((a, b) => a.price - b.price)
-			dataDivide(data)
 			break
 		}
 	}
 	filter.classList.remove('active')
-})
+}
+
+// 필터 구현
+function filterProduct() {
+	// check된 값들을 배열로 분할
+	let genderQuerry = document.querySelectorAll('input[name="gender"]:checked')
+	let priceQuerry = document.querySelectorAll('input[name="price"]:checked')
+	let genderList = []
+	let priceList = []
+	genderQuerry.forEach(gender => {
+		genderList.push(gender.value)
+	})
+	priceQuerry.forEach(price => {
+		priceList.push(price.value)
+	})
+	genderFilter(genderList)
+}
+
+function genderFilter(genderList) {
+	let resultMan = []
+	for (let i = 0; i < genderList.length; i++) {
+		switch (genderList[i]) {
+			case 'men': {
+				resultMan = data.filter(value => value.extra.gender === 'men')
+			}
+		}
+	}
+	data.item = []
+}
