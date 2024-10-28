@@ -68,5 +68,7 @@ login.addEventListener("click", async function (event) {
     // sessionStorage에 토큰 저장
     sessionStorage.setItem('accessToken', response.data.accessToken);
 
+    window.location.href = '/../../../index.html';
+
     console.log(response)
 });
