@@ -11,6 +11,7 @@
 	<body>
 		<!-- 헤더 css와 html이 있습니다. :) -->
 		<div class="wrapper">
+			<a href=""></a>
 			<header>
 				<nike-header>나이키 헤더</nike-header>
 				<!-- 상품 카테고리 선택 -->
@@ -20,14 +21,13 @@
 						<li>/</li>
 						<li>신발</li>
 					</ol> -->
-					<h1 class="header__category--type">모든 상품</h1>
+					<h1 class="header__category--type">신 발</h1>
 				</div>
 			</header>
 			<div class="content">
 				<!-- 상품 카테고리를 선택할 수 있는 내비게이션 -->
 				<div class="content__product-category" id="navigation">
 					<ul id="navi">
-						<li>전체</li>
 						<li>신발</li>
 						<li>탑 & 티셔츠</li>
 						<li>후디 & 크루</li>
@@ -61,7 +61,7 @@
 							<div
 								class="content__product-list--header-filter-option"
 							>
-								<form action="#" method="get">
+								<form action="#" method="get" id="filter-adapt">
 									<div class="filter-header">
 										<h1 class="filter-header title">
 											필터
@@ -85,24 +85,28 @@
 												<input
 													type="radio"
 													name="standard"
+													value="recommended"
 												/>추천순
 											</div>
 											<div>
 												<input
 													type="radio"
 													name="standard"
+													value="latest"
 												/>최신순
 											</div>
 											<div>
 												<input
 													type="radio"
 													name="standard"
+													value="high-price"
 												/>높은 가격순
 											</div>
 											<div>
 												<input
 													type="radio"
 													name="standard"
+													value="low-price"
 												/>낮은 가격순<br />
 											</div>
 										</div>

@@ -1,0 +1,27 @@
+meta {
+  name: 회원가입
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{url}}/users
+  body: json
+  auth: none
+}
+
+headers {
+  client-id: {{client-id}}
+}
+
+body:json {
+  {
+    "email": "hj@naver.com",
+    "password": "12345678",
+    "name": "현종",
+    "phone": "01011112222",
+    "address": "서울시 강남구 역삼동 123",
+    "type": "user",
+    "image": "/files/00-sample/profile.jpg"
+  }
+}
