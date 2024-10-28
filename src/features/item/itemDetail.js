@@ -59,6 +59,12 @@ let product = new Product(
 	extra1
 )
 
+//DB 상에 설정되어있는 제품에 따라 부모 = 제품의 원본, 자식 = 제품의 색상 바리에이션
+//
+let productParent
+let extraParent
+let productChild = []
+
 // 제품 정보가 출력될 dom node 객체 획득 - prodInfo
 let prodTitleNode = document.getElementById('prodTitle')
 let prodImageFrameNode = document.getElementById('prodImageFrame')
@@ -167,10 +173,25 @@ function printProductTitle(product) {
 function printProductImage(product) {
 	for (let i = 0; i < product.image.length; i++) {
 		let imageNode = document.createElement('img')
+		//이미지 경로는 DB 상의 경로를 토대로 수정할 예정
 		imageNode.setAttribute('src', `../../assets/item/${product.image[i]}`)
 		imageNode.setAttribute('style', 'display: block')
 		prodImageFrameNode.appendChild(imageNode)
 	}
+	let prodImageColorFrameNode = document.createElement('div')
+	prodImageColorFrameNode.setAttribute(
+		'class',
+		'prodImageColorFrame selected'
+	)
+	let prodImageColorImgNode = document.createElement('img')
+	prodImageColorImgNode.setAttribute(
+		'src',
+		`../../assets/item/${product.image[0]}`
+	)
+	prodImageColorFrameNode.appendChild(prodImageColorImgNode)
+	prodImageColorNode.appendChild(prodImageColorFrameNode)
+
+	// 만약 위의 productchild에 다른 product 객체가 있다면 아래에 대입
 }
 
 //제품 설명 출력
@@ -222,6 +243,10 @@ printProductTitle(product)
 printProductImage(product)
 printProductText(product)
 showSizeArea(product)
+
+function printShippingInfo(product) {}
+
+function printReviewProduct(product) {}
 
 // 이미지 슬라이더
 // const imageSlider = document.getElementById('prodImageFrame')
