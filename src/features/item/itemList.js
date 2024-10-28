@@ -135,7 +135,8 @@ function addProductContent(isNew, name, gender, color, price) {
 	if (isNew == true) {
 		newProduct.appendChild(document.createTextNode('신제품'))
 	} else if (isNew == false) {
-		newProduct.appendChild(document.createTextNode('ㅠㅠ'))
+		const br = document.createElement('br')
+		newProduct.appendChild(br)
 	}
 	// 상품 이름 추가
 	const productName = document.createElement('p')
