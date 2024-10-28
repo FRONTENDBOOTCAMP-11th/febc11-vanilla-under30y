@@ -55,6 +55,7 @@ function countAllProduct(data) {
 const ApiUrl = 'https://11.fesp.shop'
 const ClientId = 'vanilla04'
 let xhr = new XMLHttpRequest()
+// sessionStorage.setItem('sort', 'false')
 
 xhr.open('get', `${ApiUrl}/products`, true)
 xhr.setRequestHeader('client-id', `${ClientId}`)
@@ -64,6 +65,7 @@ xhr.onload = function () {
 		let data = JSON.parse(xhr.responseText)
 		countAllProduct(data.item.length) // 상품 전체 개수 결과 도출
 		dataDivide(data) // 상품 분류
+		alert(sessionStorage.getItem('sort'))
 	}
 }
 
@@ -89,6 +91,8 @@ function dataDivide(data) {
 function addDocument(img, isNew, name, gender, color, price) {
 	// 전체를 감쌀 div
 	const productWrapper = document.getElementById('product-list')
+	// 필터에 의해 재생산될때를 대비한 초기화
+	productWrapper.innerHTML = ''
 	for (let i = 0; i < img.length; i++) {
 		// 여기서 inside-product 3개를 넣어야함
 		// wrapperDiv는 상품 하나하나를 감싼 div
@@ -177,3 +181,13 @@ function addProductContent(isNew, name, gender, color, price) {
 
 	return prdCntDiv
 }
+
+// 필터에서 입력된 데이터를 가져오는 코드
+const filterAdapt = document.getElementById('filter-adapt')
+filterAdapt.addEventListener('submit', function (e) {
+	e.preventDefault()
+	// var temp = document.querySelector('input[name="standard"]:checked').value
+	location.reload(true)
+	sessionStorage.setItem('sort', 'true')
+	alert(sessionStorage.getItem('sort'))
+})

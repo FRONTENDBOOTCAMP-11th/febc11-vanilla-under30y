@@ -18,6 +18,10 @@ class NikeHeader extends HTMLElement {
 			padding: unset;
 		}
 
+		a {
+			margin: unset;
+		}
+
 		/* Web Design */
 
 		.header {
@@ -26,6 +30,10 @@ class NikeHeader extends HTMLElement {
 			gap: 5px;
 			margin-left: 14px;
 			margin-right: 24px;
+		}
+
+		.header .main-page {
+			margin-right: auto;
 		}
 
 		.header--img {
@@ -44,7 +52,7 @@ class NikeHeader extends HTMLElement {
 
 		.header--img.logo {
 			/* 헤더 로고 이미지 설정 */
-			margin-right: auto;
+			
 			width: 76px;
 			height: 60px;
 		}
@@ -297,11 +305,13 @@ class NikeHeader extends HTMLElement {
 		}
 	</style>
 	<div class="header">
-		<img
-			src="../../assets/images/logo/LOGO.svg"
-			alt="나이키 로고"
-			class="header--img logo"
-		/>
+		<a href="../../../index.html" class="main-page">
+			<img
+				src="../../assets/images/logo/LOGO.svg"
+				alt="나이키 로고"
+				class="header--img logo"
+			/>
+		</a>
 		<img
 			src="../../assets/icons/menuicon/IconSearch.svg"
 			alt="검색"
