@@ -17,8 +17,8 @@ function buttonNext() {
 
 // 이전 버튼 눌렀을 때
 function buttonLast() {
-    inputEmailForm.style.display = 'block'
-    inputPasswordForm.style.display = 'none'
+    inputEmailForm.style.display = 'block';
+    inputPasswordForm.style.display = 'none';
 }
 
 // 이메일 유효성 검사
@@ -47,11 +47,23 @@ function validateEmail(input) {
 // 로그인 버튼 클릭시 데이터 전송
 let login = document.getElementById("login");
 
-login.addEventListener("click", function () {
-    let form = document.getElementById("form");
+login.addEventListener("click", async function (event) {
+    event.preventDefault();
     let email = document.getElementById("email");
     let password = document.getElementById("password");
+    console.log(email.value, password.value)
 
-    form.mothod = "GET";
-    form.submit();
+    const result = await fetch("https://11.fesp.shop/users/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "client-id": "vanilla04"
+        },
+        body: JSON.stringify({
+            "email": email.value,
+            "password": password.value
+        })
+    })
+
+    console.log(result)
 });
