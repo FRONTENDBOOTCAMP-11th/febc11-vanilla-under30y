@@ -53,17 +53,20 @@ login.addEventListener("click", async function (event) {
     let password = document.getElementById("password");
     console.log(email.value, password.value)
 
-    const result = await fetch("https://11.fesp.shop/users/login", {
+    const response = await axios({
         method: "POST",
+        url: "https://11.fesp.shop/users/login",
         headers: {
-            "Content-Type": "application/json",
             "client-id": "vanilla04"
         },
-        body: JSON.stringify({
-            "email": email.value,
-            "password": password.value
-        })
-    })
+        data: {
+            email: email.value,
+            password: password.value
+        }
+    });
 
-    console.log(result)
+    // sessionStorage에 토큰 저장
+    sessionStorage.setItem('accessToken', response.data.accessToken);
+
+    console.log(response)
 });
