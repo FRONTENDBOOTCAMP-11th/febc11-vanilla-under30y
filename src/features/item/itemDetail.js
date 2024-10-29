@@ -77,150 +77,8 @@ let prodImageColorNode = document.getElementById('prodImageColor') //출력과 �
 let sizeSelectionNode = document.getElementById('sizeSelection') //출력과 동시에 sizeSelection의 입력 노드
 let prodTextNode = document.getElementById('prodText')
 
-// 제품의 추가 정보가 출력될 dom node 객체 획득 - prodMoreInfo
-// let reviewProdNode = document.getElementById('reviewProd')
-
 // 제품의 상세 정보가 출력될 dom node 객체 획득 - productDetail
 let productDetailNode = document.getElementById('productDetail')
-
-// function printReviewProduct(product) {
-
-// }
-
-// 이미지 슬라이더
-const imageSlider = document.getElementById('prodImageFrame')
-
-let isMouseDown = false
-let startX, scrollLeft
-
-imageSlider.addEventListener('mousedown', e => {
-	e.preventDefault()
-	isMouseDown = true
-	imageSlider.classList.add('active')
-
-	startX = e.pageX - imageSlider.offsetLeft
-	scrollLeft = imageSlider.scrollLeft
-})
-
-imageSlider.addEventListener('mouseleave', () => {
-	isMouseDown = false
-	imageSlider.classList.remove('active')
-})
-
-imageSlider.addEventListener('mouseup', () => {
-	isMouseDown = false
-	imageSlider.classList.remove('active')
-})
-
-imageSlider.addEventListener('mousemove', e => {
-	if (!isMouseDown) return
-
-	e.preventDefault()
-	const x = e.pageX - imageSlider.offsetLeft
-	const walk = (x - startX) * 2
-	imageSlider.scrollLeft = scrollLeft - walk
-})
-
-imageSlider.addEventListener('mousedown', e => {
-	e.preventDefault()
-	isMouseDown = true
-	imageSlider.classList.add('active')
-
-	startX = e.pageX - imageSlider.offsetLeft
-	scrollLeft = imageSlider.scrollLeft
-})
-
-// 색상 선택 슬라이더
-prodImageColorNode.addEventListener('mousedown', e => {
-	e.preventDefault()
-	isMouseDown = true
-	prodImageColorNode.classList.add('active')
-
-	startX = e.pageX - prodImageColorNode.offsetLeft
-	scrollLeft = prodImageColorNode.scrollLeft
-})
-
-prodImageColorNode.addEventListener('mouseleave', () => {
-	isMouseDown = false
-	prodImageColorNode.classList.remove('active')
-})
-
-prodImageColorNode.addEventListener('mouseup', () => {
-	isMouseDown = false
-	prodImageColorNode.classList.remove('active')
-})
-
-prodImageColorNode.addEventListener('mousemove', e => {
-	if (!isMouseDown) return
-
-	e.preventDefault()
-	const x = e.pageX - prodImageColorNode.offsetLefts
-	const walk = (x - startX) * 2
-	prodImageColorNode.scrollLeft = scrollLeft - walk
-})
-
-// 추천 상품 슬라이더
-
-const recommendedSlider = document.getElementById('recommendedItemsSection')
-
-recommendedSlider.addEventListener('mousedown', e => {
-	e.preventDefault()
-	isMouseDown = true
-	recommendedSlider.classList.add('active')
-
-	startX = e.pageX - recommendedSlider.offsetLeft
-	scrollLeft = recommendedSlider.scrollLeft
-})
-
-recommendedSlider.addEventListener('mouseleave', () => {
-	isMouseDown = false
-	recommendedSlider.classList.remove('active')
-})
-
-recommendedSlider.addEventListener('mouseup', () => {
-	isMouseDown = false
-	recommendedSlider.classList.remove('active')
-})
-
-recommendedSlider.addEventListener('mousemove', e => {
-	if (!isMouseDown) return
-
-	e.preventDefault()
-	const x = e.pageX - recommendedSlider.offsetLeft
-	const walk = (x - startX) * 2
-	recommendedSlider.scrollLeft = scrollLeft - walk
-})
-
-// 리뷰 작성 페이지 열기
-document.querySelector('.writeReview').addEventListener('click', () => {
-	window.open(
-		'writeReview.html',
-		'_blank',
-		'top = 10, left = 10, width = 345 height = 700'
-	)
-})
-
-// 제품 상세 정보 보기 페이지 토글 용
-const showModal = document.querySelector('.prodDetail')
-
-showModal.addEventListener('click', () => {
-	document.getElementById('background').classList.add('show-background')
-	document.getElementById('productDetail').classList.add('show-modal')
-})
-
-const hideModal = [
-	document.querySelector('.background'),
-	document.querySelector('.closeButton')
-]
-
-hideModal.forEach(item => {
-	item.addEventListener('click', () => {
-		document
-			.getElementById('background')
-			.classList.remove('show-background')
-		document.getElementById('productDetail').classList.remove('show-modal')
-	})
-})
 
 // fetch가 완료된 후에만 productData 사용
 fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
@@ -308,108 +166,100 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 		//제품 이미지 출력
 		function printProductColorSelectImage(product) {
 			// 초기 설정
-			let prodImageColorFrameNode = document.createElement('div')
-			prodImageColorFrameNode.setAttribute(
-				'class',
-				'prodImageColorFrame selected'
-			)
-			prodImageColorFrameNode.setAttribute('value', 0)
-			let prodImageColorImgNode = document.createElement('img')
-			prodImageColorImgNode.setAttribute(
-				'src',
-				`${url}${product[0].image[0].path}`
-			)
-			prodImageColorFrameNode.appendChild(prodImageColorImgNode)
-			prodImageColorNode.appendChild(prodImageColorFrameNode)
+			prodImageColorNode.innerHTML = `
+			<div class="prodImageColorFrame selected" value = "0">
+				<img src="${url}${product[0].image[0].path}" />
+			</div>
+			`
 			for (let j = 0; j < product.length - 1; j++) {
-				let prodImageColorFrameNode = document.createElement('div')
-				prodImageColorFrameNode.setAttribute(
-					'class',
-					'prodImageColorFrame'
-				)
-				prodImageColorFrameNode.setAttribute('value', `${j + 1}`)
-				let prodImageColorImgNode = document.createElement('img')
-				prodImageColorImgNode.setAttribute(
-					'src',
-					`${url}${product[j + 1].image[0].path}`
-				)
-				prodImageColorFrameNode.appendChild(prodImageColorImgNode)
-				prodImageColorNode.appendChild(prodImageColorFrameNode)
+				prodImageColorNode.innerHTML += `
+					<div class="prodImageColorFrame" value = "${j + 1}">
+						<img src="${url}${product[j + 1].image[0].path}" />
+					</div>
+				`
 			}
-			printProductImage(product)
-		}
 
-		function printProductImage(product) {
-			prodImageFrameNode.innerHTML = ''
-			let $selected = document
+			let $colorSelected = document
 				.querySelector('.prodImageColorFrame.selected')
 				.getAttribute('value')
+			printProductImage(product, $colorSelected)
+		}
 
-			for (let i = 0; i < product[$selected].image.length; i++) {
-				let imageNode = document.createElement('img')
-				imageNode.setAttribute(
-					'src',
-					`${url}${product[$selected].image[i].path}`
-				)
-				imageNode.setAttribute('style', 'display: block')
-				prodImageFrameNode.appendChild(imageNode)
+		function printProductImage(product, $colorSelected) {
+			prodImageFrameNode.innerHTML = ''
+
+			for (let i = 0; i < product[$colorSelected].image.length; i++) {
+				prodImageFrameNode.innerHTML += `
+					<img
+						src="${url}${product[$colorSelected].image[i].path}"
+						style="display: block"
+					/>
+				`
 			}
 		}
 		//제품 설명 출력
-		function printProductText(product, productOption) {
-			prodTextNode.innerHTML = ''
-			let $selected = document
-				.querySelector('.prodImageColorFrame.selected')
-				.getAttribute('value')
-
-			let prodDescriptNode = document.createElement('p')
-			let prodDescriptTextNode = document.createTextNode(
-				`${product.content}`
-			)
-			prodDescriptNode.appendChild(prodDescriptTextNode)
-			prodTextNode.appendChild(prodDescriptNode)
-
-			let prodListNode = document.createElement('ul')
-			prodListNode.setAttribute('class', 'prodStyle')
-			let prodListColorNode = document.createElement('li')
-			prodListColorNode.setAttribute('id', 'colorInfo')
-			let prodListColorTextNode = document.createTextNode(
-				`현재 컬러: ${productOption[$selected].extra.color}`
-			)
-			prodListColorNode.appendChild(prodListColorTextNode)
-			let prodListStyleNode = document.createElement('li')
-			prodListStyleNode.setAttribute('id', 'styleIdInfo')
-			let prodListStyleTextNode = document.createTextNode(
-				`스타일 번호: ${productOption[$selected].extra.styleNo}`
-			)
-			prodListStyleNode.appendChild(prodListStyleTextNode)
-			prodListNode.appendChild(prodListColorNode)
-			prodListNode.appendChild(prodListStyleNode)
-			prodTextNode.appendChild(prodListNode)
+		function printProductText(product, productOption, $colorSelected) {
+			prodTextNode.innerHTML = `
+				<p>
+					${product.content}
+				</p>
+				<ul class="prodStyle">
+					<li id="colorInfo">
+						현재 컬러: ${productOption[$colorSelected].extra.color}
+					</li>
+					<li id="styleIdInfo">스타일 번호: ${productOption[$colorSelected].extra.styleNo}</li>
+				</ul> 
+				`
 		}
 		//사이즈 영역 생성 및 활성화/비활성화
-		function printSizeArea(product) {
-			let $selected = document
-				.querySelector('.prodImageColorFrame.selected')
-				.getAttribute('value')
-			let size = product[$selected].extra.size[0]
-
-			let i = 0
+		function printSizeArea(product, $colorSelected) {
+			let size = product[$colorSelected].extra.size[0]
 			sizeSelectionNode.innerHTML = ''
-			while (i < product[$selected].extra.size.length) {
-				let sizeNode = document.createElement('div')
-				if (size === product[$selected].extra.size[i]) {
-					sizeNode.setAttribute('class', 'size')
-					sizeNode.setAttribute('value', size)
-					i++
-				} else {
-					sizeNode.setAttribute('class', 'size off')
-					sizeNode.setAttribute('value', size)
+			if (typeof size === 'number') {
+				// 중간 사이즈가 없어도 비활성화한 상태로 노드 작성
+				let sizeLimit =
+					(product[$colorSelected].extra.size[
+						product[$colorSelected].extra.size.length - 1
+					] -
+						product[$colorSelected].extra.size[0]) /
+						5 +
+					1
+				console.log(sizeLimit)
+				for (let i = 0; i < sizeLimit; i++) {
+					let sizeNode = document.createElement('div')
+					if (size === product[$colorSelected].extra.size[i]) {
+						sizeNode.setAttribute('class', 'size')
+						sizeNode.setAttribute('value', size)
+					} else {
+						sizeNode.setAttribute('class', 'size off')
+						sizeNode.setAttribute('value', size)
+					}
+					let sizeTextNode = document.createTextNode(`${size}`)
+					sizeNode.appendChild(sizeTextNode)
+					sizeSelectionNode.appendChild(sizeNode)
+					size += 5
 				}
-				let sizeTextNode = document.createTextNode(`${size}`)
-				sizeNode.appendChild(sizeTextNode)
-				sizeSelectionNode.appendChild(sizeNode)
-				size += 5
+			} else if (typeof size === 'string') {
+				let stringSize = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
+				let j = 0
+				for (let i = 0; i < 7; i++) {
+					let sizeNode = document.createElement('div')
+					if (
+						stringSize[i] === product[$colorSelected].extra.size[j]
+					) {
+						sizeNode.setAttribute('class', 'size')
+						sizeNode.setAttribute('value', stringSize[i])
+						j++
+					} else {
+						sizeNode.setAttribute('class', 'size off')
+						sizeNode.setAttribute('value', stringSize[i])
+					}
+					let sizeTextNode = document.createTextNode(
+						`${stringSize[i]}`
+					)
+					sizeNode.appendChild(sizeTextNode)
+					sizeSelectionNode.appendChild(sizeNode)
+				}
 			}
 			// 사이즈 선택 이벤트
 			const sizeSelection = document.querySelectorAll('.size')
@@ -451,12 +301,13 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 		} else {
 			printProductColorSelectImage(product)
 		}
+		let $colorSelected = document
+			.querySelector('.prodImageColorFrame.selected')
+			.getAttribute('value')
 
-		printSizeArea(productOptions)
-		printProductText(product, productOptions)
+		printSizeArea(productOptions, $colorSelected)
+		printProductText(product, productOptions, $colorSelected)
 		printShippingInfo(product)
-
-		// 제품의 다른 사이즈 선택 시각적 효과
 
 		// 제품의 다른 색상 선택 시각적 효과
 		const $productColors = document.querySelectorAll('.prodImageColorFrame')
@@ -472,9 +323,12 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 						el.classList.remove('selected')
 					})
 					item.classList.add('selected')
-					printProductImage(productOptions)
-					printSizeArea(productOptions)
-					printProductText(product, productOptions)
+					let $colorSelected = document
+						.querySelector('.prodImageColorFrame.selected')
+						.getAttribute('value')
+					printProductImage(productOptions, $colorSelected)
+					printSizeArea(productOptions, $colorSelected)
+					printProductText(product, productOptions, $colorSelected)
 				}
 			})
 		})
