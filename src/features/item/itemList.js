@@ -198,11 +198,8 @@ const filterAdapt = document.getElementById('filter-adapt')
 filterAdapt.addEventListener('submit', function (e) {
 	e.preventDefault()
 	let filterItem = filterGender()
-	// console.log('성별오류?' + filterItem)
 	let filterItem2 = filterPrice(filterItem)
-	// console.log('가격오류?' + filterItem2)
 	let sortItem = sortProduct(filterItem2)
-	// console.log('정렬 오류? ' + sortItem)
 	countAllProduct(sortItem)
 	dataDivide(sortItem) // 상품 분류
 })
@@ -237,7 +234,7 @@ function sortProduct(item) {
 	return item
 }
 
-// 필터 구현
+// 성별 필터
 function filterGender() {
 	// check된 값들을 배열로 분할
 	let item = data
@@ -261,6 +258,7 @@ function filterGender() {
 	return item
 }
 
+// 가격 필터
 function filterPrice(item) {
 	let data
 	let priceQuerry = document.querySelectorAll('input[name="price"]:checked')
@@ -269,28 +267,20 @@ function filterPrice(item) {
 	priceQuerry.forEach(price => {
 		priceList.push(parseInt(price.value))
 	})
-	let minPrice = priceList[0]
-	let maxPrice
-	if (priceList.length == 1) {
-		maxPrice = minPrice + 50000
-	} else {
-		maxPrice = priceList[priceList.length - 1] + 50000
-	}
 	let resultSet = new Set()
-	let filters = {
-		minPrice,
-		maxPrice
-	}
-	if (filters.minPrice) {
-		item.filter(value => value.price >= filters.minPrice).forEach(value =>
-			resultSet.add(value)
-		)
-	}
-	if (filters.maxPrice) {
-		item.filter(value => value.price <= filters.maxPrice).forEach(value =>
-			resultSet.add(value)
-		)
-	}
+	priceList.forEach(value => {
+		let minPrice = value
+		let maxPrice = value + 50000
+		let filters = {
+			minPrice,
+			maxPrice
+		}
+		item.filter(
+			value =>
+				value.price >= filters.minPrice &&
+				value.price <= filters.maxPrice
+		).forEach(value => resultSet.add(value))
+	})
 	data = Array.from(resultSet)
 	return data
 }
