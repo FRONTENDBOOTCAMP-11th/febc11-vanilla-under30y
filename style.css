@@ -39,37 +39,37 @@ button {
 
 /* images */
 .image1 {
-	background-image: url(src/images/main/image1.png);
+	background-image: url(src/assets/images/main/image1.png);
 }
 .image2-1 {
-	background-image: url(src/images/main/image2-1.png);
+	background-image: url(src/assets/images/main/image2-1.png);
 }
 .image2-2 {
-	background-image: url(src/images/main/image2-2.png);
+	background-image: url(src/assets/images/main/image2-2.png);
 }
 .image2-2 {
-	background-image: url(src/images/main/image2-3.png);
+	background-image: url(src/assets/images/main/image2-3.png);
 }
 .image3 {
-	background-image: url(src/images/main/image3.png);
+	background-image: url(src/assets/images/main/image3.png);
 }
 .image4 {
-	background-image: url(src/images/main/image4.png);
+	background-image: url(src/assets/images/main/image4.png);
 }
 .image5-1 {
-	background-image: url(src/images/main/image5-1.png);
+	background-image: url(src/assets/images/main/image5-1.png);
 }
 .image5-2 {
-	background-image: url(src/images/main/image5-2.png);
+	background-image: url(src/assets/images/main/image5-2.png);
 }
 .image5-3 {
-	background-image: url(src/images/main/image5-3.png);
+	background-image: url(src/assets/images/main/image5-3.png);
 }
 .image6-1 {
-	background-image: url(src/images/main/image6-1.png);
+	background-image: url(src/assets/images/main/image6-1.png);
 }
 .image6-2 {
-	background-image: url(src/images/main/image6-2.png);
+	background-image: url(src/assets/images/main/image6-2.png);
 }
 
 /* main styles */
