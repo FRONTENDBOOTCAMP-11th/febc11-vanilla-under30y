@@ -82,13 +82,15 @@ axios({
 
 // 상품 표시에 필요한 값들을 각 배열에 저장하는 함수
 function dataDivide(item) {
-	const imgList = [],
+	const idList = [],
+		imgList = [],
 		isNewList = [],
 		nameList = [],
 		genderList = [],
 		colorList = [],
 		priceList = []
 	for (let i = 0; i < item.length; i++) {
+		idList.push(item[i]._id)
 		imgList.push(item[i].mainImages[0].path)
 		isNewList.push(item[i].extra.isNew)
 		nameList.push(item[i].name)
@@ -96,10 +98,18 @@ function dataDivide(item) {
 		colorList.push(item[i].extra.category.length)
 		priceList.push(item[i].price)
 	}
-	addDocument(imgList, isNewList, nameList, genderList, colorList, priceList)
+	addDocument(
+		idList,
+		imgList,
+		isNewList,
+		nameList,
+		genderList,
+		colorList,
+		priceList
+	)
 }
 
-function addDocument(img, isNew, name, gender, color, price) {
+function addDocument(id, img, isNew, name, gender, color, price) {
 	// 전체를 감쌀 div
 	const productWrapper = document.getElementById('product-list')
 	// 필터에 의해 재생산될때를 대비한 초기화
@@ -109,6 +119,10 @@ function addDocument(img, isNew, name, gender, color, price) {
 		// wrapperDiv는 상품 하나하나를 감싼 div
 		const wrapperDiv = document.createElement('div')
 		wrapperDiv.classList.add('content__product-list--inside-product')
+
+		// linkDiv는 이동할 링크가 저장된 div
+		const linkDiv = document.createElement('a')
+		linkDiv.setAttribute('href', `./productDetail.html/${id[i]}`)
 
 		// 이미지 삽입은 함수로 분류
 		const productImg = addProductImg(img[i])
@@ -122,8 +136,9 @@ function addDocument(img, isNew, name, gender, color, price) {
 			price[i]
 		)
 		// 합체
-		wrapperDiv.appendChild(productImg)
-		wrapperDiv.appendChild(productInfo)
+		linkDiv.appendChild(productImg)
+		linkDiv.appendChild(productInfo)
+		wrapperDiv.appendChild(linkDiv)
 		productWrapper.appendChild(wrapperDiv)
 	}
 }
