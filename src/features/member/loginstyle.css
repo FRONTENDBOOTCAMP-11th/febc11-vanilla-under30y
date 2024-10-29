@@ -93,26 +93,26 @@ input {
 }
 
 .user-login-input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 16px 12px;
-    border: 1px solid var(--color-gray-5);
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 16px 12px;
+	border: 1px solid var(--color-gray-5);
+	border-radius: 8px;
+	font-size: 16px;
+	outline: none;
 }
 
 .floating-label {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    background-color: white;
-    padding: 0 4px;
-    color: var(--color-gray-5);
-    transition: all 0.1s ease-in-out;
-    pointer-events: none;
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+	background-color: white;
+	padding: 0 4px;
+	color: var(--color-gray-5);
+	transition: all 0.1s ease-in-out;
+	pointer-events: none;
 }
 
 .user-login-input:active {
@@ -121,10 +121,10 @@ input {
 
 .user-login-input:focus + .floating-label,
 .user-login-input:not(:placeholder-shown) + .floating-label {
-    top: 0;
-    transform: translateY(-50%);
-    opacity: 1;
-    font-size: 12px;
+	top: 0;
+	transform: translateY(-50%);
+	opacity: 1;
+	font-size: 12px;
 }
 
 #validationMessage {

@@ -46,15 +46,15 @@ hideFilter.onclick = () => {
 }
 
 // 상품 전체 개수 세는 함수
-function countAllProduct(data) {
+function countAllProduct(item) {
 	let productCount = document.getElementById('product-count')
-	productCount.innerText = `${data.item.length}개의 결과`
+	productCount.innerText = `${item.length}개의 결과`
 }
 
 // api 접속
 const ApiUrl = 'https://11.fesp.shop'
 const ClientId = 'vanilla04'
-let data, originalData
+let data
 
 // eslint-disable-next-line no-undef
 axios({
@@ -62,7 +62,8 @@ axios({
 	url: `${ApiUrl}/products`,
 	headers: { 'client-id': ClientId }
 }).then(response => {
-	data = response.data
+	// 최초 페이지에 상품을 뿌려주는 역할
+	data = response.data.item
 	countAllProduct(data)
 	dataDivide(data)
 })
@@ -80,20 +81,20 @@ axios({
 // }
 
 // 상품 표시에 필요한 값들을 각 배열에 저장하는 함수
-function dataDivide(data) {
+function dataDivide(item) {
 	const imgList = [],
 		isNewList = [],
 		nameList = [],
 		genderList = [],
 		colorList = [],
 		priceList = []
-	for (let i = 0; i < data.item.length; i++) {
-		imgList.push(data.item[i].mainImages[0].path)
-		isNewList.push(data.item[i].extra.isNew)
-		nameList.push(data.item[i].name)
-		genderList.push(data.item[i].extra.gender)
-		colorList.push(data.item[i].extra.category.length)
-		priceList.push(data.item[i].price)
+	for (let i = 0; i < item.length; i++) {
+		imgList.push(item[i].mainImages[0].path)
+		isNewList.push(item[i].extra.isNew)
+		nameList.push(item[i].name)
+		genderList.push(item[i].extra.gender)
+		colorList.push(item[i].extra.category.length)
+		priceList.push(item[i].price)
 	}
 	addDocument(imgList, isNewList, nameList, genderList, colorList, priceList)
 }
@@ -196,61 +197,100 @@ function addProductContent(isNew, name, gender, color, price) {
 const filterAdapt = document.getElementById('filter-adapt')
 filterAdapt.addEventListener('submit', function (e) {
 	e.preventDefault()
-	// filterProduct()
-	sortProduct()
-	dataDivide(data) // 상품 분류
+	let filterItem = filterGender()
+	// console.log('성별오류?' + filterItem)
+	let filterItem2 = filterPrice(filterItem)
+	// console.log('가격오류?' + filterItem2)
+	let sortItem = sortProduct(filterItem2)
+	// console.log('정렬 오류? ' + sortItem)
+	countAllProduct(sortItem)
+	dataDivide(sortItem) // 상품 분류
 })
 
 // 정렬 구현
-function sortProduct() {
+function sortProduct(item) {
 	const filter = document.getElementById('filter')
+	if (document.querySelector('input[name="standard"]:checked') == null) {
+		filter.classList.remove('active')
+		return item
+	}
 	let temp = document.querySelector('input[name="standard"]:checked').value
 	switch (temp) {
 		case 'recommended':
-			data.item.sort((a, b) => b.quantity - a.quantity)
+			item.sort((a, b) => b.quantity - a.quantity)
 			break
 		case 'latest': {
-			data.item.sort(
-				(a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-			)
+			item.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 			break
 		}
 		case 'high-price': {
-			data.item.sort((a, b) => b.price - a.price)
+			item.sort((a, b) => b.price - a.price)
 			break
 		}
 		case 'low-price': {
-			data.item.sort((a, b) => a.price - b.price)
+			item.sort((a, b) => a.price - b.price)
 			break
 		}
 	}
 	filter.classList.remove('active')
+
+	return item
 }
 
 // 필터 구현
-function filterProduct() {
+function filterGender() {
 	// check된 값들을 배열로 분할
+	let item = data
 	let genderQuerry = document.querySelectorAll('input[name="gender"]:checked')
-	let priceQuerry = document.querySelectorAll('input[name="price"]:checked')
+	if (genderQuerry.length == 0) return item
 	let genderList = []
-	let priceList = []
 	genderQuerry.forEach(gender => {
 		genderList.push(gender.value)
 	})
-	priceQuerry.forEach(price => {
-		priceList.push(price.value)
-	})
-	genderFilter(genderList)
+
+	let filters = {
+		gender: genderList
+	}
+	let resultSet = new Set()
+	if (filters.gender && filters.gender.length > 0) {
+		data.filter(value =>
+			filters.gender.includes(value.extra.gender)
+		).forEach(value => resultSet.add(value))
+	}
+	item = Array.from(resultSet)
+	return item
 }
 
-function genderFilter(genderList) {
-	let resultMan = []
-	for (let i = 0; i < genderList.length; i++) {
-		switch (genderList[i]) {
-			case 'men': {
-				resultMan = data.filter(value => value.extra.gender === 'men')
-			}
-		}
+function filterPrice(item) {
+	let data
+	let priceQuerry = document.querySelectorAll('input[name="price"]:checked')
+	if (priceQuerry.length == 0) return item
+	let priceList = []
+	priceQuerry.forEach(price => {
+		priceList.push(parseInt(price.value))
+	})
+	let minPrice = priceList[0]
+	let maxPrice
+	if (priceList.length == 1) {
+		maxPrice = minPrice + 50000
+	} else {
+		maxPrice = priceList[priceList.length - 1] + 50000
 	}
-	data.item = []
+	let resultSet = new Set()
+	let filters = {
+		minPrice,
+		maxPrice
+	}
+	if (filters.minPrice) {
+		item.filter(value => value.price >= filters.minPrice).forEach(value =>
+			resultSet.add(value)
+		)
+	}
+	if (filters.maxPrice) {
+		item.filter(value => value.price <= filters.maxPrice).forEach(value =>
+			resultSet.add(value)
+		)
+	}
+	data = Array.from(resultSet)
+	return data
 }
