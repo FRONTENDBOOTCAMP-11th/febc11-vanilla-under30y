@@ -68,18 +68,6 @@ axios({
 	dataDivide(data)
 })
 
-// let xhr = new XMLHttpRequest()
-// xhr.open('get', `${ApiUrl}/products`, true)
-// xhr.setRequestHeader('client-id', `${ClientId}`)
-// xhr.send()
-// xhr.onload = function () {
-// 	if (xhr.status === 200) {
-// 		data = JSON.parse(xhr.responseText)
-// 		countAllProduct(data.item.length) // 상품 전체 개수 결과 도출
-// 		dataDivide(data) // 상품 분류
-// 	}
-// }
-
 // 상품 표시에 필요한 값들을 각 배열에 저장하는 함수
 function dataDivide(item) {
 	const idList = [],
@@ -95,7 +83,7 @@ function dataDivide(item) {
 		isNewList.push(item[i].extra.isNew)
 		nameList.push(item[i].name)
 		genderList.push(item[i].extra.gender)
-		colorList.push(item[i].extra.category.length)
+		colorList.push(item[i].extra.color)
 		priceList.push(item[i].price)
 	}
 	addDocument(
