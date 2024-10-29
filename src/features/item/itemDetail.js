@@ -46,7 +46,7 @@ const url = 'https://11.fesp.shop'
 const clientId = 'vanilla04'
 const accessToken =
 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjUsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTcyOTY1NzQwMSwiZXhwIjoxNzI5NzQzODAxLCJpc3MiOiJGRVNQIn0.iXvoZy-NGcUCFPx3XfPCU3VwyfTvsHZ600cUWP7j-Uo'
-const endPoint = '/products/4'
+const endPoint = '/products/1'
 
 function fetchProductData(url, endPoint, clientId, accessToken) {
 	return axios
@@ -55,9 +55,12 @@ function fetchProductData(url, endPoint, clientId, accessToken) {
 				'Content-Type': 'application/json',
 				'client-id': clientId,
 				Authorization: `Bearer ${accessToken}`
-			}
+			},
+			timeout: 5000
 		})
+
 		.then(response => {
+			console.log(response.data.item)
 			const productData = response.data.item // 응답 데이터에서 item을 추출
 			return productData // productData를 반환
 		})
@@ -251,13 +254,17 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			prodNameNode.appendChild(prodNameTextNode)
 			prodTitleNode.appendChild(prodNameNode)
 
-			let prodCategoryNode = document.createElement('h2')
-			prodCategoryNode.setAttribute('class', 'prodCategory')
-			let prodCategoryTextNode = document.createTextNode(
-				`${product.category}`
-			)
-			prodCategoryNode.appendChild(prodCategoryTextNode)
-			prodTitleNode.appendChild(prodCategoryNode)
+			let prodGenderNode = document.createElement('h2')
+			prodGenderNode.setAttribute('class', 'prodGender')
+			let prodGenderTextNode
+			if (product.extra.gender === 'men') {
+				prodGenderTextNode = document.createTextNode('남성 신발')
+			} else {
+				prodGenderTextNode = document.createTextNode('여성 신발')
+			}
+
+			prodGenderNode.appendChild(prodGenderTextNode)
+			prodTitleNode.appendChild(prodGenderNode)
 
 			let prodPriceNode = document.createElement('div')
 			prodPriceNode.setAttribute('class', 'prodPrice')
