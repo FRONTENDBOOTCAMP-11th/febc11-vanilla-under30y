@@ -504,6 +504,7 @@ details[close] summary ~ * {
 	position: absolute;
 	right: 0;
 	top: 5px;
+	cursor: pointer;
 }
 
 .closeButton img {
