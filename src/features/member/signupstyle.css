@@ -103,7 +103,6 @@ input[type='date'] {
 
 .input-container {
 	position: relative;
-	box-shadow: inset 0 0 20px gold;
 }
 
 .user-input {
@@ -137,6 +136,7 @@ input[type='date'] {
 	transform: translateY(-50%);
 	opacity: 1;
 	font-size: 12px;
+	border-color: var(--color-gray-5);
 }
 
 .pw-conditions {
