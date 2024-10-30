@@ -298,11 +298,9 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			shippingFeeNode.appendChild(shippingFeeTextNode)
 		}
 
-		// 이 아래에 함수 실행 부분은 색상 선택과 연관지을 것
+		// 함수 실행
 		printProductTitle(product)
-		if (productOptions) {
-			printProductColorSelectImage(productOptions)
-		}
+		printProductColorSelectImage(productOptions)
 		let $colorSelected = document
 			.querySelector('.prodImageColorFrame.selected')
 			.getAttribute('value')
