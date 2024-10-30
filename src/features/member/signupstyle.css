@@ -93,6 +93,20 @@ input[type='date'] {
 	box-shadow: inset 0 0 20px gold;
 }
 
+.join-email-section,
+.authority-section,
+.personal-information-section {
+	transition: opacity 0.3s ease;
+	opacity: 1;
+}
+
+.join-email-section.hidden,
+.authority-section.hidden,
+.personal-information-section.hidden {
+	opacity: 0;
+	display: none;
+}
+
 .user-name {
 	width: 100%;
 	display: flex;
