@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 // 상품 전체 개수 세는 함수
 function countAllProduct(item) {
 	let productCount = document.getElementById('product-count')
