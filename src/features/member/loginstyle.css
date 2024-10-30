@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
 /* Resets */
 body,
 p {
@@ -18,9 +20,6 @@ button {
 input {
 	all: unset;
 }
-
-/* Typography */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
 /* Root */
 :root {
