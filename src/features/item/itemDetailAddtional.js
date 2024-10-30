@@ -2,110 +2,56 @@
 
 // 이미지 슬라이더
 const imageSlider = document.getElementById('prodImageFrame')
+//색상 슬라이더
+const colorSlider = document.getElementById('prodImageColor')
+// 추천 상품 슬라이더
+const recommendedSlider = document.getElementById('recommendedItemsSection')
 
 let isMouseDown = false
 let startX, scrollLeft
 
-imageSlider.addEventListener('mousedown', e => {
-	e.preventDefault()
-	isMouseDown = true
-	imageSlider.classList.add('active')
+function createSlider(node) {
+	node.addEventListener('mousedown', e => {
+		e.preventDefault()
+		isMouseDown = true
+		node.classList.add('active')
 
-	startX = e.pageX - imageSlider.offsetLeft
-	scrollLeft = imageSlider.scrollLeft
-})
+		startX = e.pageX - node.offsetLeft
+		scrollLeft = node.scrollLeft
+	})
 
-imageSlider.addEventListener('mouseleave', () => {
-	isMouseDown = false
-	imageSlider.classList.remove('active')
-})
+	node.addEventListener('mouseleave', () => {
+		isMouseDown = false
+		node.classList.remove('active')
+	})
 
-imageSlider.addEventListener('mouseup', () => {
-	isMouseDown = false
-	imageSlider.classList.remove('active')
-})
+	node.addEventListener('mouseup', () => {
+		isMouseDown = false
+		node.classList.remove('active')
+	})
 
-imageSlider.addEventListener('mousemove', e => {
-	if (!isMouseDown) return
+	node.addEventListener('mousemove', e => {
+		if (!isMouseDown) return
 
-	e.preventDefault()
-	const x = e.pageX - imageSlider.offsetLeft
-	const walk = (x - startX) * 2
-	imageSlider.scrollLeft = scrollLeft - walk
-})
+		e.preventDefault()
+		const x = e.pageX - node.offsetLeft
+		const walk = (x - startX) * 2
+		node.scrollLeft = scrollLeft - walk
+	})
 
-imageSlider.addEventListener('mousedown', e => {
-	e.preventDefault()
-	isMouseDown = true
-	imageSlider.classList.add('active')
+	node.addEventListener('mousedown', e => {
+		e.preventDefault()
+		isMouseDown = true
+		node.classList.add('active')
 
-	startX = e.pageX - imageSlider.offsetLeft
-	scrollLeft = imageSlider.scrollLeft
-})
+		startX = e.pageX - node.offsetLeft
+		scrollLeft = node.scrollLeft
+	})
+}
 
-// 색상 선택 슬라이더
-
-const colorSlider = document.getElementById('prodImageColor')
-
-colorSlider.addEventListener('mousedown', e => {
-	e.preventDefault()
-	isMouseDown = true
-	colorSlider.classList.add('active')
-
-	startX = e.pageX - colorSlider.offsetLeft
-	scrollLeft = colorSlider.scrollLeft
-})
-
-colorSlider.addEventListener('mouseleave', () => {
-	isMouseDown = false
-	colorSlider.classList.remove('active')
-})
-
-colorSlider.addEventListener('mouseup', () => {
-	isMouseDown = false
-	colorSlider.classList.remove('active')
-})
-
-colorSlider.addEventListener('mousemove', e => {
-	if (!isMouseDown) return
-
-	e.preventDefault()
-	const x = e.pageX - colorSlider.offsetLefts
-	const walk = (x - startX) * 2
-	colorSlider.scrollLeft = scrollLeft - walk
-})
-
-// 추천 상품 슬라이더
-
-const recommendedSlider = document.getElementById('recommendedItemsSection')
-
-recommendedSlider.addEventListener('mousedown', e => {
-	e.preventDefault()
-	isMouseDown = true
-	recommendedSlider.classList.add('active')
-
-	startX = e.pageX - recommendedSlider.offsetLeft
-	scrollLeft = recommendedSlider.scrollLeft
-})
-
-recommendedSlider.addEventListener('mouseleave', () => {
-	isMouseDown = false
-	recommendedSlider.classList.remove('active')
-})
-
-recommendedSlider.addEventListener('mouseup', () => {
-	isMouseDown = false
-	recommendedSlider.classList.remove('active')
-})
-
-recommendedSlider.addEventListener('mousemove', e => {
-	if (!isMouseDown) return
-
-	e.preventDefault()
-	const x = e.pageX - recommendedSlider.offsetLeft
-	const walk = (x - startX) * 2
-	recommendedSlider.scrollLeft = scrollLeft - walk
-})
+createSlider(imageSlider)
+createSlider(colorSlider)
+createSlider(recommendedSlider)
 
 // 리뷰 작성 페이지 열기
 document.querySelector('.writeReview').addEventListener('click', () => {
