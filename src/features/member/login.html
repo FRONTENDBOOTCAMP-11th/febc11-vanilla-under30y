@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Nike</title>
 		<link rel="stylesheet" href="loginstyle.css" />
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	</head>
 	<body>
 		<header class="header">
@@ -23,6 +24,7 @@
 						class="user-login-input"
 						placeholder=" "
 						oninput="validateEmail(this)"
+						value="s1@gmail.com"
 						required
 					/>
 					<label class="floating-label">이메일</label>
@@ -50,22 +52,26 @@
 					<h2 class="title-login">비밀번호를 입력하세요.</h2>
 					<p class="user-email">email</p>
 				</div>
-				<input
-					type="password"
-					id="password"
-					class="user-login-input"
-					placeholder="비밀번호"
-				/>
+
+				<div class="input-container">
+					<input
+						type="password"
+						id="password"
+						class="user-login-input"
+						placeholder=" "
+						value="11111111"
+					/>
+					<label class="floating-label">비밀번호</label>
+				</div>
 				<p class="search-pw"><u>비밀번호 찾기</u></p>
 				<div class="button-area">
 					<button
 						id="last"
-						onclick="buttonLast()"
 						class="button-white"
 					>
 						이전
 					</button>
-					<button id="login" onclick="login()" class="button-black">
+					<button id="login" class="button-black">
 						로그인
 					</button>
 				</div>
