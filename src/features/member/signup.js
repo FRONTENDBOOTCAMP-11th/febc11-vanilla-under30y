@@ -1,11 +1,11 @@
-import axios from 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js';
+import axios from 'axios';
 import { valid } from './validate.js';
 
-const joinEmailSection = document.getElementsByClassName('join-email-section')
+const joinEmailSection = document.querySelector('.join-email-section')
 const buttonToAuthority = document.querySelector('.button-to-authority')
-const authoritySection = document.getElementsByClassName('authority-section')
+const authoritySection = document.querySelector('.authority-section')
 const buttonToSignup = document.querySelector('.button-to-signup')
-const personalInformationSection = document.getElementsByClassName('personal-information-section')
+const personalInformationSection = document.querySelector('.personal-information-section')
 
 // DOM 요소 선택
 const signupForm = {

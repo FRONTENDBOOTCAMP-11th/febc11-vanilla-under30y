@@ -10,7 +10,7 @@ export const valid = {
             message.style.display = 'block';
             inputEmail.style.borderColor = 'var(--color-red-1)';
             return false;
-        } else if (emailPattern.test(input.value)) {
+        } else if (emailPattern.test(input)) {
             message.style.display = 'none';
             inputEmail.style.borderColor = '';  // 기본 테두리로 복원
             return true;
