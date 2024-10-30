@@ -50,10 +50,11 @@ const accessToken =
 const refreshToken =
 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAyNjE0ODEsImV4cCI6MTczMjg1MzQ4MSwiaXNzIjoiRkVTUCJ9.fziuHf8aN5t9di19GR7MjkdPZn92aFRWvhj9l55y5jE'
 
-const pathSegments = window.location.pathname.split('/') // 경로를 '/'로 분할
-const endPoint = `/products/${pathSegments[pathSegments.length - 1]}`
+const urlParams = new URLSearchParams(window.location.search)
+// const endPoint = `/products/${urlParams.get('product_id')}`
+const endPoint = `/products/13`
 
-function fetchProductData(url, endPoint, clientId, accessToken) {
+function fetchData(url, endPoint, clientId, accessToken) {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(url + endPoint, {
@@ -64,19 +65,28 @@ function fetchProductData(url, endPoint, clientId, accessToken) {
 				},
 				timeout: 5000
 			})
-
 			.then(response => {
 				const productData = response.data.item // 응답 데이터에서 item을 추출
 				resolve(productData) // productData를 반환
 			})
 			.catch(error => {
-				console.error(
-					'There was an error with the fetch request:',
-					error
-				)
-				reject(error) // 에러 발생 시 null 반환
+				reject(error)
 			})
 	})
+}
+
+async function fetchProductData(url, endPoint, clientId, accessToken) {
+	try {
+		const productData = await fetchData(
+			url,
+			endPoint,
+			clientId,
+			accessToken
+		)
+		return productData
+	} catch (error) {
+		console.error('There was an error with the fetch request:', error)
+	}
 }
 
 // 제품 정보가 출력될 dom node 객체 획득 - prodInfo
@@ -359,7 +369,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				let quantity = parseInt(
 					prompt('구매하실 상품 개수를 입력해주십시오.')
 				)
-				createProductOrder(
+				createOrder(
 					$productSelected,
 					quantity,
 					parseInt($sizeSelected).textContent
@@ -369,12 +379,26 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			}
 		}
 		// 장바구니로 post 요청
+		// async/await
+		async function createOrder(product_id, quantity, size) {
+			try {
+				let promise = await createProductOrder(
+					product_id,
+					quantity,
+					size
+				)
+				console.log(promise)
+			} catch (error) {
+				console.error('Error creating product order:', error)
+			}
+		}
+		// Promise
 		function createProductOrder(product_id, quantity, size) {
 			// 명시적으로 Promise를 반환
 			return new Promise((resolve, reject) => {
 				axios
 					.post(
-						`${url}/carts/`, // 실제 POST 요청 엔드포인트로 변경
+						`${url}/carts/`,
 						{
 							product_id,
 							quantity,
@@ -392,7 +416,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 						resolve(response.data)
 					})
 					.catch(error => {
-						console.error('Error creating product order:', error)
 						reject(error)
 					})
 			})
