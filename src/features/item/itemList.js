@@ -1,72 +1,25 @@
-// 상단 내비게이션 바 드래그
-const navi = document.getElementById('navi')
-navi.onclick = () => {
-	let mouseDown = false
-	let startX, scrollLeft
-	const slider = document.getElementById('navi')
-
-	const startDragging = e => {
-		mouseDown = true
-		startX = e.pageX - slider.offsetLeft
-		scrollLeft = slider.scrollLeft
-	}
-
-	const stopDragging = e => {
-		mouseDown = false
-	}
-
-	const move = e => {
-		e.preventDefault()
-		if (!mouseDown) {
-			return
-		}
-		const x = e.pageX - slider.offsetLeft
-		const scroll = x - startX
-		slider.scrollLeft = scrollLeft - scroll
-	}
-
-	// Add the event listeners
-	slider.addEventListener('mousemove', move, false)
-	slider.addEventListener('mousedown', startDragging, false)
-	slider.addEventListener('mouseup', stopDragging, false)
-	slider.addEventListener('mouseleave', stopDragging, false)
-}
-
-// 필터 메뉴
-// Action Sheet 보이기
-const showFilter = document.getElementById('filter-show')
-const hideFilter = document.getElementById('filter-hide')
-showFilter.onclick = () => {
-	const filter = document.getElementById('filter')
-	filter.classList.add('active')
-}
-hideFilter.onclick = () => {
-	const filter = document.getElementById('filter')
-	filter.classList.remove('active')
-}
-
 // 상품 전체 개수 세는 함수
 function countAllProduct(item) {
 	let productCount = document.getElementById('product-count')
 	productCount.innerText = `${item.length}개의 결과`
 }
 
-// api 접속
-const ApiUrl = 'https://11.fesp.shop'
-const ClientId = 'vanilla04'
-let data
-
-// eslint-disable-next-line no-undef
-axios({
-	method: 'get',
-	url: `${ApiUrl}/products`,
-	headers: { 'client-id': ClientId }
-}).then(response => {
-	// 최초 페이지에 상품을 뿌려주는 역할
-	data = response.data.item
-	countAllProduct(data)
-	dataDivide(data)
-})
+// api 접근 함수
+function apiGet() {
+	const ApiUrl = 'https://11.fesp.shop'
+	const ClientId = 'vanilla04'
+	// eslint-disable-next-line no-undef
+	axios({
+		method: 'get',
+		url: `${ApiUrl}/products`,
+		headers: { 'client-id': ClientId }
+	}).then(response => {
+		// 최초 페이지에 상품을 뿌려주는 역할
+		data = response.data.item
+		countAllProduct(data)
+		dataDivide(data)
+	})
+}
 
 // 상품 표시에 필요한 값들을 각 배열에 저장하는 함수
 function dataDivide(item) {
@@ -132,6 +85,7 @@ function addDocument(id, img, isNew, name, gender, color, price) {
 }
 
 function addProductImg(img) {
+	const ApiUrl = 'https://11.fesp.shop'
 	// imgWrapperDiv는 이미지가 있는 부분을 감싼 div
 	const imgWrapperDiv = document.createElement('div')
 	imgWrapperDiv.classList.add('content__product-list--inside-product-img')
@@ -195,17 +149,6 @@ function addProductContent(isNew, name, gender, color, price) {
 
 	return prdCntDiv
 }
-
-// 필터에서 입력된 데이터를 가져오는 코드
-const filterAdapt = document.getElementById('filter-adapt')
-filterAdapt.addEventListener('submit', function (e) {
-	e.preventDefault()
-	let filterItem = filterGender()
-	let filterItem2 = filterPrice(filterItem)
-	let sortItem = sortProduct(filterItem2)
-	countAllProduct(sortItem)
-	dataDivide(sortItem) // 상품 분류
-})
 
 // 정렬 구현
 function sortProduct(item) {
@@ -287,3 +230,67 @@ function filterPrice(item) {
 	data = Array.from(resultSet)
 	return data
 }
+
+// 상단 내비게이션 바 드래그
+const navi = document.getElementById('navi')
+navi.onclick = () => {
+	let mouseDown = false
+	let startX, scrollLeft
+	const slider = document.getElementById('navi')
+
+	const startDragging = e => {
+		mouseDown = true
+		startX = e.pageX - slider.offsetLeft
+		scrollLeft = slider.scrollLeft
+	}
+
+	const stopDragging = e => {
+		mouseDown = false
+	}
+
+	const move = e => {
+		e.preventDefault()
+		if (!mouseDown) {
+			return
+		}
+		const x = e.pageX - slider.offsetLeft
+		const scroll = x - startX
+		slider.scrollLeft = scrollLeft - scroll
+	}
+
+	// Add the event listeners
+	slider.addEventListener('mousemove', move, false)
+	slider.addEventListener('mousedown', startDragging, false)
+	slider.addEventListener('mouseup', stopDragging, false)
+	slider.addEventListener('mouseleave', stopDragging, false)
+}
+
+// 필터 메뉴
+// Action Sheet 보이기
+const showFilter = document.getElementById('filter-show')
+const hideFilter = document.getElementById('filter-hide')
+showFilter.onclick = () => {
+	const filter = document.getElementById('filter')
+	filter.classList.add('active')
+}
+hideFilter.onclick = () => {
+	const filter = document.getElementById('filter')
+	filter.classList.remove('active')
+}
+
+// 필터에서 입력된 데이터를 가져오는 코드
+const filterAdapt = document.getElementById('filter-adapt')
+filterAdapt.addEventListener('submit', function (e) {
+	e.preventDefault()
+	let filterItem = filterGender()
+	let filterItem2 = filterPrice(filterItem)
+	let sortItem = sortProduct(filterItem2)
+	countAllProduct(sortItem)
+	dataDivide(sortItem) // 상품 분류
+})
+
+// 가져온 상품데이터, 여러 함수에서 접근하므로 전역변수 선언
+let data
+
+// api 접속
+window.onload = apiGet()
