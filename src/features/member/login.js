@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 let inputEmailForm = document.querySelector('.input-email-form')
 let inputPasswordForm = document.querySelector('.input-pw-form')
 

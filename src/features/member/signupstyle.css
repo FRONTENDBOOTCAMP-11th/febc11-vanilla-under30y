@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
 /* Reset */
 body,
 p {
@@ -30,8 +32,6 @@ input[type='date'] {
 }
 
 /* Typography */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
 :root {
 	font-family:
 		'Pretendard Variable',
@@ -91,6 +91,20 @@ input[type='date'] {
 
 .form {
 	box-shadow: inset 0 0 20px gold;
+}
+
+.join-email-section,
+.authority-section,
+.personal-information-section {
+	transition: opacity 0.3s ease;
+	opacity: 1;
+}
+
+.join-email-section.hidden,
+.authority-section.hidden,
+.personal-information-section.hidden {
+	opacity: 0;
+	display: none;
 }
 
 .user-name {
@@ -168,7 +182,7 @@ input[type='date'] {
 
 .user-birth-input {
 	width: 100%;
-	padding: 12px 16px;
+	/* padding: 12px 16px; */
 	border: 1px solid var(--color-gray-5);
 	border-radius: 8px;
 	font-size: 16px;
