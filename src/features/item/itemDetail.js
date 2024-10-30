@@ -38,21 +38,20 @@ function intToStringPrice(price) {
 }
 
 // 제품 정보 - 예시
-// window.load 이벤트로 객체를 넘겨 받아 만들기?
 let product
 let productOptions = []
 
-// 보안상 그리 좋지 않음. .bru 파일을 불러올 방법이 더 없을까?
+// url, clientId hard coding
 const url = 'https://11.fesp.shop'
 const clientId = 'vanilla04'
-const accessToken =
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjYsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTczMDI2MTUwOCwiZXhwIjoxNzMwMzQ3OTA4LCJpc3MiOiJGRVNQIn0.zA7NcAWXIZkgR7WLwIbgydaIcoKQn4pGhP3bElialag'
-const refreshToken =
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzAyNjE0ODEsImV4cCI6MTczMjg1MzQ4MSwiaXNzIjoiRkVTUCJ9.fziuHf8aN5t9di19GR7MjkdPZn92aFRWvhj9l55y5jE'
+// const accessToken =
+// 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjYsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTczMDI2MTUwOCwiZXhwIjoxNzMwMzQ3OTA4LCJpc3MiOiJGRVNQIn0.zA7NcAWXIZkgR7WLwIbgydaIcoKQn4pGhP3bElialag'
+//accessToken 가져오기
+const accessToken = sessionStorage.getItem('accessToken')
 
 const urlParams = new URLSearchParams(window.location.search)
-// const endPoint = `/products/${urlParams.get('product_id')}`
-const endPoint = `/products/13`
+const endPoint = `/products/${urlParams.get('product_id')}`
+// const endPoint = `/products/13`
 
 function fetchData(url, endPoint, clientId, accessToken) {
 	return new Promise((resolve, reject) => {
@@ -74,7 +73,6 @@ function fetchData(url, endPoint, clientId, accessToken) {
 			})
 	})
 }
-
 async function fetchProductData(url, endPoint, clientId, accessToken) {
 	try {
 		const productData = await fetchData(
@@ -95,9 +93,6 @@ let prodImageFrameNode = document.getElementById('prodImageFrame')
 let prodImageColorNode = document.getElementById('prodImageColor') //출력과 동시에 colorSelection의 입력 노드
 let sizeSelectionNode = document.getElementById('sizeSelection') //출력과 동시에 sizeSelection의 입력 노드
 let prodTextNode = document.getElementById('prodText')
-
-// 제품의 상세 정보가 출력될 dom node 객체 획득 - productDetail
-let productDetailNode = document.getElementById('prodDetail')
 
 // fetch가 완료된 후에만 productData 사용
 fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
@@ -125,6 +120,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				)
 			)
 		}
+
 		// 제품명, 가격, 분류 등을 출력
 		function printProductTitle(product) {
 			let prodNameNode = document.createElement('h1')
@@ -144,9 +140,9 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 
 			prodGenderNode.appendChild(prodGenderTextNode)
 			prodTitleNode.appendChild(prodGenderNode)
-
 			let prodPriceNode = document.createElement('div')
 			prodPriceNode.setAttribute('class', 'prodPrice')
+
 			// 현재가 = 할인가
 			let curPriceValue = intToStringPrice(product.price)
 			let curPriceNode = document.createElement('span')
@@ -184,6 +180,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 
 			prodTitleNode.appendChild(prodPriceNode)
 		}
+
 		//	제품 이미지 출력
 		function printProductColorSelectImage(product) {
 			// 초기 설정
@@ -205,6 +202,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				.getAttribute('value')
 			printProductImage(product, $colorSelected)
 		}
+
 		// 제품 선택시 이미지 교체
 		function printProductImage(product, $colorSelected) {
 			prodImageFrameNode.innerHTML = ''
@@ -218,6 +216,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				`
 			}
 		}
+
 		// 제품 설명 출력
 		function printProductText(product, productOption, $colorSelected) {
 			prodTextNode.innerHTML = `
@@ -233,6 +232,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				`
 			printProdDetail(product.content, productOption[$colorSelected])
 		}
+
 		//사이즈 영역 생성 및 활성화/비활성화
 		function printSizeArea(product, $colorSelected) {
 			let size = product[$colorSelected].extra.size[0]
@@ -282,6 +282,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 					sizeSelectionNode.appendChild(sizeNode)
 				}
 			}
+
 			// 사이즈 선택 이벤트
 			const sizeSelection = document.querySelectorAll('.size')
 			sizeSelection.forEach(item => {
@@ -302,6 +303,8 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				})
 			})
 		}
+
+		// 배송비 정보
 		function printShippingInfo(product) {
 			let shippingFeeNode = document.getElementById('shippingFee')
 			let shippingFeeTextNode
@@ -421,10 +424,13 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			})
 		}
 
+		// 장바구니 버튼 노드에 이벤트 추가
 		let basketNode = document.getElementById('basket')
 		let footerBasketNode = document.getElementById('footerBasket')
 		basketNode.addEventListener('click', openBasketPage)
 		footerBasketNode.addEventListener('click', openBasketPage)
+
+		// 제품 상세 정보 보기 마크업
 		function printProdDetail(description, product) {
 			let productDetailContentNode = document.getElementById(
 				'productDetailContent'
@@ -448,7 +454,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 							>${intToStringPrice(product.extra.primeCost)} 원</span
 						>
 						<span id="salesRate" style="color: #007d48"
-							>${product.salesRate} 할인</span
+							>${product.salesRate}% 할인</span
 						>
 					</div>
 			`
