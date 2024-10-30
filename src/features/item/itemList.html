@@ -7,11 +7,11 @@
 		<title>상품 리스트</title>
 		<script src="../../components/header/header.js"></script>
 		<script src="../../components/footer/footer.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
 	</head>
 	<body>
 		<!-- 헤더 css와 html이 있습니다. :) -->
 		<div class="wrapper">
-			<a href=""></a>
 			<header>
 				<nike-header>나이키 헤더</nike-header>
 				<!-- 상품 카테고리 선택 -->
@@ -113,37 +113,63 @@
 										<div class="filter-gender">
 											<h1>성별</h1>
 											<div>
-												<input type="checkbox" />남성
+												<input
+													type="checkbox"
+													name="gender"
+													value="men"
+												/>남성
 											</div>
 											<div>
-												<input type="checkbox" />여성
+												<input
+													type="checkbox"
+													name="gender"
+													value="women"
+												/>여성
 											</div>
 											<div>
-												<input type="checkbox" />유니
-												섹스
+												<input
+													type="checkbox"
+													name="gender"
+													value="uni-sex"
+												/>유니 섹스
 											</div>
 										</div>
 										<div class="filter-money">
 											<h1>가격대</h1>
 											<div>
-												<input type="checkbox" />0 -
-												50,000 원
+												<input
+													type="checkbox"
+													name="price"
+													value="0"
+												/>0 - 50,000 원
 											</div>
 											<div>
-												<input type="checkbox" />50,000
-												- 100,000 원
+												<input
+													type="checkbox"
+													name="price"
+													value="50000"
+												/>50,000 - 100,000 원
 											</div>
 											<div>
-												<input type="checkbox" />100,000
-												- 150,000 원
+												<input
+													type="checkbox"
+													name="price"
+													value="100000"
+												/>100,000 - 150,000 원
 											</div>
 											<div>
-												<input type="checkbox" />150,000
-												- 200,000 원
+												<input
+													type="checkbox"
+													name="price"
+													value="150000"
+												/>150,000 - 200,000 원
 											</div>
 											<div>
-												<input type="checkbox" />200,000
-												원 +
+												<input
+													type="checkbox"
+													name="price"
+													value="200000"
+												/>200,000 원 +
 											</div>
 										</div>
 									</div>
