@@ -84,11 +84,11 @@ input {
 
 .title-login {
 	font-size: 28px;
+	margin-bottom: 28px;
 }
 
 .input-container {
 	position: relative;
-	margin-top: 26px;
 }
 
 .user-login-input {
@@ -179,6 +179,10 @@ input {
 	font-size: 16px;
 	font-weight: medium;
 	flex-shrink: 0;
+}
+
+.button-small {
+	width: 90px;
 }
 
 .button-white {
