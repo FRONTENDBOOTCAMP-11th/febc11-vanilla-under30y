@@ -1,0 +1,19 @@
+meta {
+  name: Access 토큰 재발급
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/auth/refresh
+  body: none
+  auth: bearer
+}
+
+headers {
+  client-id: {{client-id}}
+}
+
+auth:bearer {
+  token: {{refreshToken}}
+}
