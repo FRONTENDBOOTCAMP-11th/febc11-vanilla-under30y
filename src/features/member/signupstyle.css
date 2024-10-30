@@ -182,7 +182,7 @@ input[type='date'] {
 
 .user-birth-input {
 	width: 100%;
-	padding: 12px 16px;
+	/* padding: 12px 16px; */
 	border: 1px solid var(--color-gray-5);
 	border-radius: 8px;
 	font-size: 16px;
