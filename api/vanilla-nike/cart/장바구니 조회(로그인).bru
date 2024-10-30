@@ -1,0 +1,23 @@
+meta {
+  name: 장바구니 조회(로그인)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/carts/? user_id=6
+  body: none
+  auth: bearer
+}
+
+params:query {
+   user_id: 6
+}
+
+headers {
+  client-id: {{client-id}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}

@@ -1,4 +1,5 @@
 'use strict'
+import axios from 'axios'
 
 function Product(id, image, price, shippingFees, name, content, extra) {
 	this.id = id
@@ -46,7 +47,7 @@ const url = 'https://11.fesp.shop'
 const clientId = 'vanilla04'
 // const accessToken =
 // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjYsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTczMDI2MTUwOCwiZXhwIjoxNzMwMzQ3OTA4LCJpc3MiOiJGRVNQIn0.zA7NcAWXIZkgR7WLwIbgydaIcoKQn4pGhP3bElialag'
-//accessToken 가져오기
+// accessToken 가져오기
 const accessToken = sessionStorage.getItem('accessToken')
 
 const urlParams = new URLSearchParams(window.location.search)
@@ -260,27 +261,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 					sizeSelectionNode.appendChild(sizeNode)
 					size += 5
 				}
-			} else if (typeof size === 'string') {
-				let stringSize = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
-				let j = 0
-				for (let i = 0; i < 7; i++) {
-					let sizeNode = document.createElement('div')
-					if (
-						stringSize[i] === product[$colorSelected].extra.size[j]
-					) {
-						sizeNode.setAttribute('class', 'size')
-						sizeNode.setAttribute('value', stringSize[i])
-						j++
-					} else {
-						sizeNode.setAttribute('class', 'size off')
-						sizeNode.setAttribute('value', stringSize[i])
-					}
-					let sizeTextNode = document.createTextNode(
-						`${stringSize[i]}`
-					)
-					sizeNode.appendChild(sizeTextNode)
-					sizeSelectionNode.appendChild(sizeNode)
-				}
 			}
 
 			// 사이즈 선택 이벤트
@@ -365,7 +345,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				.querySelector('.prodImageColorFrame.selected')
 				.getAttribute('value')
 			let $sizeSelected = document.querySelector('.size.selected')
-
 			let $productSelected = productOptions[$colorSelected].id
 			// 사이즈 선택을 하지 않았을 시 경고 문구
 			if ($sizeSelected) {
@@ -385,19 +364,14 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 		// async/await
 		async function createOrder(product_id, quantity, size) {
 			try {
-				let promise = await createProductOrder(
-					product_id,
-					quantity,
-					size
-				)
-				console.log(promise)
+				await createProductOrder(product_id, quantity, size)
+				window.location.href = '../cart/prdBasket.html'
 			} catch (error) {
 				console.error('Error creating product order:', error)
 			}
 		}
 		// Promise
 		function createProductOrder(product_id, quantity, size) {
-			// 명시적으로 Promise를 반환
 			return new Promise((resolve, reject) => {
 				axios
 					.post(
