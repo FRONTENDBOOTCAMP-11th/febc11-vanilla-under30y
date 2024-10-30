@@ -3,6 +3,9 @@
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"liveServer.settings.port": 5502,
+<<<<<<< HEAD
+	"liveServer.settings.CustomBrowser": "chrome"
+=======
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
@@ -10,4 +13,5 @@
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
+>>>>>>> develop
 }
