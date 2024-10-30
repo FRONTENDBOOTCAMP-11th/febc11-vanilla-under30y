@@ -63,7 +63,7 @@ function addDocument(id, img, isNew, name, gender, color, price) {
 
 		// linkDiv는 이동할 링크가 저장된 div
 		const linkDiv = document.createElement('a')
-		linkDiv.setAttribute('href', `./productDetail.html/${id[i]}`)
+		linkDiv.setAttribute('href', `./itemDetail.html?product_id=${id[i]}`)
 
 		// 이미지 삽입은 함수로 분류
 		const productImg = addProductImg(img[i])
