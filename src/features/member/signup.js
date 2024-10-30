@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 // DOM 요소 선택
 const signupForm = {
