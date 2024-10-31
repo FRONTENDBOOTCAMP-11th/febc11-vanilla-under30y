@@ -6,8 +6,8 @@
 		<title>장바구니</title>
 		<link rel="stylesheet" href="style.css" />
 		<!-- ---------------- 헤더, 푸터 경로 --------------------- -->
-		<script src="../../components/header/header.js"></script>
-		<script src="../../components/footer/footer.js"></script>
+		<script src="../../components/header/header.js" type="module"></script>
+		<script src="../../components/footer/footer.js" type="module"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -33,7 +33,10 @@
 				<!-- 왼쪽: 신발 이미지 섹션 -->
 				<div class="product-image-section">
 					<div class="product-image">
-						<img src="../../assets/images/item/shoes.png" alt="나이키 줌 보메로 5" />
+						<img
+							src="../../assets/images/item/shoes.png"
+							alt="나이키 줌 보메로 5"
+						/>
 					</div>
 				</div>
 
@@ -41,7 +44,9 @@
 				<div class="product-details">
 					<div class="product-header">
 						<p class="product-price"><strong>189,000 원</strong></p>
-						<p class="product-name"><strong>나이키 줌 보메로 5</strong></p>
+						<p class="product-name">
+							<strong>나이키 줌 보메로 5</strong>
+						</p>
 					</div>
 					<p class="product-category"><strong>남성 신발</strong></p>
 					<div class="product-info2">
@@ -52,9 +57,17 @@
 						<div class="product-amount">
 							<strong>수량</strong>
 							<div>
-								<span class="icon-minus" onclick="updateQuantity(-1)">-</span>
+								<span
+									class="icon-minus"
+									onclick="updateQuantity(-1)"
+									>-</span
+								>
 								<span class="count-number">1</span>
-								<span class="icon-plus" onclick="updateQuantity(1)">+</span>
+								<span
+									class="icon-plus"
+									onclick="updateQuantity(1)"
+									>+</span
+								>
 							</div>
 						</div>
 					</div>
@@ -89,17 +102,17 @@
 				<div class="summary-row">
 					<span class="order-product-text">
 						상품 금액
-                        <div class="tooltip-container">
-                            <img
-                                src="../../assets/icons/carticon/subtotalDetail.svg"
-                                alt="금액 Detail"
-                                class="subtotalDetail"
-                            />
-                            <span class="tooltip-text">
-                                상품 금액은 프로모션 코드 적용 전, 배송비를 제외한 총 주문
-                                금액입니다.
-                            </span>
-                        </div>
+						<div class="tooltip-container">
+							<img
+								src="../../assets/icons/carticon/subtotalDetail.svg"
+								alt="금액 Detail"
+								class="subtotalDetail"
+							/>
+							<span class="tooltip-text">
+								상품 금액은 프로모션 코드 적용 전, 배송비를
+								제외한 총 주문 금액입니다.
+							</span>
+						</div>
 					</span>
 					<span class="order-product-price">189,000 원</span>
 				</div>
@@ -118,7 +131,10 @@
 
 				<!-- 위시 리스트 아이템 1 -->
 				<div class="wishlist-item">
-					<img src="../../assets/images/item/shoes.png" alt="나이키 줌 보메로 5" />
+					<img
+						src="../../assets/images/item/shoes.png"
+						alt="나이키 줌 보메로 5"
+					/>
 					<div class="wishlist-item-info">
 						<div class="item-name">나이키 줌<br />보메로 5</div>
 						<div class="item-category">남성 신발</div>
@@ -135,7 +151,10 @@
 				</div>
 				<!-- 위시 리스트 아이템 2 -->
 				<div class="wishlist-item">
-					<img src="../../assets/images/item/shoes.png" alt="나이키 줌 보메로 5" />
+					<img
+						src="../../assets/images/item/shoes.png"
+						alt="나이키 줌 보메로 5"
+					/>
 					<div class="wishlist-item-info">
 						<div class="item-name">나이키 줌<br />보메로 5</div>
 						<div class="item-category">남성 신발</div>
