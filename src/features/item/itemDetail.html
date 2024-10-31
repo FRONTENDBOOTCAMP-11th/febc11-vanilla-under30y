@@ -3,14 +3,14 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>제품 상세</title>
 		<link rel="stylesheet" href="itemDetail.css" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 			rel="stylesheet"
 		/>
-		<script src="../../components/header/header.js"></script>
-		<script src="../../components/footer/footer.js"></script>
+		<script type="module" src="../../components/header/header.js"></script>
+		<script type="module" src="../../components/footer/footer.js"></script>
 	</head>
 	<body>
 		<div class="l_wrapper">
@@ -204,7 +204,7 @@
 					class="recommendedItemsSection"
 					id="recommendedItemsSection"
 				>
-					<div class="recommendedItem" onclick="">
+					<div class="recommendedItem">
 						<img
 							src="../../assets/images/item/shoes14.png"
 							style="display: block; width: 196px; height: 196px"
@@ -218,7 +218,7 @@
 						</div>
 						<span class="recommendedItemPrice">189,000 원</span>
 					</div>
-					<div class="recommendedItem" onclick="">
+					<div class="recommendedItem">
 						<img
 							src="../../assets/images/item/hat.svg"
 							style="display: block; width: 196px; height: 196px"
@@ -234,8 +234,10 @@
 					</div>
 				</div>
 			</div>
+			<nike-footer>나이키 푸터</nike-footer>
+			<div class="footerBasketBtn" id="footerBasket">장바구니</div>
 		</div>
-		<div class="footerBasketBtn" id="footerBasket">장바구니</div>
+
 		<!-- 바깥 영역을 클릭해도 닫힐 수 있도록 + 바깥 영역 블러 처리 -->
 		<div class="background" id="background"></div>
 		<div class="productDetail" id="productDetail">
@@ -307,7 +309,6 @@
 				</div>
 			</div>
 		</div>
-		<nike-footer>나이키 푸터</nike-footer>
 		<!-- 필수 기능 -->
 		<script type="module" src="itemDetail.js"></script>
 		추가 기능z
