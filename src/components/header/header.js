@@ -20,6 +20,7 @@ class NikeHeader extends HTMLElement {
 
 		a {
 			margin: unset;
+			text-decoration: none;
 		}
 
 		/* Web Design */
@@ -341,8 +342,12 @@ class NikeHeader extends HTMLElement {
 					/>
 				</button>
 				<div class="menu-member">
-					<button class="sign-up">가입하기</button>
-					<button class="sign-in">로그인</button>
+					<a href="./src/features/member/signup.html">
+     					<button class="sign-up">가입하기</button>
+    				</a>
+					<a href="./src/features/member/login.html">
+      					<button class="sign-in">로그인</button>
+    				</a>
 				</div>
 			</div>
 			<div class="menu-content">
@@ -400,7 +405,9 @@ class NikeHeader extends HTMLElement {
 				</div>
 				<div class="submenu-content">
 					<h1>New & Featured</h1>
-					<p>신제품 전체</p>
+					<a href="./src/features/item/itemList.html">
+    					<p>신제품 전체</p>
+  					</a>
 					<p>베스트 셀러</p>
 					<p>ACG 아웃핏</p>
 					<p>플리스</p>
@@ -426,7 +433,9 @@ class NikeHeader extends HTMLElement {
 				</div>
 				<div class="submenu-content">
 					<h1>Men</h1>
-					<p>신제품 전체</p>
+					<a href="./src/features/item/itemList.html">
+    					<p>신제품 전체</p>
+  					</a>
 					<p>베스트 셀러</p>
 					<p>신발 전체</p>
 					<p>의류 전체</p>
