@@ -4,9 +4,7 @@ import axios from 'axios'
 const url = 'https://11.fesp.shop'
 const clientId = 'vanilla04'
 // accessToken 가져오기
-// const accessToken = sessionStorage.getItem('accessToken')
-const accessToken =
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjYsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTczMDM4MDEwOSwiZXhwIjoxNzMwNDY2NTA5LCJpc3MiOiJGRVNQIn0.aJYORQCu0QlA2KwSDwgY_YKatdDfjzqXs9Uhs4HSCEw'
+const accessToken = sessionStorage.getItem('accessToken')
 // url에서 product_id 추출
 const endPoint = `/carts/`
 
@@ -61,7 +59,6 @@ let wishlist = [
 
 // 장바구니 렌더링 함수
 getBasket(url, endPoint, clientId, accessToken).then(basket => {
-	console.log(basket)
 	function renderBasket() {
 		const productInfoContainer = document.querySelector(
 			'.product-info-container'
@@ -104,8 +101,8 @@ getBasket(url, endPoint, clientId, accessToken).then(basket => {
             </div>
           </div>
             <div class="product-icons">
-            <img src="../../../src/assets/icons/carticon/likeIcon.svg" alt="관심 상품" class="icon-heart" data-action="toggleFavorite" data-index="${index}" />
-            <img src="../../../src/assets/icons/carticon/deleteIcon.png" alt="삭제" class="icon-delete" data-action="delete" data-index="${index}" />
+            <img src="/icons/carticon/likeIcon.svg" alt="관심 상품" class="icon-heart" data-action="toggleFavorite" data-index="${index}" />
+            <img src="/icons/carticon/deleteIcon.png" alt="삭제" class="icon-delete" data-action="delete" data-index="${index}" />
           </div>
         </div>   
                               
