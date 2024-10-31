@@ -58,7 +58,7 @@ document.querySelector('.writeReview').addEventListener('click', () => {
 	window.open(
 		'writeReview.html',
 		'_blank',
-		'top = 10, left = 10, width = 345 height = 700'
+		'top = 10, left = 10, width = 450 height = 700'
 	)
 })
 
