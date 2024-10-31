@@ -55,7 +55,7 @@ let wishlist = [
 	{
 		productName: '나이키 줌 보메로 5',
 		price: 189000,
-		imageSrc: '../cart/images/shoes.png'
+		imageSrc: '../../assets/images/item/shoes.png'
 	}
 ]
 
@@ -68,72 +68,49 @@ getBasket(url, endPoint, clientId, accessToken).then(basket => {
 		)
 		// productInfoContainer.innerHTML = '' // 기존 항목 초기화
 
-		// if (basket.length === 0) {
-		// 	productInfoContainer.innerHTML = `<p class="empty-cart">장바구니가 비어 있습니다.</p>`
-		// } else {
-		// 	basket.forEach((item, index) => {
-		// 		productInfoContainer.innerHTML += `
-		// 	 <div class="product-details" data-index="${index}">
-		// 	<!-- 사진은 왼쪽에 정렬해야 하기때문에 html 구조또한 왼쪽에 배치 -->
-		// 	  <div class="product-image-section">
-		// 	  	<div class="product-image">
-		// 		<img src="${item.imageSrc}" alt="${item.productName}" class="product-image"/>
-		// 		</div>
-		// 	  </div>
-
-		// 	  <!--
-		// 	  product-details에 flex-direction: row 가 적용이 되어있다
-		// 	  세로로 정렬되어야 하는 해당 요소들은 별도의 태그로 감싸야한다.
-		// 	  -->
-		// 	<div class="product-details">
-		// 			<div class="product-header">
-		// 				<p class="product-price"><strong>189,000 원</strong></p>
-		// 				<p class="product-name">
-		// 					<strong>나이키 줌 보메로 5</strong>
-		// 				</p>
-		// 			</div>
-		// 			<p class="product-category"><strong>남성 신발</strong></p>
-		// 			<div class="product-info2">
-		// 				<div class="product-size">
-		// 					<strong>사이즈</strong>
-		// 					<span class="size-value"><u>275</u></span>
-		// 				</div>
-		// 				<div class="product-amount">
-		// 					<strong>수량</strong>
-		// 					<div>
-		// 						<span
-		// 							class="icon-minus"
-		// 							onclick="updateQuantity(-1)"
-		// 							>-</span
-		// 						>
-		// 						<span class="count-number">1</span>
-		// 						<span
-		// 							class="icon-plus"
-		// 							onclick="updateQuantity(1)"
-		// 							>+</span
-		// 						>
-		// 					</div>
-		// 				</div>
-		// 			</div>
-		// 			<div class="product-icons">
-		// 				<img
-		// 					src="../../assets/icons/carticon/likeIcon.svg"
-		// 					alt="관심 상품"
-		// 					class="icon-heart"
-		// 					onclick="toggleWishlist()"
-		// 				/>
-		// 				<img
-		// 					src="../../assets/icons/carticon/deleteIcon.png"
-		// 					alt="삭제"
-		// 					class="icon-delete"
-		// 					onclick="removeFromCart()"
-		// 				/>
-		// 			</div>
-		// 		</div>
-		// 	</div>
-		//   `
-		// 	})
-		// }
+		if (basket.length === 0) {
+			productInfoContainer.innerHTML = `<p class="empty-cart">장바구니가 비어 있습니다.</p>`
+		} else {
+			basket.forEach((item, index) => {
+				productInfoContainer.innerHTML += `
+     	<div class="product-details" data-index="${index}">
+        <!-- 사진은 왼쪽에 정렬해야 하기때문에 html 구조또한 왼쪽에 배치 -->
+          <div class="product-image-section">
+            <img src="${item.imageSrc}" alt="${item.productName}" class="product-image"/>
+          </div>
+        
+          <!--
+          product-details에 flex-direction: row 가 적용이 되어있다
+          세로로 정렬되어야 하는 해당 요소들은 별도의 태그로 감싸야한다.
+          -->
+        <div>
+          <div class="product-header">
+            <p class="product-price">${item.price.toLocaleString()} 원</p>
+            <p class="product-name">${item.productName}</p>
+          </div>
+          <p class="product-category">남성 신발</p>
+             <div class="product-info2">
+            <div class="product-size">
+              사이즈
+              <span class="size-value">275</span>
+            </div>
+            <div class="product-amount">
+              수량
+              <span class="icon-minus" data-action="decrease" data-index="${index}">-</span>
+              <span class="count-number">${item.quantity}</span>
+              <span class="icon-plus" data-action="increase" data-index="${index}">+</span>
+            </div>
+          </div>
+            <div class="product-icons">
+            <img src="../../../src/assets/icons/carticon/likeIcon.svg" alt="관심 상품" class="icon-heart" data-action="toggleFavorite" data-index="${index}" />
+            <img src="../../../src/assets/icons/carticon/deleteIcon.png" alt="삭제" class="icon-delete" data-action="delete" data-index="${index}" />
+          </div>
+        </div>   
+                              
+        </div>
+      `
+			})
+		}
 
 		updateOrderSummary()
 		updateProductCount()

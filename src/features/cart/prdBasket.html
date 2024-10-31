@@ -6,12 +6,14 @@
 		<title>장바구니</title>
 		<link rel="stylesheet" href="style.css" />
 		<!-- ---------------- 헤더, 푸터 경로 --------------------- -->
-		<script src="../../components/header/header.js" type="module"></script>
-		<script src="../../components/footer/footer.js" type="module"></script>
+		<script type="module" src="../../components/header/header.js"></script>
+		<script type="module" src="../../components/footer/footer.js"></script>
 	</head>
 	<body>
 		<div class="container">
-			<nike-header>나이키 헤더</nike-header>
+			<div id="header-container">
+				<nike-header>나이키 헤더</nike-header>
+			</div>
 			<!-- ------------------- 검색 부분 --------------------- -->
 			<div class="search-container">
 				<img
@@ -56,7 +58,7 @@
 						</div>
 						<div class="product-amount">
 							<strong>수량</strong>
-							<div>
+							<div class="quantity-control">
 								<span
 									class="icon-minus"
 									onclick="updateQuantity(-1)"
@@ -73,28 +75,29 @@
 					</div>
 					<div class="product-icons">
 						<img
-							src="../../assets/icons/carticon/likeIcon.svg"
+							src="../../../src/assets/icons/carticon/likeIcon.svg"
 							alt="관심 상품"
 							class="icon-heart"
 							onclick="toggleWishlist()"
 						/>
 						<img
-							src="../../assets/icons/carticon/deleteIcon.png"
+							src="../../../src/assets/icons/carticon/deleteIcon.png"
 							alt="삭제"
 							class="icon-delete"
 							onclick="removeFromCart()"
 						/>
 					</div>
 				</div>
-
-				<!-- 하단: 배송 정보 -->
-				<div class="shipping-info">
-					<p><strong>무료 배송</strong></p>
-					<p class="arrival-date">
-						도착 예정일: <u>7월 27일 (토)</u> 배송 지역:
-						<u class="shipping-zip-code">04628</u>
-					</p>
-				</div>
+			</div>
+			<!-- 하단: 배송 정보 -->
+			<div class="shipping-info">
+				<p><strong>무료 배송</strong></p>
+				<p class="arrival-date">
+					도착 예정일: 7월 27일 (토) 배송 지역:
+					<u class="shipping-zip-code" style="font-weight: bold"
+						>04628</u
+					>
+				</p>
 			</div>
 			<!-- ---------------------- 주문 내역 부분 ---------------- -->
 			<div class="order-summary">
@@ -171,6 +174,9 @@
 				</div>
 				<!-- 위시 리스트 상품 모두 보기 - 버튼 -->
 				<div class="viewAll-button">위시리스트 상품 모두 보기</div>
+			</div>
+			<div id="footer-container">
+				<nike-footer>나이키 푸터</nike-footer>
 			</div>
 			<div class="order-button">주문하기</div>
 			<nike-footer>나이키 푸터</nike-footer>
