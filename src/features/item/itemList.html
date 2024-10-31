@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="itemList.css" />
+		<title>상품 리스트</title>
+		<script src="../../components/header/header.js"></script>
+		<script src="../../components/footer/footer.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+	</head>
+	<body>
+		<!-- 헤더 css와 html이 있습니다. :) -->
+		<div class="wrapper">
+			<header>
+				<nike-header>나이키 헤더</nike-header>
+				<!-- 상품 카테고리 선택 -->
+				<div class="header__category">
+					<!-- <ol class="header__category--type-detail">
+						<li>라이프스타일</li>
+						<li>/</li>
+						<li>신발</li>
+					</ol> -->
+					<h1 class="header__category--type">신 발</h1>
+				</div>
+			</header>
+			<div class="content">
+				<!-- 상품 카테고리를 선택할 수 있는 내비게이션 -->
+				<div class="content__product-category" id="navigation">
+					<ul id="navi">
+						<li>신발</li>
+						<li>탑 & 티셔츠</li>
+						<li>후디 & 크루</li>
+						<li>재킷 & 베스트</li>
+						<li>펜츠 & 타이츠</li>
+						<li>쇼츠</li>
+						<li>스포츠 브라</li>
+						<li>트랙수트</li>
+						<li>점프수트 & 롬퍼스</li>
+						<li>스커트 & 드레스</li>
+						<li>양말</li>
+						<li>용품</li>
+					</ul>
+				</div>
+				<div class="content__product-list">
+					<!-- 상품 리스트 헤더 -->
+					<div class="content__product-list--header">
+						<p
+							class="content__product-list--header-research"
+							id="product-count"
+						>
+							n개의 결과
+						</p>
+						<!-- 필터 버튼 클릭시 상호작용 -->
+						<!-- 전체를 암묵적으로 담고있는 div -->
+						<div
+							class="content__product-list--header-filter"
+							id="filter"
+						>
+							<!-- 옵션들을 감싼 div -->
+							<div
+								class="content__product-list--header-filter-option"
+							>
+								<form action="#" method="get" id="filter-adapt">
+									<div class="filter-header">
+										<h1 class="filter-header title">
+											필터
+										</h1>
+										<button
+											class="content__product-list--header-filter-option-close"
+											id="filter-hide"
+										>
+											<img
+												src="../../assets/icons/exit/IconExit.svg"
+												alt="닫기 버튼"
+											/>
+										</button>
+									</div>
+									<!-- 여러 선택 옵션들 -->
+									<div class="filter-content">
+										<!-- 정렬 기준 div -->
+										<div class="filter-standard">
+											<h1>정렬 기준</h1>
+											<div>
+												<input
+													type="radio"
+													name="standard"
+													value="recommended"
+												/>추천순
+											</div>
+											<div>
+												<input
+													type="radio"
+													name="standard"
+													value="latest"
+												/>최신순
+											</div>
+											<div>
+												<input
+													type="radio"
+													name="standard"
+													value="high-price"
+												/>높은 가격순
+											</div>
+											<div>
+												<input
+													type="radio"
+													name="standard"
+													value="low-price"
+												/>낮은 가격순<br />
+											</div>
+										</div>
+										<div class="filter-gender">
+											<h1>성별</h1>
+											<div>
+												<input
+													type="checkbox"
+													name="gender"
+													value="men"
+												/>남성
+											</div>
+											<div>
+												<input
+													type="checkbox"
+													name="gender"
+													value="women"
+												/>여성
+											</div>
+											<div>
+												<input
+													type="checkbox"
+													name="gender"
+													value="uni-sex"
+												/>유니 섹스
+											</div>
+										</div>
+										<div class="filter-money">
+											<h1>가격대</h1>
+											<div>
+												<input
+													type="checkbox"
+													name="price"
+													value="0"
+												/>0 - 50,000 원
+											</div>
+											<div>
+												<input
+													type="checkbox"
+													name="price"
+													value="50000"
+												/>50,000 - 100,000 원
+											</div>
+											<div>
+												<input
+													type="checkbox"
+													name="price"
+													value="100000"
+												/>100,000 - 150,000 원
+											</div>
+											<div>
+												<input
+													type="checkbox"
+													name="price"
+													value="150000"
+												/>150,000 - 200,000 원
+											</div>
+											<div>
+												<input
+													type="checkbox"
+													name="price"
+													value="200000"
+												/>200,000 원 +
+											</div>
+										</div>
+									</div>
+									<div class="filter-footer">
+										<button class="reset" type="reset">
+											지우기
+										</button>
+										<button class="submit">적용</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<button id="filter-show" class="filter-button">
+							필터
+							<img
+								src="../../assets/icons/detailicon/Filter.svg"
+								alt=""
+							/>
+						</button>
+					</div>
+					<div
+						class="content__product-list--inside"
+						id="product-list"
+					></div>
+				</div>
+			</div>
+			<footer>
+				<nike-footer>나이키 푸터</nike-footer>
+			</footer>
+		</div>
+		<script type="module" src="./itemList.js"></script>
+	</body>
+</html>

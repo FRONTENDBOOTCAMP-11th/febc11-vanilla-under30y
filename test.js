@@ -1,11 +1,23 @@
-const a = 100;
-//난 에러가 안뜬다... 왤까...?
-
-function FunA() {
-  console.log('Hello');
-  if (a === 100) {
-    console.log('백');
-  }
+class NikeHeader extends HTMLElement {
+	constructor() {
+		super()
+		this.attachShadow({ mode: 'open' })
+		const template = document.getElementById('nike-header')
+		const clone = template.content.cloneNode(true)
+		this.shadowRoot.appendChild(clone)
+	}
 }
 
-const b = hello => {};
+customElements.define('nike-header', NikeHeader)
+
+class NikeFooter extends HTMLElement {
+	constructor() {
+		super()
+		this.attachShadow({ mode: 'open' })
+		const template = document.getElementById('nike-footer')
+		const clone = template.content.cloneNode(true)
+		this.shadowRoot.appendChild(clone)
+	}
+}
+
+customElements.define('nike-footer', NikeFooter)

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nike</title>
+		<link rel="stylesheet" href="loginstyle.css" />
+	</head>
+	<body>
+		<header class="header">
+			<img src="../../assets/images/logo/loginLogo.png" class="logo" />
+		</header>
+		<main class="contents">
+			<div class="input-email-form">
+				<!-- 이메일 입력 -->
+				<h2 class="title-login">
+					가입 또는 로그인을 위해 이메일을 입력하세요.
+				</h2>
+				<div class="input-container">
+					<input
+						type="email"
+						id="email"
+						class="user-login-input"
+						placeholder=" "
+						oninput="validateEmail(this)"
+						value="s1@gmail.com"
+						required
+					/>
+					<label class="floating-label">이메일</label>
+					<span id="validationMessage"></span>
+				</div>
+				<p class="description">
+					계속 진행하면
+					<u>나이키의 개인정보 처리방침 및 이용약관</u>에 동의하게
+					됩니다.
+				</p>
+				<div class="button-area">
+					<button
+						id="next"
+						onclick="buttonNext()"
+						class="button-black"
+					>
+						계속
+					</button>
+				</div>
+			</div>
+
+			<div class="input-pw-form">
+				<!-- 비밀번호 입력 -->
+				<div class="title-headings">
+					<h2 class="title-login">비밀번호를 입력하세요.</h2>
+					<p class="user-email">email</p>
+				</div>
+
+				<div class="input-container">
+					<input
+						type="password"
+						id="password"
+						class="user-login-input"
+						placeholder=" "
+						value="111111aA"
+					/>
+					<label class="floating-label">비밀번호</label>
+				</div>
+				<p class="search-pw"><u>비밀번호 찾기</u></p>
+				<div class="button-area">
+					<button id="last" class="button-white">이전</button>
+					<button id="login" class="button-black">로그인</button>
+				</div>
+			</div>
+		</main>
+
+		<script type="module" src="login.js"></script>
+	</body>
+</html>
