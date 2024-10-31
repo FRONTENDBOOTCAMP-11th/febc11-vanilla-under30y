@@ -14,7 +14,7 @@ function Product(id, image, price, shippingFees, name, content, extra) {
 	this.extra = extra
 }
 
-// 제품 정보 - 예시
+// 제품 정보와 해당 제품의 바리에이션
 let product
 let productOptions = []
 
@@ -23,7 +23,7 @@ const url = 'https://11.fesp.shop'
 const clientId = 'vanilla04'
 // accessToken 가져오기
 const accessToken = sessionStorage.getItem('accessToken')
-
+// url에서 product_id 추출
 const urlParams = new URLSearchParams(window.location.search)
 const endPoint = `/products/${urlParams.get('product_id')}`
 
@@ -39,8 +39,8 @@ function fetchData(url, endPoint, clientId, accessToken) {
 				timeout: 5000
 			})
 			.then(response => {
-				const productData = response.data.item // 응답 데이터에서 item을 추출
-				resolve(productData) // productData를 반환
+				const productData = response.data.item
+				resolve(productData)
 			})
 			.catch(error => {
 				reject(error)
@@ -64,11 +64,10 @@ async function fetchProductData(url, endPoint, clientId, accessToken) {
 // 제품 정보가 출력될 dom node 객체 획득 - prodInfo
 let prodTitleNode = document.getElementById('prodTitle')
 let prodImageFrameNode = document.getElementById('prodImageFrame')
-let prodImageColorNode = document.getElementById('prodImageColor') //출력과 동시에 colorSelection의 입력 노드
-let sizeSelectionNode = document.getElementById('sizeSelection') //출력과 동시에 sizeSelection의 입력 노드
+let prodImageColorNode = document.getElementById('prodImageColor')
+let sizeSelectionNode = document.getElementById('sizeSelection')
 let prodTextNode = document.getElementById('prodText')
 
-// fetch가 완료된 후에만 productData 사용
 fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 	if (productData) {
 		// productData를 활용한 작업 수행
@@ -186,15 +185,12 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 		// 제품 선택시 이미지 교체
 		function printProductImage(product, $colorSelected) {
 			prodImageFrameNode.innerHTML = ''
-
 			for (let i = 0; i < product[$colorSelected].image.length; i++) {
 				prodImageFrameNode.innerHTML += `
-					<img
-						src="${url}${product[$colorSelected].image[i].path}"
-						style="display: block"
-					/>
+					<img src="${url}${product[$colorSelected].image[i].path}" style="display: block"/>
 				`
 			}
+			prodImageFrameNode.scrollLeft = 0
 		}
 
 		// 제품 설명 출력
@@ -218,7 +214,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			let size = product[$colorSelected].extra.size[0]
 			sizeSelectionNode.innerHTML = ''
 			if (typeof size === 'number') {
-				// 중간 사이즈가 없어도 비활성화한 상태로 노드 작성
 				let sizeLimit =
 					(product[$colorSelected].extra.size[
 						product[$colorSelected].extra.size.length - 1
@@ -341,7 +336,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			}
 		}
 		// 장바구니로 post 요청
-		// async/await
 		async function createOrder(product_id, quantity, size) {
 			try {
 				await createProductOrder(product_id, quantity, size)
@@ -350,7 +344,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				console.error('Error creating product order:', error)
 			}
 		}
-		// Promise
 		function createProductOrder(product_id, quantity, size) {
 			return new Promise((resolve, reject) => {
 				axios
@@ -396,20 +389,15 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			<img src="${url}${product.image[0].path}" />
 					<span class="productDetailItem"> ${product.name} </span>
 					<div class="prodPrice detailed">
-						<span style="margin-right: 8px"
-							>${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</span
-						>
-						<span
-							style="
-								color: #9e9ea0;
-								text-decoration-line: line-through;
-								margin-right: 8px;
-							"
-							>${product.extra.primeCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</span
-						>
-						<span id="salesRate" style="color: #007d48"
-							>${product.salesRate}% 할인</span
-						>
+						<span style="margin-right: 8px">
+							${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원
+						</span>
+						<span style="color: #9e9ea0; text-decoration-line: line-through; margin-right: 8px;">
+							${product.extra.primeCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원
+						</span>
+						<span id="salesRate" style="color: #007d48">
+							${product.salesRate}% 할인
+						</span>
 					</div>
 			`
 			productDetailDescriptionNode.innerHTML = `${description}`
