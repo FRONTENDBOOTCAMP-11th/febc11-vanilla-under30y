@@ -6,7 +6,7 @@ let basket = [
 		productName: '나이키 줌 보메로 5',
 		price: 189000,
 		quantity: 1,
-		imageSrc: '../cart/images/shoes.png'
+		imageSrc: '../../assets/images/item/shoes.png'
 	}
 ]
 
@@ -15,7 +15,7 @@ let wishlist = [
 	{
 		productName: '나이키 줌 보메로 5',
 		price: 189000,
-		imageSrc: '../cart/images/shoes.png'
+		imageSrc: '../../assets/images/item/shoes.png'
 	}
 ]
 
@@ -58,8 +58,8 @@ function renderBasket() {
             </div>
           </div>
             <div class="product-icons">
-            <img src="../cart/images/IconLike.png" alt="관심 상품" class="icon-heart" data-action="toggleFavorite" data-index="${index}" />
-            <img src="../cart/images/deleteIcon.png" alt="삭제" class="icon-delete" data-action="delete" data-index="${index}" />
+            <img src="../../../src/assets/icons/carticon/likeIcon.svg" alt="관심 상품" class="icon-heart" data-action="toggleFavorite" data-index="${index}" />
+            <img src="../../../src/assets/icons/carticon/deleteIcon.png" alt="삭제" class="icon-delete" data-action="delete" data-index="${index}" />
           </div>
         </div>   
                               
