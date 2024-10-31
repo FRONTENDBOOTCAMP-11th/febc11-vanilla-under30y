@@ -73,7 +73,8 @@ input {
 }
 
 .title-headings {
-	height: 66px;
+	box-shadow: inset 0 0 20px yellowgreen;
+	height: auto;
 }
 
 /* div email */
@@ -84,11 +85,11 @@ input {
 
 .title-login {
 	font-size: 28px;
+	margin-bottom: 28px;
 }
 
 .input-container {
 	position: relative;
-	margin-top: 26px;
 }
 
 .user-login-input {
@@ -149,8 +150,8 @@ input {
 
 .user-email {
 	font-size: 16px;
-	color: #111111;
-	position: relative;
+	color: var(--color-black);
+	/* position: relative; */
 	margin-top: 10px;
 	margin-bottom: 26px;
 }
@@ -174,7 +175,7 @@ input {
 	background-color: black;
 	border: none;
 	text-align: center;
-	width: 90px;
+	width: 100%;
 	height: 52px;
 	border-radius: 26px;
 	font-size: 16px;
@@ -187,12 +188,16 @@ input {
 	background-color: white;
 	box-shadow: 0 0 0 1px black inset;
 	text-align: center;
-	width: 90px;
+	width: 100%;
 	height: 52px;
 	border-radius: 26px;
 	font-size: 16px;
 	font-weight: medium;
 	flex-shrink: 0;
+}
+
+.button-small {
+	width: 90px;
 }
 
 body {
