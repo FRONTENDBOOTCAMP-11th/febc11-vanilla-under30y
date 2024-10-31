@@ -3,15 +3,14 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>제품 상세</title>
 		<link rel="stylesheet" href="itemDetail.css" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 			rel="stylesheet"
 		/>
-		<script src="../../components/header/header.js"></script>
-		<script src="../../components/footer/footer.js"></script>
-		<script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+		<script type="module" src="../../components/header/header.js"></script>
+		<script type="module" src="../../components/footer/footer.js"></script>
 	</head>
 	<body>
 		<div class="l_wrapper">
@@ -38,7 +37,7 @@
 					</div>
 					<form>
 						<!-- 이 부분은 차후 상의 후 변경될 가능성이 있음 -->
-						<button class="btn basket" id="openBasket">
+						<button class="btn basket" id="basket">
 							<p>장바구니</p></button
 						><br />
 						<button onclick="" class="btn wishList">
@@ -205,7 +204,7 @@
 					class="recommendedItemsSection"
 					id="recommendedItemsSection"
 				>
-					<div class="recommendedItem" onclick="">
+					<div class="recommendedItem">
 						<img
 							src="../../assets/images/item/shoes14.png"
 							style="display: block; width: 196px; height: 196px"
@@ -219,7 +218,7 @@
 						</div>
 						<span class="recommendedItemPrice">189,000 원</span>
 					</div>
-					<div class="recommendedItem" onclick="">
+					<div class="recommendedItem">
 						<img
 							src="../../assets/images/item/hat.svg"
 							style="display: block; width: 196px; height: 196px"
@@ -235,46 +234,20 @@
 					</div>
 				</div>
 			</div>
+			<nike-footer>나이키 푸터</nike-footer>
+			<div class="footerBasketBtn" id="footerBasket">장바구니</div>
 		</div>
-		<div class="footerBasketBtn">장바구니</div>
+
 		<!-- 바깥 영역을 클릭해도 닫힐 수 있도록 + 바깥 영역 블러 처리 -->
 		<div class="background" id="background"></div>
 		<div class="productDetail" id="productDetail">
-			<div class="productDetailContent">
-				<div>
-					<img src="../../assets/images/item/shoes1.png" />
-					<span class="productDetailItem"> 테이텀 2 PF </span>
-					<div class="prodPrice detailed">
-						<span id="prevPrice" style="margin-right: 8px"
-							>149,000 원</span
-						>
-						<span
-							id="curPrice"
-							style="
-								color: #9e9ea0;
-								text-decoration-line: line-through;
-								margin-right: 8px;
-							"
-							>249,000 원</span
-						>
-						<span id="salesRate" style="color: #007d48"
-							>10% 할인</span
-						>
-					</div>
-					<div class="closeButton">
-						<img src="../../assets/icons/exit/IconExitGray.svg" />
-					</div>
+			<div class="productDetailContentSection">
+				<div id="productDetailContent"></div>
+				<div class="closeButton">
+					<img src="../../assets/icons/exit/IconExitGray.svg" />
 				</div>
 				<div class="productDetailDescription">
-					<p>
-						경기 종료 휘슬이 울릴 때까지는 끝난 것이 아닙니다.
-						테이텀 2와 함께 여유로운 에너지로 경기를 즐겨보세요.
-						무거운 고무 소재의 사용을 제한하여 더욱 가벼운 착화감을
-						선사합니다. 전체적으로 적용된 나이키 에어 스트로벨
-						유닛은 빠르게 방향을 바꿀 수 있도록 도와주며, 견고한
-						프레임과 발에 밀착되는 지지력 있는 폼이 어우러져 고정력
-						좋은 착화감을 선사합니다.
-					</p>
+					<p id="productDetailDescription"></p>
 
 					<h1
 						style="
@@ -335,8 +308,10 @@
 					<br />
 				</div>
 			</div>
-		<nike-footer>나이키 푸터</nike-footer>
+		</div>
+		<!-- 필수 기능 -->
 		<script type="module" src="itemDetail.js"></script>
+		추가 기능z
 		<script type="module" src="itemDetailAddtional.js"></script>
 	</body>
 </html>

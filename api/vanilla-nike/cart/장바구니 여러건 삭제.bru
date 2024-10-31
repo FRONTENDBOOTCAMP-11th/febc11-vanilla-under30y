@@ -1,0 +1,32 @@
+meta {
+  name: 장바구니 여러건 삭제
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{url}}/carts/
+  body: json
+  auth: bearer
+}
+
+headers {
+  client-id: {{client-id}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "carts": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  }
+}
