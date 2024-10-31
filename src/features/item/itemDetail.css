@@ -476,7 +476,7 @@ details[close] summary ~ * {
 	bottom: 90%;
 }
 
-.productDetailContent {
+.productDetailContentSection {
 	position: relative;
 	color: var(--color-black);
 	margin-bottom: 31.75px;
@@ -488,7 +488,7 @@ details[close] summary ~ * {
 	top: 1px;
 }
 
-.productDetailContent img {
+.productDetailContentSection img {
 	width: 60px;
 	aspect-ratio: 1 / 1;
 }
