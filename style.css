@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
 /* Reset */
 h1,
 h2,
@@ -15,8 +17,6 @@ button {
 }
 
 /* Typography */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-
 :root {
 	font-family:
 		'Pretendard Variable',
@@ -74,7 +74,6 @@ button {
 
 /* main styles */
 main {
-	box-shadow: inset 0 0 20px skyblue;
 	padding-left: 24px;
 	padding-top: 24px;
 	display: flex;
@@ -119,7 +118,6 @@ main {
 }
 
 .main-section-2 {
-	box-shadow: inset 0 0 20px yellowgreen;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
