@@ -22,7 +22,6 @@
 						id="email"
 						class="user-login-input"
 						placeholder=" "
-						oninput="validateEmail(this)"
 						value="s1@gmail.com"
 						required
 					/>
@@ -35,11 +34,7 @@
 					됩니다.
 				</p>
 				<div class="button-area">
-					<button
-						id="next"
-						onclick="buttonNext()"
-						class="button-black"
-					>
+					<button id="next" class="button-black button-small">
 						계속
 					</button>
 				</div>
@@ -49,7 +44,7 @@
 				<!-- 비밀번호 입력 -->
 				<div class="title-headings">
 					<h2 class="title-login">비밀번호를 입력하세요.</h2>
-					<p class="user-email">email</p>
+					<p class="user-email"></p>
 				</div>
 
 				<div class="input-container">
@@ -58,14 +53,18 @@
 						id="password"
 						class="user-login-input"
 						placeholder=" "
-						value="111111aA"
+						value="11111111"
 					/>
 					<label class="floating-label">비밀번호</label>
 				</div>
 				<p class="search-pw"><u>비밀번호 찾기</u></p>
 				<div class="button-area">
-					<button id="last" class="button-white">이전</button>
-					<button id="login" class="button-black">로그인</button>
+					<button id="last" class="button-white button-small">
+						이전
+					</button>
+					<button id="login" class="button-black button-small">
+						로그인
+					</button>
 				</div>
 			</div>
 		</main>

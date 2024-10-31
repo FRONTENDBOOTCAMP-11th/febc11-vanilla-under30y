@@ -6,16 +6,16 @@
 		<title>Nike</title>
 		<link rel="stylesheet" href="signupstyle.css" />
 		<link rel="stylesheet" href="loginstyle.css" />
-		<link rel="stylesheet" href="authoritystyle.css" />
+		<!-- <link rel="stylesheet" href="authoritystyle.css" /> -->
 	</head>
 	<body>
 		<header class="header">
 			<img src="../../assets/images/logo/loginLogo.png" class="logo" />
 		</header>
 		<main class="contents">
+			<!-- step1 이메일 입력 -->
 			<div class="join-email-section">
-				<!-- step1 이메일 입력 -->
-				<h2 class="title-login">
+				<h2 class="title">
 					가입 또는 로그인을 위해 이메일을 입력하세요.
 				</h2>
 				<div class="input-container">
@@ -24,7 +24,6 @@
 						id="email"
 						class="user-login-input"
 						placeholder=" "
-						oninput="validateEmail(this)"
 						value="s1@gmail.com"
 						required
 					/>
@@ -37,7 +36,9 @@
 					됩니다.
 				</p>
 				<div class="button-area">
-					<button class="button-black button-to-authority">
+					<button
+						class="button-black button-to-authority button-small"
+					>
 						계속
 					</button>
 				</div>
@@ -55,8 +56,8 @@
 					주세요.
 				</p>
 
-				<label class="authority">
-					<input type="radio" name="agreement" value="agree" />
+				<label class="term">
+					<input type="checkbox" id="all-agree" />
 					<img
 						src="../../assets/icons/checkbox/radio.png"
 						alt=""
@@ -73,8 +74,12 @@
 				<hr class="divider" />
 
 				<div class="authority-wrapper">
-					<label class="authority">
-						<input type="radio" name="agreement" value="agree" />
+					<label class="term">
+						<input
+							type="checkbox"
+							name="agreement"
+							value="agree1"
+						/>
 						<img
 							src="../../assets/icons/checkbox/radio.png"
 							alt=""
@@ -90,8 +95,12 @@
 						</span>
 					</label>
 
-					<label class="authority">
-						<input type="radio" name="agreement" value="agree" />
+					<label class="term">
+						<input
+							type="checkbox"
+							name="agreement"
+							value="agree2"
+						/>
 						<img
 							src="../../assets/icons/checkbox/radio.png"
 							alt=""
@@ -107,8 +116,12 @@
 						</span>
 					</label>
 
-					<label class="authority">
-						<input type="radio" name="agreement" value="agree" />
+					<label class="term">
+						<input
+							type="checkbox"
+							name="agreement"
+							value="agree3"
+						/>
 						<img
 							src="../../assets/icons/checkbox/radio.png"
 							alt=""
@@ -131,7 +144,9 @@
 					로그인할 수 없으며 새로운 계정을 생성할 수도 없습니다.
 				</p>
 				<div class="buttons-wrapper">
-					<button class="button-black button-to-signup">계속</button>
+					<button class="button-black button-to-signup" disabled>
+						계속
+					</button>
 					<button class="button-white">취소</button>
 				</div>
 			</div>
@@ -217,8 +232,9 @@
 						type="date"
 						id="user-birth"
 						class="user-birth-input"
-						placeholder="생년월일"
+						placeholder=" "
 					/>
+					<!-- <label class="floating-label">생년월일</label> -->
 				</div>
 				<!-- 처리 방침 -->
 				<label class="term">
@@ -239,7 +255,7 @@
 					</span>
 				</label>
 				<!-- 계정 만들기 버튼으로 전송 -->
-				<button type="submit" id="signup" class="large-button" disabled>
+				<button type="submit" id="signup" class="button-black" disabled>
 					계정 만들기
 				</button>
 			</div>
