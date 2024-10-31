@@ -26,8 +26,8 @@ personalInformationSection.style.display = 'none'
 // 이메일 입력 후 권한 동의 섹션으로 이동
 buttonToAuthority.addEventListener('click', () => {
 	// 이메일 유효성 검사
-	if (valid.validateEmail(signupForm.email.value)) {
-		formValidation.isEmail = true
+	if (valid.validateEmail(signupForm.email.value.trim())) {
+		valid.formValidation.isEmail = true
 		// 현재 섹션 숨기기
 		joinEmailSection.style.display = 'none'
 		// 다음 섹션 보여주기
@@ -82,22 +82,14 @@ buttonToSignup.addEventListener('click', () => {
 	personalInformationSection.style.display = 'block'
 })
 
-// 폼 유효성 상태
-const formValidation = {
-	isEmail: false,
-	isPasswordMinLength: false,
-	isPasswordComplex: false,
-	isAgreementChecked: false
-}
-
 // 전체 폼 유효성 검사
 function validateForm() {
 	const isFormValid =
-		signupForm.email.value.trim() !== '' &&
+		valid.formValidation.isEmail &&
 		signupForm.givenName.value.trim() !== '' &&
 		signupForm.surname.value.trim() !== '' &&
-		formValidation.isPasswordMinLength &&
-		formValidation.isPasswordComplex &&
+		valid.formValidation.isPasswordMinLength &&
+		valid.formValidation.isPasswordComplex &&
 		signupForm.birthDate.value !== ''
 
 	signupForm.submitButton.disabled = !isFormValid
@@ -115,16 +107,18 @@ async function handleSignup() {
 	try {
 		console.log('회원가입 시도 중...')
 
-		// 전송할 데이터 객체 생성
-		const signupData = {
-			givenName: signupForm.givenName.value.trim(),
-			surname: signupForm.surname.value.trim(),
-			password: signupForm.password.value,
-			birthDate: signupForm.birthDate.value
-		}
+		// // 전송할 데이터 객체 생성
+		// const signupData = {
+		// 	email: signupForm.email.value,
+		// 	name:
+		// 		signupForm.givenName.value.trim() +
+		// 		signupForm.surname.value.trim(),
+		// 	password: signupForm.password.value,
+		// 	birthDate: signupForm.birthDate.value
+		// }
 
-		// 전송할 데이터 콘솔에 출력
-		console.log('전송할 회원가입 데이터:', signupData)
+		// // 전송할 데이터 콘솔에 출력
+		// console.log('전송할 회원가입 데이터:', signupData)
 
 		// POST 요청 보내기
 		const response = await axios({
@@ -134,10 +128,13 @@ async function handleSignup() {
 				'client-id': 'vanilla04'
 			},
 			data: {
-				givenName: signupForm.givenName.value.trim(),
-				surname: signupForm.surname.value.trim(),
+				email: signupForm.email.value,
+				name:
+					signupForm.givenName.value.trim() +
+					signupForm.surname.value.trim(),
 				password: signupForm.password.value,
-				birthDate: signupForm.birthDate.value
+				birthDate: signupForm.birthDate.value,
+				type: 'user'
 			}
 		})
 
@@ -161,9 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 비밀번호 입력 시 유효성 검사
 	signupForm.password.addEventListener('input', e => {
 		const validationResult = valid.validatePassword(e.target.value)
-		formValidation.isPasswordMinLength =
+		valid.formValidation.isPasswordMinLength =
 			validationResult.isPasswordMinLength
-		formValidation.isPasswordComplex = validationResult.isPasswordComplex
+		valid.formValidation.isPasswordComplex =
+			validationResult.isPasswordComplex
 		validateForm()
 	})
 
@@ -182,14 +180,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 초기 폼 검사 실행
 validateForm()
-
-function switchSection(hideSection, showSection) {
-	hideSection.classList.add('hidden')
-	setTimeout(() => {
-		hideSection.style.display = 'none'
-		showSection.style.display = 'block'
-		setTimeout(() => {
-			showSection.classList.remove('hidden')
-		}, 50)
-	}, 300)
-}

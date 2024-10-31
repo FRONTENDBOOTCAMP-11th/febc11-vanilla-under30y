@@ -1,5 +1,13 @@
 // 이메일 유효성 검사
 export const valid = {
+	// 폼 유효성 상태
+	formValidation: {
+		isEmail: false,
+		isPasswordMinLength: false,
+		isPasswordComplex: false,
+		isAgreementChecked: false
+	},
+
 	validateEmail(input) {
 		const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 		const message = document.getElementById('validationMessage')
@@ -25,22 +33,27 @@ export const valid = {
 	// 비밀번호 유효성 검사
 	validatePassword(password) {
 		// 최소 8자 검사
-		formValidation.isPasswordMinLength = password.length >= 8
-		updatePasswordValidationUI(
+		this.formValidation.isPasswordMinLength = password.length >= 8
+		this.updatePasswordValidationUI(
 			'min-length',
-			formValidation.isPasswordMinLength
+			this.formValidation.isPasswordMinLength
 		)
 
 		// 복잡성 검사 (대소문자, 숫자)
 		const hasUpperCase = /[A-Z]/.test(password)
 		const hasLowerCase = /[a-z]/.test(password)
 		const hasNumber = /[0-9]/.test(password)
-		formValidation.isPasswordComplex =
+		this.formValidation.isPasswordComplex =
 			hasUpperCase && hasLowerCase && hasNumber
-		updatePasswordValidationUI(
+		this.updatePasswordValidationUI(
 			'complexity',
-			formValidation.isPasswordComplex
+			this.formValidation.isPasswordComplex
 		)
+
+		return {
+			isPasswordMinLength: this.formValidation.isPasswordMinLength,
+			isPasswordComplex: this.formValidation.isPasswordComplex
+		}
 	},
 
 	// 비밀번호 유효성 UI 업데이트
