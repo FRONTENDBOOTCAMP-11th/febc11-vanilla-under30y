@@ -120,11 +120,11 @@ img {
 /* size selection */
 
 .sizeArea {
-	height: fit-content;
+	margin: 42px 0 32px 0;
+	height: auto;
 	font-size: 16px;
 	font-weight: 500;
 	color: var(--color-black-1);
-	margin-bottom: 32px;
 }
 
 .sizeAreaText {
@@ -140,7 +140,7 @@ img {
 .sizeSelection {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-rows: repeat(auto, 1fr);
 	text-align: center;
 	gap: 7px;
 	padding: 1px;
@@ -419,9 +419,12 @@ details[close] summary ~ * {
 .footerBasketBtn {
 	background-color: var(--color-black-1);
 	width: 100%;
+	max-width: 560px;
 	height: 67px;
 	position: fixed;
 	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
 
 	color: white;
 	font-size: 16px;

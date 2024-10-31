@@ -103,7 +103,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			prodTitleNode.appendChild(prodNameNode)
 
 			let prodGenderNode = document.createElement('h2')
-			prodGenderNode.setAttribute('class', 'prodGender')
+			prodGenderNode.setAttribute('style', 'font-weight:500;')
 			let prodGenderTextNode
 			if (product.extra.gender === 'men') {
 				prodGenderTextNode = document.createTextNode('남성 신발')
@@ -232,6 +232,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 					let sizeTextNode = document.createTextNode(`${size}`)
 					sizeNode.appendChild(sizeTextNode)
 					sizeSelectionNode.appendChild(sizeNode)
+
 					size += 5
 				}
 			}
