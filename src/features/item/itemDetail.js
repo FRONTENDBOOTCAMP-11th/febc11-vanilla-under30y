@@ -318,7 +318,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				.getAttribute('value')
 			let $sizeSelected = document.querySelector('.size.selected')
 			let $productSelected = productOptions[$colorSelected].id
-
 			if (!$sizeSelected) {
 				// 사이즈 선택을 하지 않았을 시 경고 문구
 				alert('사이즈를 선택해주십시오.')
@@ -328,31 +327,33 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				)
 				window.location.href = '../member/login.html'
 			} else {
-				let quantity = 1
 				createOrder(
 					$productSelected,
-					quantity,
 					parseInt($sizeSelected).textContent
 				)
 			}
 		}
 		// 장바구니로 post 요청
-		async function createOrder(product_id, quantity, size) {
+		async function createOrder(product_id, size) {
 			try {
-				await createProductOrder(product_id, quantity, size)
-				window.location.href = '../cart/prdBasket.html'
+				await createProductOrder(product_id, size)
+				let isVisitBasket = confirm(
+					'장바구니 추가 완료! 장바구니 페이지로 이동하시겠습니까?'
+				)
+				if (isVisitBasket)
+					window.location.href = '../cart/prdBasket.html'
 			} catch (error) {
 				console.error('Error creating product order:', error)
 			}
 		}
-		function createProductOrder(product_id, quantity, size) {
+		function createProductOrder(product_id, size) {
 			return new Promise((resolve, reject) => {
 				axios
 					.post(
 						`${url}/carts/`,
 						{
 							product_id,
-							quantity,
+							quantity: 1,
 							size
 						},
 						{

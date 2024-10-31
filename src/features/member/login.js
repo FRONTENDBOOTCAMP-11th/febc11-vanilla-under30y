@@ -41,7 +41,6 @@ login.addEventListener('click', async function (event) {
 	event.preventDefault()
 	let email = document.getElementById('email')
 	let password = document.getElementById('password')
-	console.log(email.value, password.value)
 
 	const response = await axios({
 		method: 'POST',
@@ -56,9 +55,7 @@ login.addEventListener('click', async function (event) {
 	})
 
 	// sessionStorage에 토큰 저장
-	sessionStorage.setItem('accessToken', response.data.accessToken)
+	sessionStorage.setItem('accessToken', response.data.item.token.accessToken)
 
 	window.location.href = '/../../../index.html'
-
-	console.log(response)
 })
