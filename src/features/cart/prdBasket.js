@@ -66,7 +66,7 @@ getBasket(url, endPoint, clientId, accessToken).then(basket => {
 		const productInfoContainer = document.querySelector(
 			'.product-info-container'
 		)
-		// productInfoContainer.innerHTML = '' // 기존 항목 초기화
+		productInfoContainer.innerHTML = '' // 기존 항목 초기화
 
 		if (basket.length === 0) {
 			productInfoContainer.innerHTML = `<p class="empty-cart">장바구니가 비어 있습니다.</p>`
@@ -76,8 +76,10 @@ getBasket(url, endPoint, clientId, accessToken).then(basket => {
      	<div class="product-details" data-index="${index}">
         <!-- 사진은 왼쪽에 정렬해야 하기때문에 html 구조또한 왼쪽에 배치 -->
           <div class="product-image-section">
-            <img src="${item.imageSrc}" alt="${item.productName}" class="product-image"/>
-          </div>
+		    <div class="product-image">
+              <img src="${item.imageSrc}" alt="${item.productName}" class="product-image"/>
+            </div>
+		  </div>
         
           <!--
           product-details에 flex-direction: row 가 적용이 되어있다
