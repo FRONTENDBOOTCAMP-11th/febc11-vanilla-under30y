@@ -1,0 +1,27 @@
+meta {
+  name: 장바구니 추가
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/carts/
+  body: json
+  auth: bearer
+}
+
+headers {
+  client-id: {{client-id}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "product_id": 2,
+    "quantity": 1,
+    "size": 245
+  }
+}

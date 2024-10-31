@@ -1,6 +1,8 @@
 'use strict'
+import axios from 'axios'
 
-function Product(image, price, shippingFees, name, content, extra) {
+function Product(id, image, price, shippingFees, name, content, extra) {
+	this.id = id
 	this.image = image
 	this.price = price
 	this.shippingFees = shippingFees
@@ -37,37 +39,53 @@ function intToStringPrice(price) {
 }
 
 // 제품 정보 - 예시
-// window.load 이벤트로 객체를 넘겨 받아 만들기?
 let product
 let productOptions = []
 
-// 보안상 그리 좋지 않음. .bru 파일을 불러올 방법이 더 없을까?
+// url, clientId hard coding
 const url = 'https://11.fesp.shop'
 const clientId = 'vanilla04'
-const accessToken =
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjUsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTcyOTY1NzQwMSwiZXhwIjoxNzI5NzQzODAxLCJpc3MiOiJGRVNQIn0.iXvoZy-NGcUCFPx3XfPCU3VwyfTvsHZ600cUWP7j-Uo'
-const endPoint = '/products/1'
+// const accessToken =
+// 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjYsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTczMDI2MTUwOCwiZXhwIjoxNzMwMzQ3OTA4LCJpc3MiOiJGRVNQIn0.zA7NcAWXIZkgR7WLwIbgydaIcoKQn4pGhP3bElialag'
+// accessToken 가져오기
+const accessToken = sessionStorage.getItem('accessToken')
 
-function fetchProductData(url, endPoint, clientId, accessToken) {
-	return axios
-		.get(url + endPoint, {
-			headers: {
-				'Content-Type': 'application/json',
-				'client-id': clientId,
-				Authorization: `Bearer ${accessToken}`
-			},
-			timeout: 5000
-		})
+const urlParams = new URLSearchParams(window.location.search)
+const endPoint = `/products/${urlParams.get('product_id')}`
+// const endPoint = `/products/13`
 
-		.then(response => {
-			console.log(response.data.item)
-			const productData = response.data.item // 응답 데이터에서 item을 추출
-			return productData // productData를 반환
-		})
-		.catch(error => {
-			console.error('There was an error with the fetch request:', error)
-			return null // 에러 발생 시 null 반환
-		})
+function fetchData(url, endPoint, clientId, accessToken) {
+	return new Promise((resolve, reject) => {
+		axios
+			.get(url + endPoint, {
+				headers: {
+					'Content-Type': 'application/json',
+					'client-id': clientId,
+					Authorization: `Bearer ${accessToken}`
+				},
+				timeout: 5000
+			})
+			.then(response => {
+				const productData = response.data.item // 응답 데이터에서 item을 추출
+				resolve(productData) // productData를 반환
+			})
+			.catch(error => {
+				reject(error)
+			})
+	})
+}
+async function fetchProductData(url, endPoint, clientId, accessToken) {
+	try {
+		const productData = await fetchData(
+			url,
+			endPoint,
+			clientId,
+			accessToken
+		)
+		return productData
+	} catch (error) {
+		console.error('There was an error with the fetch request:', error)
+	}
 }
 
 // 제품 정보가 출력될 dom node 객체 획득 - prodInfo
@@ -77,14 +95,12 @@ let prodImageColorNode = document.getElementById('prodImageColor') //출력과 �
 let sizeSelectionNode = document.getElementById('sizeSelection') //출력과 동시에 sizeSelection의 입력 노드
 let prodTextNode = document.getElementById('prodText')
 
-// 제품의 상세 정보가 출력될 dom node 객체 획득 - productDetail
-let productDetailNode = document.getElementById('productDetail')
-
 // fetch가 완료된 후에만 productData 사용
 fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 	if (productData) {
 		// productData를 활용한 작업 수행
 		product = new Product(
+			productData._id,
 			productData.mainImages,
 			productData.price,
 			productData.shippingFees,
@@ -95,6 +111,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 		for (let i = 0; i < productData.options.length; i++) {
 			productOptions.push(
 				new Product(
+					productData.options[i]._id,
 					productData.options[i].mainImages,
 					productData.options[i].price,
 					productData.options[i].shippingFees,
@@ -104,6 +121,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				)
 			)
 		}
+
 		// 제품명, 가격, 분류 등을 출력
 		function printProductTitle(product) {
 			let prodNameNode = document.createElement('h1')
@@ -123,9 +141,9 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 
 			prodGenderNode.appendChild(prodGenderTextNode)
 			prodTitleNode.appendChild(prodGenderNode)
-
 			let prodPriceNode = document.createElement('div')
 			prodPriceNode.setAttribute('class', 'prodPrice')
+
 			// 현재가 = 할인가
 			let curPriceValue = intToStringPrice(product.price)
 			let curPriceNode = document.createElement('span')
@@ -163,7 +181,8 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 
 			prodTitleNode.appendChild(prodPriceNode)
 		}
-		//제품 이미지 출력
+
+		//	제품 이미지 출력
 		function printProductColorSelectImage(product) {
 			// 초기 설정
 			prodImageColorNode.innerHTML = `
@@ -185,6 +204,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			printProductImage(product, $colorSelected)
 		}
 
+		// 제품 선택시 이미지 교체
 		function printProductImage(product, $colorSelected) {
 			prodImageFrameNode.innerHTML = ''
 
@@ -197,7 +217,8 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				`
 			}
 		}
-		//제품 설명 출력
+
+		// 제품 설명 출력
 		function printProductText(product, productOption, $colorSelected) {
 			prodTextNode.innerHTML = `
 				<p>
@@ -210,7 +231,9 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 					<li id="styleIdInfo">스타일 번호: ${productOption[$colorSelected].extra.styleNo}</li>
 				</ul> 
 				`
+			printProdDetail(product.content, productOption[$colorSelected])
 		}
+
 		//사이즈 영역 생성 및 활성화/비활성화
 		function printSizeArea(product, $colorSelected) {
 			let size = product[$colorSelected].extra.size[0]
@@ -224,7 +247,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 						product[$colorSelected].extra.size[0]) /
 						5 +
 					1
-				console.log(sizeLimit)
 				for (let i = 0; i < sizeLimit; i++) {
 					let sizeNode = document.createElement('div')
 					if (size === product[$colorSelected].extra.size[i]) {
@@ -239,28 +261,8 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 					sizeSelectionNode.appendChild(sizeNode)
 					size += 5
 				}
-			} else if (typeof size === 'string') {
-				let stringSize = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
-				let j = 0
-				for (let i = 0; i < 7; i++) {
-					let sizeNode = document.createElement('div')
-					if (
-						stringSize[i] === product[$colorSelected].extra.size[j]
-					) {
-						sizeNode.setAttribute('class', 'size')
-						sizeNode.setAttribute('value', stringSize[i])
-						j++
-					} else {
-						sizeNode.setAttribute('class', 'size off')
-						sizeNode.setAttribute('value', stringSize[i])
-					}
-					let sizeTextNode = document.createTextNode(
-						`${stringSize[i]}`
-					)
-					sizeNode.appendChild(sizeTextNode)
-					sizeSelectionNode.appendChild(sizeNode)
-				}
 			}
+
 			// 사이즈 선택 이벤트
 			const sizeSelection = document.querySelectorAll('.size')
 			sizeSelection.forEach(item => {
@@ -281,6 +283,8 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				})
 			})
 		}
+
+		// 배송비 정보
 		function printShippingInfo(product) {
 			let shippingFeeNode = document.getElementById('shippingFee')
 			let shippingFeeTextNode
@@ -294,13 +298,9 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			shippingFeeNode.appendChild(shippingFeeTextNode)
 		}
 
-		// 이 아래에 함수 실행 부분은 색상 선택과 연관지을 것
+		// 함수 실행
 		printProductTitle(product)
-		if (productOptions) {
-			printProductColorSelectImage(productOptions)
-		} else {
-			printProductColorSelectImage(product)
-		}
+		printProductColorSelectImage(productOptions)
 		let $colorSelected = document
 			.querySelector('.prodImageColorFrame.selected')
 			.getAttribute('value')
@@ -311,7 +311,6 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 
 		// 제품의 다른 색상 선택 시각적 효과
 		const $productColors = document.querySelectorAll('.prodImageColorFrame')
-
 		$productColors.forEach(item => {
 			item.addEventListener('click', () => {
 				// 이미 선택된 색상에 대해서는 반응 x
@@ -329,8 +328,109 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 					printProductImage(productOptions, $colorSelected)
 					printSizeArea(productOptions, $colorSelected)
 					printProductText(product, productOptions, $colorSelected)
+					printProdDetail(
+						product.content,
+						productOptions[$colorSelected]
+					)
 				}
 			})
 		})
+
+		// 장바구니 페이지
+		function openBasketPage(e) {
+			e.preventDefault()
+			let $colorSelected = document
+				.querySelector('.prodImageColorFrame.selected')
+				.getAttribute('value')
+			let $sizeSelected = document.querySelector('.size.selected')
+			let $productSelected = productOptions[$colorSelected].id
+			// 사이즈 선택을 하지 않았을 시 경고 문구
+			if ($sizeSelected) {
+				let quantity = parseInt(
+					prompt('구매하실 상품 개수를 입력해주십시오.')
+				)
+				createOrder(
+					$productSelected,
+					quantity,
+					parseInt($sizeSelected).textContent
+				)
+			} else {
+				alert('사이즈를 선택해주십시오.')
+			}
+		}
+		// 장바구니로 post 요청
+		// async/await
+		async function createOrder(product_id, quantity, size) {
+			try {
+				await createProductOrder(product_id, quantity, size)
+				window.location.href = '../cart/prdBasket.html'
+			} catch (error) {
+				console.error('Error creating product order:', error)
+			}
+		}
+		// Promise
+		function createProductOrder(product_id, quantity, size) {
+			return new Promise((resolve, reject) => {
+				axios
+					.post(
+						`${url}/carts/`,
+						{
+							product_id,
+							quantity,
+							size
+						},
+						{
+							headers: {
+								'Content-Type': 'application/json',
+								'client-id': clientId,
+								Authorization: `Bearer ${accessToken}`
+							}
+						}
+					)
+					.then(response => {
+						resolve(response.data)
+					})
+					.catch(error => {
+						reject(error)
+					})
+			})
+		}
+
+		// 장바구니 버튼 노드에 이벤트 추가
+		let basketNode = document.getElementById('basket')
+		let footerBasketNode = document.getElementById('footerBasket')
+		basketNode.addEventListener('click', openBasketPage)
+		footerBasketNode.addEventListener('click', openBasketPage)
+
+		// 제품 상세 정보 보기 마크업
+		function printProdDetail(description, product) {
+			let productDetailContentNode = document.getElementById(
+				'productDetailContent'
+			)
+			let productDetailDescriptionNode = document.getElementById(
+				'productDetailDescription'
+			)
+			productDetailContentNode.innerHTML = `
+			<img src="${url}${product.image[0].path}" />
+					<span class="productDetailItem"> ${product.name} </span>
+					<div class="prodPrice detailed">
+						<span style="margin-right: 8px"
+							>${intToStringPrice(product.price)} 원</span
+						>
+						<span
+							style="
+								color: #9e9ea0;
+								text-decoration-line: line-through;
+								margin-right: 8px;
+							"
+							>${intToStringPrice(product.extra.primeCost)} 원</span
+						>
+						<span id="salesRate" style="color: #007d48"
+							>${product.salesRate}% 할인</span
+						>
+					</div>
+			`
+			productDetailDescriptionNode.innerHTML = `${description}`
+		}
 	}
 })

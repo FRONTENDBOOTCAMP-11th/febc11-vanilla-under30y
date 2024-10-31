@@ -1,5 +1,6 @@
 'use strinct'
 
+// 이미지 슬라이더
 const imageSlider = document.getElementById('prodImageFrame')
 
 let isMouseDown = false
