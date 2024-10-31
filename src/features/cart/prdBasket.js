@@ -1,4 +1,38 @@
 'use strict'
+import axios from 'axios'
+
+const url = 'https://11.fesp.shop'
+const clientId = 'vanilla04'
+// accessToken 가져오기
+// const accessToken = sessionStorage.getItem('accessToken')
+const accessToken =
+	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjYsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTczMDM4MDEwOSwiZXhwIjoxNzMwNDY2NTA5LCJpc3MiOiJGRVNQIn0.aJYORQCu0QlA2KwSDwgY_YKatdDfjzqXs9Uhs4HSCEw'
+// url에서 product_id 추출
+const endPoint = `/carts/`
+
+function fetchData(url, endPoint, clientId, accessToken) {
+	return new Promise((resolve, reject) => {
+		axios
+			.get(url + endPoint, {
+				headers: {
+					'Content-Type': 'application/json',
+					'client-id': clientId,
+					Authorization: `Bearer ${accessToken}`
+				},
+				timeout: 5000
+			})
+			.then(response => {
+				const productData = response.data.item
+				console.log(productData[0])
+				resolve(productData)
+			})
+			.catch(error => {
+				reject(error)
+			})
+	})
+}
+
+fetchData(url, endPoint, clientId, accessToken)
 
 // 초기 장바구니 데이터 설정
 let basket = [
@@ -21,7 +55,9 @@ let wishlist = [
 
 // 장바구니 렌더링 함수
 function renderBasket() {
-	const productInfoContainer = document.querySelector('.product-info-container')
+	const productInfoContainer = document.querySelector(
+		'.product-info-container'
+	)
 	productInfoContainer.innerHTML = '' // 기존 항목 초기화
 
 	if (basket.length === 0) {
@@ -85,11 +121,13 @@ function updateOrderSummary() {
 
 	// 장바구니가 비어 있을 때 상품 금액을 0 원으로 표시
 	if (basket.length === 0) {
-		document.querySelector('.summary-row .order-product-price').textContent =
-			'0 원'
+		document.querySelector(
+			'.summary-row .order-product-price'
+		).textContent = '0 원'
 	} else {
-		document.querySelector('.summary-row .order-product-price').textContent =
-			`${totalPrice.toLocaleString()} 원`
+		document.querySelector(
+			'.summary-row .order-product-price'
+		).textContent = `${totalPrice.toLocaleString()} 원`
 	}
 }
 
@@ -166,7 +204,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 위시리스트에서 장바구니에 상품 추가 함수
 function addToBasketFromWishlist(item) {
-	const found = basket.find(product => product.productName === item.productName)
+	const found = basket.find(
+		product => product.productName === item.productName
+	)
 	if (!found) {
 		basket.push({ ...item, quantity: 1 })
 		renderBasket()
