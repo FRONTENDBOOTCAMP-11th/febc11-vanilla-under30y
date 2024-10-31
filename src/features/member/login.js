@@ -27,7 +27,6 @@ next.addEventListener('click', function (event) {
 		inputPasswordForm.style.display = 'block'
 	}
 	// 유효하지 않은 경우는 validateEmail 함수 내에서 처리됨
-<<<<<<< HEAD
 })
 
 // 이전 버튼 눌렀을 때
@@ -60,6 +59,6 @@ login.addEventListener('click', async function (event) {
 	sessionStorage.setItem('accessToken', response.data.accessToken)
 
 	window.location.href = '/../../../index.html'
-    
+
 	console.log(response)
 })
