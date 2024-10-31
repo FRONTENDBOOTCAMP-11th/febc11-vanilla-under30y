@@ -14,30 +14,6 @@ function Product(id, image, price, shippingFees, name, content, extra) {
 	this.extra = extra
 }
 
-// int 형식의 price/primeCost 변수 "xxx,xxx" 형태의 string으로 변환
-function intToStringPrice(price) {
-	switch ((price % 1000).toString().length) {
-		case 3:
-			return (
-				parseInt(price / 1000).toString() +
-				',' +
-				parseInt(price % 1000).toString()
-			)
-		case 2:
-			return (
-				parseInt(price / 1000).toString() +
-				',0' +
-				parseInt(price % 1000).toString()
-			)
-		case 1:
-			return (
-				parseInt(price / 1000).toString() +
-				',00' +
-				parseInt(price % 1000).toString()
-			)
-	}
-}
-
 // 제품 정보 - 예시
 let product
 let productOptions = []
@@ -45,14 +21,11 @@ let productOptions = []
 // url, clientId hard coding
 const url = 'https://11.fesp.shop'
 const clientId = 'vanilla04'
-// const accessToken =
-// 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjYsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi7ZiE7KKFIiwiZW1haWwiOiJoakBuYXZlci5jb20iLCJpbWFnZSI6Ii9maWxlcy8wMC1zYW1wbGUvcHJvZmlsZS5qcGciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTczMDI2MTUwOCwiZXhwIjoxNzMwMzQ3OTA4LCJpc3MiOiJGRVNQIn0.zA7NcAWXIZkgR7WLwIbgydaIcoKQn4pGhP3bElialag'
 // accessToken 가져오기
 const accessToken = sessionStorage.getItem('accessToken')
 
 const urlParams = new URLSearchParams(window.location.search)
 const endPoint = `/products/${urlParams.get('product_id')}`
-// const endPoint = `/products/13`
 
 function fetchData(url, endPoint, clientId, accessToken) {
 	return new Promise((resolve, reject) => {
@@ -145,7 +118,9 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			prodPriceNode.setAttribute('class', 'prodPrice')
 
 			// 현재가 = 할인가
-			let curPriceValue = intToStringPrice(product.price)
+			let curPriceValue = product.price
+				.toString()
+				.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 			let curPriceNode = document.createElement('span')
 			curPriceNode.setAttribute('id', 'curPrice')
 			curPriceNode.setAttribute('style', 'margin-right: 8px')
@@ -155,30 +130,34 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			curPriceNode.appendChild(curPriceTextNode)
 			prodPriceNode.appendChild(curPriceNode)
 
-			// 원가
-			let prevPriceValue = intToStringPrice(product.extra.primeCost)
-			let prevPriceNode = document.createElement('span')
-			prevPriceNode.setAttribute('id', 'prevPrice')
-			prevPriceNode.setAttribute(
-				'style',
-				'color: #9e9ea0; text-decoration-line: line-through;margin-right: 8px;'
-			)
-			let prevPriceTextNode = document.createTextNode(
-				`${prevPriceValue} 원`
-			)
-			prevPriceNode.appendChild(prevPriceTextNode)
-			prodPriceNode.appendChild(prevPriceNode)
+			// 할인 중인 경우에만 표시
+			if (product.price != product.extra.primeCost) {
+				// 원가
+				let prevPriceValue = product.extra.primeCost
+					.toString()
+					.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+				let prevPriceNode = document.createElement('span')
+				prevPriceNode.setAttribute('id', 'prevPrice')
+				prevPriceNode.setAttribute(
+					'style',
+					'color: #9e9ea0; text-decoration-line: line-through;margin-right: 8px;'
+				)
+				let prevPriceTextNode = document.createTextNode(
+					`${prevPriceValue} 원`
+				)
+				prevPriceNode.appendChild(prevPriceTextNode)
+				prodPriceNode.appendChild(prevPriceNode)
 
-			// 할인율
-			let salesRateNode = document.createElement('span')
-			salesRateNode.setAttribute('id', 'salesRate')
-			salesRateNode.setAttribute('style', 'color: #007d48')
-			let salesRateTextNode = document.createTextNode(
-				`${product.salesRate}% 할인`
-			)
-			salesRateNode.appendChild(salesRateTextNode)
-			prodPriceNode.appendChild(salesRateNode)
-
+				// 할인율
+				let salesRateNode = document.createElement('span')
+				salesRateNode.setAttribute('id', 'salesRate')
+				salesRateNode.setAttribute('style', 'color: #007d48')
+				let salesRateTextNode = document.createTextNode(
+					`${product.salesRate}% 할인`
+				)
+				salesRateNode.appendChild(salesRateTextNode)
+				prodPriceNode.appendChild(salesRateNode)
+			}
 			prodTitleNode.appendChild(prodPriceNode)
 		}
 
@@ -245,9 +224,8 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 						product[$colorSelected].extra.size.length - 1
 					] -
 						product[$colorSelected].extra.size[0]) /
-						5 +
-					1
-				for (let i = 0; i < sizeLimit; i++) {
+					5
+				for (let i = 0; i < sizeLimit + 1; i++) {
 					let sizeNode = document.createElement('div')
 					if (size === product[$colorSelected].extra.size[i]) {
 						sizeNode.setAttribute('class', 'size')
@@ -290,7 +268,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			let shippingFeeTextNode
 			if (product.shippingFees) {
 				shippingFeeTextNode = document.createTextNode(
-					`${intToStringPrice(product.shippingFees)} 원`
+					`${product.shippingFees.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원`
 				)
 			} else {
 				shippingFeeTextNode = document.createTextNode('무료 배송')
@@ -344,18 +322,22 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 				.getAttribute('value')
 			let $sizeSelected = document.querySelector('.size.selected')
 			let $productSelected = productOptions[$colorSelected].id
-			// 사이즈 선택을 하지 않았을 시 경고 문구
-			if ($sizeSelected) {
-				let quantity = parseInt(
-					prompt('구매하실 상품 개수를 입력해주십시오.')
+
+			if (!$sizeSelected) {
+				// 사이즈 선택을 하지 않았을 시 경고 문구
+				alert('사이즈를 선택해주십시오.')
+			} else if (!accessToken) {
+				alert(
+					'로그인 이후 이용할 수 있는 기능입니다. 로그인을 진행하여주십시오'
 				)
+				window.location.href = '../member/login.html'
+			} else {
+				let quantity = 1
 				createOrder(
 					$productSelected,
 					quantity,
 					parseInt($sizeSelected).textContent
 				)
-			} else {
-				alert('사이즈를 선택해주십시오.')
 			}
 		}
 		// 장바구니로 post 요청
@@ -415,7 +397,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 					<span class="productDetailItem"> ${product.name} </span>
 					<div class="prodPrice detailed">
 						<span style="margin-right: 8px"
-							>${intToStringPrice(product.price)} 원</span
+							>${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</span
 						>
 						<span
 							style="
@@ -423,7 +405,7 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 								text-decoration-line: line-through;
 								margin-right: 8px;
 							"
-							>${intToStringPrice(product.extra.primeCost)} 원</span
+							>${product.extra.primeCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</span
 						>
 						<span id="salesRate" style="color: #007d48"
 							>${product.salesRate}% 할인</span
