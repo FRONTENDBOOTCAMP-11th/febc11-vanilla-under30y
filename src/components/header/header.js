@@ -307,28 +307,28 @@ class NikeHeader extends HTMLElement {
 	<div class="header">
 		<a href="../../../index.html" class="main-page">
 			<img
-				src="../../assets/images/logo/LOGO.svg"
+				src="/logo/LOGO.svg"
 				alt="나이키 로고"
 				class="header--img logo"
 			/>
 		</a>
 		<img
-			src="../../assets/icons/menuicon/IconSearch.svg"
+			src="/icons/menuicon/IconSearch.svg"
 			alt="검색"
 			class="header--img search"
 		/>
 		<img
-			src="../../assets/icons/menuicon/IconProfile.svg"
+			src="/icons/menuicon/IconProfile.svg"
 			alt="프로필"
 			class="header--img profile"
 		/>
 		<img
-			src="../../assets/icons/menuicon/IconCart.svg"
+			src="/icons/menuicon/IconCart.svg"
 			alt="장바구니"
 			class="header--img cart"
 		/>
 		<button id="menuToggle" class="header--img menu">
-			<img src="../../assets/icons/menuicon/IconMenu.svg" alt="메뉴" />
+			<img src="/icons/menuicon/IconMenu.svg" alt="메뉴" />
 		</button>
 		<!-- 아래부터 메뉴 내부 디자인 -->
 		<div id="overlay"></div>
@@ -336,7 +336,7 @@ class NikeHeader extends HTMLElement {
 			<div class="menu-header">
 				<button class="menu-exit" id="menu-exit">
 					<img
-						src="../../assets/icons/exit/IconExitGray.svg"
+						src="/icons/exit/IconExitGray.svg"
 						alt="닫기 버튼"
 					/>
 				</button>
@@ -349,35 +349,35 @@ class NikeHeader extends HTMLElement {
 				<button class="content__button new" id="newfeatured">
 					<h1>New & Featured</h1>
 					<img
-						src="../../assets/icons/menuicon/IconNext.svg"
+						src="/icons/menuicon/IconNext.svg"
 						alt="다음 버튼"
 					/>
 				</button>
 				<button class="content__button men" id="man">
 					<h1>Men</h1>
 					<img
-						src="../../assets/icons/menuicon/IconNext.svg"
+						src="/icons/menuicon/IconNext.svg"
 						alt="다음 버튼"
 					/>
 				</button>
 				<button class="content__button women" id="woman">
 					<h1>Women</h1>
 					<img
-						src="../../assets/icons/menuicon/IconNext.svg"
+						src="/icons/menuicon/IconNext.svg"
 						alt="다음 버튼"
 					/>
 				</button>
 				<button class="content__button kid" id="kid">
 					<h1>Kids</h1>
 					<img
-						src="../../assets/icons/menuicon/IconNext.svg"
+						src="/icons/menuicon/IconNext.svg"
 						alt="다음 버튼"
 					/>
 				</button>
 				<button class="content__button sale" id="sale">
 					<h1>Sale</h1>
 					<img
-						src="../../assets/icons/menuicon/IconNext.svg"
+						src="/icons/menuicon/IconNext.svg"
 						alt="다음 버튼"
 					/>
 				</button>
@@ -386,14 +386,14 @@ class NikeHeader extends HTMLElement {
 				<div class="submenu-header">
 					<button class="submenu-backbutton" id="backbutton">
 						<img
-							src="../../assets/icons/menuicon/IconBack.svg"
+							src="/icons/menuicon/IconBack.svg"
 							alt="뒤로 가기 버튼"
 						/>
 						<h2>전체</h2>
 					</button>
 					<button class="submenu-exitbutton" id="menu-exit2">
 						<img
-							src="../../assets/icons/exit/IconExitGray.svg"
+							src="/icons/exit/IconExitGray.svg"
 							alt="닫기 버튼"
 						/>
 					</button>
@@ -411,7 +411,7 @@ class NikeHeader extends HTMLElement {
 				<div class="submenu-header">
 					<button class="submenu-backbutton">
 						<img
-							src="../../assets/icons/menuicon/IconBack.svg"
+							src="/icons/menuicon/IconBack.svg"
 							alt="뒤로 가기 버튼"
 							id="backbutton2"
 						/>
@@ -419,7 +419,7 @@ class NikeHeader extends HTMLElement {
 					</button>
 					<button class="submenu-exitbutton" id="menu-exit3">
 						<img
-							src="../../assets/icons/exit/IconExitGray.svg"
+							src="/icons/exit/IconExitGray.svg"
 							alt="닫기 버튼"
 						/>
 					</button>
@@ -437,14 +437,14 @@ class NikeHeader extends HTMLElement {
 				<div class="submenu-header">
 					<button class="submenu-backbutton" id="backbutton3">
 						<img
-							src="../../assets/icons/menuicon/IconBack.svg"
+							src="/icons/menuicon/IconBack.svg"
 							alt="뒤로 가기 버튼"
 						/>
 						<h2>전체</h2>
 					</button>
 					<button class="submenu-exitbutton" id="menu-exit4">
 						<img
-							src="../../assets/icons/exit/IconExitGray.svg"
+							src="/icons/exit/IconExitGray.svg"
 							alt="닫기 버튼"
 						/>
 					</button>
@@ -462,14 +462,14 @@ class NikeHeader extends HTMLElement {
 				<div class="submenu-header">
 					<button class="submenu-backbutton" id="backbutton4">
 						<img
-							src="../../assets/icons/menuicon/IconBack.svg"
+							src="/icons/menuicon/IconBack.svg"
 							alt="뒤로 가기 버튼"
 						/>
 						<h2>전체</h2>
 					</button>
 					<button class="submenu-exitbutton" id="menu-exit5">
 						<img
-							src="../../assets/icons/exit/IconExitGray.svg"
+							src="/icons/exit/IconExitGray.svg"
 							alt="닫기 버튼"
 						/>
 					</button>
@@ -489,14 +489,14 @@ class NikeHeader extends HTMLElement {
 				<div class="submenu-header">
 					<button class="submenu-backbutton" id="backbutton5">
 						<img
-							src="../../assets/icons/menuicon/IconBack.svg"
+							src="/icons/menuicon/IconBack.svg"
 							alt="뒤로 가기 버튼"
 						/>
 						<h2>전체</h2>
 					</button>
 					<button class="submenu-exitbutton" id="menu-exit6">
 						<img
-							src="../../assets/icons/exit/IconExitGray.svg"
+							src="/icons/exit/IconExitGray.svg"
 							alt="닫기 버튼"
 						/>
 					</button>
@@ -512,25 +512,25 @@ class NikeHeader extends HTMLElement {
 			<div class="menu-footer">
 				<button class="footer__button">
 					<img
-						src="../../assets/icons/menuicon/IconCs.svg"
+						src="/icons/menuicon/IconCs.svg"
 						alt="고객센터 버튼"
 					/>
 					<h1>고객센터</h1>
 				</button>
 				<button class="footer__button cart">
 					<img
-						src="../../assets/icons/menuicon/IconCart.svg"
+						src="/icons/menuicon/IconCart.svg"
 						alt="장바구니 버튼"
 					/>
 					<h1>장바구니</h1>
 				</button>
 				<button class="footer__button">
-					<img src="../../assets/icons/menuicon/IconOrder.svg" />
+					<img src="/icons/menuicon/IconOrder.svg" />
 					<h1>주문</h1>
 				</button>
 				<button class="footer__button">
 					<img
-						src="../../assets/icons/menuicon/IconStore.svg"
+						src="/icons/menuicon/IconStore.svg"
 						alt="매장찾기 버튼"
 					/>
 					<h1>매장 찾기</h1>
