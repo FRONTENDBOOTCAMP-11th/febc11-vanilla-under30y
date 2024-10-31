@@ -73,6 +73,7 @@ input {
 }
 
 .title-headings {
+	box-shadow: inset 0 0 20px yellowgreen;
 	height: 66px;
 }
 
@@ -149,8 +150,8 @@ input {
 
 .user-email {
 	font-size: 16px;
-	color: #111111;
-	position: relative;
+	color: var(--color-red-1);
+	/* position: relative; */
 	margin-top: 10px;
 	margin-bottom: 26px;
 }
@@ -174,6 +175,20 @@ input {
 	background-color: black;
 	border: none;
 	text-align: center;
+	width: 100%;
+	height: 52px;
+	border-radius: 26px;
+	font-size: 16px;
+	font-weight: medium;
+	flex-shrink: 0;
+}
+
+.button-white {
+	color: black;
+	background-color: white;
+	box-shadow: 0 0 0 1px black inset;
+	text-align: center;
+	width: 100%;
 	height: 52px;
 	border-radius: 26px;
 	font-size: 16px;
@@ -183,18 +198,6 @@ input {
 
 .button-small {
 	width: 90px;
-}
-
-.button-white {
-	color: black;
-	background-color: white;
-	box-shadow: 0 0 0 1px black inset;
-	text-align: center;
-	height: 52px;
-	border-radius: 26px;
-	font-size: 16px;
-	font-weight: medium;
-	flex-shrink: 0;
 }
 
 body {
