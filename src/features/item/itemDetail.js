@@ -214,25 +214,28 @@ fetchProductData(url, endPoint, clientId, accessToken).then(productData => {
 			let size = product[$colorSelected].extra.size[0]
 			sizeSelectionNode.innerHTML = ''
 			if (typeof size === 'number') {
-				let sizeLimit =
-					(product[$colorSelected].extra.size[
-						product[$colorSelected].extra.size.length - 1
-					] -
-						product[$colorSelected].extra.size[0]) /
-					5
-				for (let i = 0; i < sizeLimit + 1; i++) {
+				let sizeLimit = product[$colorSelected].extra.size.length
+				let i = 0
+				while (i < sizeLimit) {
 					let sizeNode = document.createElement('div')
+					console.log(
+						size,
+						product[$colorSelected].extra.size[i],
+						i,
+						sizeLimit
+					)
 					if (size === product[$colorSelected].extra.size[i]) {
 						sizeNode.setAttribute('class', 'size')
 						sizeNode.setAttribute('value', size)
+						i++
 					} else {
 						sizeNode.setAttribute('class', 'size off')
 						sizeNode.setAttribute('value', size)
 					}
+					if (size > 330) break
 					let sizeTextNode = document.createTextNode(`${size}`)
 					sizeNode.appendChild(sizeTextNode)
 					sizeSelectionNode.appendChild(sizeNode)
-
 					size += 5
 				}
 			}
