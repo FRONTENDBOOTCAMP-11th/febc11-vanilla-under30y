@@ -24,7 +24,6 @@
 						id="email"
 						class="user-login-input"
 						placeholder=" "
-						oninput="validateEmail(this)"
 						value="s1@gmail.com"
 						required
 					/>
@@ -58,7 +57,7 @@
 				</p>
 
 				<label class="term">
-					<input type="checkbox" name="agreement" value="agree" />
+					<input type="checkbox" id="all-agree" />
 					<img
 						src="../../assets/icons/checkbox/radio.png"
 						alt=""
@@ -76,7 +75,11 @@
 
 				<div class="authority-wrapper">
 					<label class="term">
-						<input type="checkbox" name="agreement" value="agree" />
+						<input
+							type="checkbox"
+							name="agreement"
+							value="agree1"
+						/>
 						<img
 							src="../../assets/icons/checkbox/radio.png"
 							alt=""
@@ -93,7 +96,11 @@
 					</label>
 
 					<label class="term">
-						<input type="checkbox" name="agreement" value="agree" />
+						<input
+							type="checkbox"
+							name="agreement"
+							value="agree2"
+						/>
 						<img
 							src="../../assets/icons/checkbox/radio.png"
 							alt=""
@@ -110,7 +117,11 @@
 					</label>
 
 					<label class="term">
-						<input type="checkbox" name="agreement" value="agree" />
+						<input
+							type="checkbox"
+							name="agreement"
+							value="agree3"
+						/>
 						<img
 							src="../../assets/icons/checkbox/radio.png"
 							alt=""
@@ -133,7 +144,9 @@
 					로그인할 수 없으며 새로운 계정을 생성할 수도 없습니다.
 				</p>
 				<div class="buttons-wrapper">
-					<button class="button-black button-to-signup">계속</button>
+					<button class="button-black button-to-signup" disabled>
+						계속
+					</button>
 					<button class="button-white">취소</button>
 				</div>
 			</div>

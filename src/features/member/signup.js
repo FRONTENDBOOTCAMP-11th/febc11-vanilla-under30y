@@ -16,7 +16,6 @@ const signupForm = {
 	surname: document.getElementById('user-surname'),
 	password: document.getElementById('user-password'),
 	birthDate: document.getElementById('user-birth'),
-	agreement: document.querySelector('input[name="agreement"]'),
 	submitButton: document.getElementById('signup')
 }
 
@@ -37,11 +36,49 @@ buttonToAuthority.addEventListener('click', () => {
 	// validateEmail 함수에서 유효하지 않은 경우 처리
 })
 
+// step2 권한 동의
+const allAgreeCheckbox = document.getElementById('all-agree')
+const agreementCheckboxes = document.getElementsByName('agreement')
+
+// 전체 동의 체크박스 이벤트 리스너
+allAgreeCheckbox.addEventListener('change', function () {
+	const isChecked = this.checked
+
+	// 모든 개별 체크박스에 전체 동의 상태 적용
+	Array.from(agreementCheckboxes).forEach(checkbox => {
+		checkbox.checked = isChecked
+	})
+
+	// 버튼 활성화 상태 업데이트
+	updateButtonToSignup()
+})
+
+// 개별 체크박스 이벤트 리스너
+Array.from(agreementCheckboxes).forEach(checkbox => {
+	checkbox.addEventListener('change', function () {
+		updateAllAgreeCheckbox()
+		updateButtonToSignup()
+	})
+})
+
+// 전체 동의 체크박스 상태 업데이트 함수
+function updateAllAgreeCheckbox() {
+	const totalCheckboxes = agreementCheckboxes.length
+	const checkedCheckboxes = Array.from(agreementCheckboxes).filter(
+		checkbox => checkbox.checked
+	).length
+	allAgreeCheckbox.checked = totalCheckboxes === checkedCheckboxes
+}
+
+// 계속하기 버튼 활성화 상태 업데이트 함수
+function updateButtonToSignup() {
+	const allChecked = Array.from(agreementCheckboxes).every(box => box.checked)
+	buttonToSignup.disabled = !allChecked
+}
+
 // 권한 동의 후 개인정보 입력 섹션으로 이동
 buttonToSignup.addEventListener('click', () => {
-	// 현재 섹션 숨기기
 	authoritySection.style.display = 'none'
-	// 다음 섹션 보여주기
 	personalInformationSection.style.display = 'block'
 })
 
@@ -61,8 +98,7 @@ function validateForm() {
 		signupForm.surname.value.trim() !== '' &&
 		formValidation.isPasswordMinLength &&
 		formValidation.isPasswordComplex &&
-		signupForm.birthDate.value !== '' &&
-		formValidation.isAgreementChecked // 약관 동의 여부 확인
+		signupForm.birthDate.value !== ''
 
 	signupForm.submitButton.disabled = !isFormValid
 
@@ -72,14 +108,6 @@ function validateForm() {
 	} else {
 		signupForm.submitButton.classList.remove('active')
 	}
-
-	console.log(
-		signupForm.email,
-		signupForm.givenName,
-		signupForm.surname,
-		signupForm.password,
-		signupForm.birthDate
-	)
 }
 
 // 회원가입 데이터 전송 함수
@@ -136,12 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		formValidation.isPasswordMinLength =
 			validationResult.isPasswordMinLength
 		formValidation.isPasswordComplex = validationResult.isPasswordComplex
-		validateForm()
-	})
-
-	// 약관 동의 체크박스 변경 시
-	signupForm.agreement.addEventListener('change', e => {
-		formValidation.isAgreementChecked = e.target.checked
 		validateForm()
 	})
 
