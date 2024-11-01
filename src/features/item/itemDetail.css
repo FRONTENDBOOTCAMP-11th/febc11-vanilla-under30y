@@ -454,7 +454,8 @@ details[close] summary ~ * {
 	transform: translate(-50%, 100%);
 	background-color: white;
 
-	width: 100vw;
+	width: 100%;
+	max-width: 560px;
 	height: 90%;
 	padding: 40px 20px 0;
 	box-sizing: border-box;
