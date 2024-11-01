@@ -1,13 +1,115 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="main.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nike</title>
+		<link rel="stylesheet" href="style.css" />
+		<script type="module" src="/src/components/header/header.js"></script>
+		<script type="module" src="/src/components/footer/footer.js"></script>
+	</head>
+	<body>
+		<nike-header>나이키 헤더</nike-header>
+		<main>
+			<section class="main-section-1">
+				<div class="single-image image1"></div>
+				<div class="text-wrapper">
+					<h1 class="main-section-title">
+						아무나 오를 수 없는 승자의 자리
+					</h1>
+					<p class="additional-text">
+						전부를 내건 이들만이 차지하는 것
+					</p>
+				</div>
+				<button class="button-black">자세히 보기</button>
+			</section>
+
+			<section class="main-section-2">
+				<h2 class="card-section-title">Win On Air</h2>
+				<div class="cards-horizontal-container">
+					<div class="card-wrapper">
+						<div class="card-image image2-1"></div>
+						<h3 class="card-title">의류</h3>
+					</div>
+
+					<div class="card-wrapper">
+						<div class="card-image image2-2"></div>
+						<h3 class="card-title">신발</h3>
+					</div>
+
+					<div class="card-wrapper">
+						<div class="card-image image2-3"></div>
+						<h3 class="card-title">악세사리 & 용품</h3>
+					</div>
+				</div>
+			</section>
+
+			<section class="main-section-1">
+				<div class="single-image image3"></div>
+				<div class="text-wrapper">
+					<p class="subtitle">신제품</p>
+					<h1 class="main-section-title">나이키 잼</h1>
+					<p class="additional-text">
+						브레이킹을 위해 탄생한<br />나이키 잼 컬렉션을 만나
+						보세요.
+					</p>
+				</div>
+				<button class="button-black">구매하기</button>
+			</section>
+
+			<section class="main-section-1">
+				<div class="single-image image4"></div>
+				<div class="text-wrapper">
+					<p class="subtitle">새로운 컬렉션</p>
+					<h1 class="main-section-title">나이키 X 자크뮈스</h1>
+					<p class="additional-text">
+						세련된 실루엣과 감각적인 컬러가<br />조화를 이루는
+						나이키 X 자크뮈스 컬렉션은<br />스포츠웨어에 새로운
+						변화를 불러일으킵니다.
+					</p>
+				</div>
+				<button class="button-black">컬렉션 구매하기</button>
+			</section>
+
+			<section class="main-section-2">
+				<h2 class="card-section-title">Trending Now</h2>
+				<div class="cards-horizontal-container">
+					<div class="card-wrapper">
+						<div class="card-image image5-1"></div>
+						<h3 class="card-title">매드 앰피션 팩</h3>
+						<button class="button-black">구매하기</button>
+					</div>
+
+					<div class="card-wrapper">
+						<div class="card-image image5-2"></div>
+						<h3 class="card-title">가장 나다움을 담은 수트</h3>
+						<button class="button-black">구매하기</button>
+					</div>
+
+					<div class="card-wrapper">
+						<div class="card-image image5-3"></div>
+						<h3 class="card-title">샌들 & 슬라이드</h3>
+						<button class="button-black">구매하기</button>
+					</div>
+				</div>
+			</section>
+
+			<section class="main-section-2">
+				<h2 class="card-section-title">Featured</h2>
+
+				<div class="card-wrapper">
+					<div class="card-image-2 image6-1"></div>
+					<h2 class="card-title">워크아웃 에센셜</h2>
+					<button class="button-black">구매하기</button>
+				</div>
+
+				<div class="card-wrapper">
+					<div class="card-image-2 image6-2"></div>
+					<h2 class="card-title">나이키 메트콘 9</h2>
+					<button class="button-black">구매하기</button>
+				</div>
+			</section>
+		</main>
+		<nike-footer>나이키 푸터</nike-footer>
+	</body>
 </html>

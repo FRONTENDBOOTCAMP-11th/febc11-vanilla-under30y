@@ -1,0 +1,314 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+/* Reset */
+body,
+p {
+	margin: unset;
+}
+
+h2 {
+	margin: unset;
+	font-size: unset;
+	font-weight: unset;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+button {
+	all: unset;
+	display: inline-block;
+}
+
+input {
+	all: unset;
+	box-sizing: border-box;
+}
+
+input[type='date'] {
+	appearance: none;
+}
+
+/* Typography */
+:root {
+	font-family:
+		'Pretendard Variable',
+		Pretendard,
+		-apple-system,
+		BlinkMacSystemFont,
+		system-ui,
+		Roboto,
+		'Helvetica Neue',
+		'Segoe UI',
+		'Apple SD Gothic Neo',
+		'Noto Sans KR',
+		'Malgun Gothic',
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol',
+		sans-serif;
+	font-size: 62.5%;
+
+	--color-black: #111111;
+	--color-gray-1: #f5f5f5;
+	--color-gray-2: #e5e5e5;
+	--color-gray-3: #cacacb;
+	--color-gray-4: #9e9ea0;
+	--color-gray-5: #707072;
+	--color-white: #ffffff;
+	--color-green-1: #007d48;
+	--color-red-1: #b40000;
+}
+
+/* Header */
+.header {
+	height: 100px;
+	position: relative;
+	padding: 0 36px;
+}
+
+.logo {
+	/* 수직 중앙 정렬하기 */
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	padding: 0 9px;
+}
+
+/* Contents */
+.contents {
+	padding: 36px;
+}
+
+.title {
+	font-size: 28px;
+	padding-bottom: 28px;
+}
+
+.form {
+}
+
+.join-email-section,
+.authority-section,
+.personal-information-section {
+	transition: opacity 0.3s ease;
+	opacity: 1;
+}
+
+.join-email-section.hidden,
+.authority-section.hidden,
+.personal-information-section.hidden {
+	opacity: 0;
+	display: none;
+}
+
+.required {
+	font-size: 14px;
+	color: var(--color-black);
+	margin-bottom: 24px;
+}
+
+.divider {
+	height: 1px;
+	background-color: #ccc; /* 원하는 색상으로 변경 */
+	border: none;
+}
+
+.authority {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	cursor: pointer;
+	margin: 12px 0;
+}
+
+.authority-text {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 150%;
+}
+
+.user-name {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	padding-bottom: 20px;
+}
+
+.input-container {
+	position: absolute;
+}
+
+.user-input {
+	padding: 16px 12px;
+	width: 100%;
+	border: 1px solid var(--color-gray-4);
+	border-radius: 8px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.floating-label {
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+	background-color: white;
+	padding: 0 4px;
+	color: var(--color-gray-5);
+	transition: all 0.1s ease-in-out;
+	pointer-events: none;
+}
+
+.user-input:active {
+	border: 1px solid var(--color-black);
+}
+
+.user-input:focus + .floating-label,
+.user-input:not(:placeholder-shown) + .floating-label {
+	top: 0;
+	transform: translateY(-50%);
+	opacity: 1;
+	font-size: 12px;
+	border-color: var(--color-gray-5);
+}
+
+.pw-conditions {
+	padding: 0px 4px 20px 4px;
+}
+
+.visible {
+	display: block;
+}
+
+.hidden {
+	display: none;
+}
+
+.pw-invalid {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 4px 0;
+}
+
+#pw-min-length-text,
+#pw-complexity-text {
+	margin: 0;
+	font-size: 12px;
+	color: var(--color-gray-5);
+	line-height: 150%;
+}
+
+.user-birth-input {
+	width: 100%;
+	padding: 12px 16px;
+	border: 1px solid var(--color-gray-5);
+	border-radius: 8px;
+	height: 56px;
+	font-size: 16px;
+	color: var(--color-gray-5);
+	outline: none;
+	box-sizing: border-box;
+}
+
+/* tos with radio */
+.term {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	cursor: pointer;
+	margin: 12px 0;
+}
+
+/* 기본 라디오 버튼 숨기기 */
+.term input[type='checkbox'] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* 라디오 아이콘 스타일링 */
+.radio-icon {
+	margin-left: 4px;
+	width: 20px;
+	height: 20px;
+	display: none;
+}
+
+/* 체크되지 않은 상태의 이미지 */
+.radio-icon.unchecked {
+	display: block;
+}
+
+/* 체크된 상태의 이미지 */
+.radio-icon.checked {
+	display: none;
+}
+
+/* 체크된 상태일 때 이미지 표시 전환 */
+.term input[type='checkbox']:checked ~ .radio-icon.unchecked {
+	display: none;
+}
+
+.term input[type='checkbox']:checked ~ .radio-icon.checked {
+	display: block;
+}
+
+/* 약관 텍스트 스타일링 */
+.tos-text {
+	font-size: 18px;
+	color: var(--color-black);
+	line-height: 150%;
+}
+
+.buttons-wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 12px;
+}
+
+.button-black {
+	color: white;
+	background-color: black;
+	border: none;
+	text-align: center;
+	width: 100%;
+	height: 52px;
+	border-radius: 26px;
+	font-size: 16px;
+	font-weight: medium;
+	flex-shrink: 0;
+}
+
+.button-white {
+	color: black;
+	background-color: white;
+	box-shadow: 0 0 0 1px black inset;
+	text-align: center;
+	width: 100%;
+	height: 52px;
+	border-radius: 26px;
+	font-size: 16px;
+	font-weight: medium;
+	flex-shrink: 0;
+}
+
+.button-black#signup {
+	margin-top: 36px;
+}
+
+body {
+	width: 360px;
+	max-width: 360px;
+	min-width: 360px;
+	margin: 0 auto; /* 중앙 정렬 */
+	overflow-x: hidden; /* 가로 스크롤 숨김 */
+}

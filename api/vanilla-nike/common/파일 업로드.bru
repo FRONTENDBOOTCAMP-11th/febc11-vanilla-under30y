@@ -1,0 +1,55 @@
+meta {
+  name: 파일 업로드
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{url}}/files
+  body: multipartForm
+  auth: inherit
+}
+
+headers {
+  client-id: {{client-id}}
+}
+
+body:json {
+  {
+    "ok": 1,
+    "item": [
+      {
+        "originalname": "AIRFORCE1_07_WB1.png",
+        "path": "/files/vanilla04/AIRFORCE1_07_WB1.png"
+      }
+    ]
+  }
+}
+
+body:text {
+  curl -X 'POST' \
+    'https://11.fesp.shop/files/' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'attach=@AIRFORCE1_WB01.png;type=image/png'
+}
+
+body:xml {
+  curl -X 'POST' \
+    'https://11.fesp.shop/files/' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'attach=@AIRFORCE1_WB01.png;type=image/png'
+}
+
+body:sparql {
+  curl -X 'POST' \
+    'https://11.fesp.shop/files/' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'attach=@AIRFORCE1_WB01.png;type=image/png'
+}
+
+body:multipart-form {
+  attach: @file(C:\Users\LHJ\Desktop\example\AIRFORCE1_WB\AIRFORCE1_WB08.png)
+}
