@@ -87,7 +87,58 @@ input[type='date'] {
 	padding-bottom: 28px;
 }
 
-.form {
+.input-container {
+	position: relative;
+}
+
+.user-login-input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 16px 12px;
+	border: 1px solid var(--color-gray-5);
+	border-radius: 8px;
+	font-size: 16px;
+	outline: none;
+}
+
+.floating-label {
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+	background-color: white;
+	padding: 0 4px;
+	color: var(--color-gray-5);
+	transition: all 0.1s ease-in-out;
+	pointer-events: none;
+}
+
+.user-login-input:active {
+	border: 1px solid var(--color-black);
+}
+
+.user-login-input:focus + .floating-label,
+.user-login-input:not(:placeholder-shown) + .floating-label {
+	top: 0;
+	transform: translateY(-50%);
+	opacity: 1;
+	font-size: 12px;
+}
+
+#validationMessage {
+	margin-top: 4px;
+	font-size: 12px;
+	color: var(--color-red-1);
+	display: none;
+}
+
+.description {
+	font-size: 16px;
+	color: var(--color-gray-5);
+	line-height: 150%;
+	margin-top: 26px;
+	margin-bottom: 40px;
 }
 
 .join-email-section,
@@ -139,10 +190,6 @@ input[type='date'] {
 	padding-bottom: 20px;
 }
 
-.input-container {
-	position: absolute;
-}
-
 .user-input {
 	padding: 16px 12px;
 	width: 100%;
@@ -173,7 +220,6 @@ input[type='date'] {
 .user-input:not(:placeholder-shown) + .floating-label {
 	top: 0;
 	transform: translateY(-50%);
-	opacity: 1;
 	font-size: 12px;
 	border-color: var(--color-gray-5);
 }
@@ -299,6 +345,10 @@ input[type='date'] {
 	font-size: 16px;
 	font-weight: medium;
 	flex-shrink: 0;
+}
+
+.button-small {
+	width: 90px;
 }
 
 .button-black#signup {
